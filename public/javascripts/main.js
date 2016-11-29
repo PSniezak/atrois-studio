@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+	// Global
+	var gradientTimeout;
+
 	// Fullpage.js
 	$('#fullpage').fullpage({
 		scrollBar: false,
@@ -8,10 +11,11 @@ $(document).ready(function() {
 
 		onLeave: function(index, nextIndex, direction) {
 			if (index == 1 && direction == "down") {
-				setTimeout(function() {
+				gradientTimeout = setTimeout(function() {
 					$('#header .container').addClass('gradient');
 				}, 2000);
 			} else if (nextIndex == 1 && direction == "up") {
+				clearTimeout(gradientTimeout);
 				$('#header .container').removeClass('gradient');
 			}
 		}
