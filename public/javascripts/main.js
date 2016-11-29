@@ -43,6 +43,7 @@ $(document).ready(function() {
 			}, 200);
 	});
 
+
 	// Home
 	$('#section-home .arrow-down a').on('click', function() {
 		$.fn.fullpage.moveSectionDown();
