@@ -135,12 +135,19 @@ ul, li {
 
 			ul, li {
 				display: inline-block;
+				position: relative;
 
 				&:not(:last-child) {
 					margin-right: 22px;
 				}
 				a {
 					font: 12px 'DIN Pro Medium', sans-serif, Arial;
+				}
+				.highliner {
+					position: absolute;
+					left: 0; top: 100%;
+					height: 1px; width: 0%;
+					background-color: black;
 				}
 			}
 		}

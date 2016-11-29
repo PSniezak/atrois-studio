@@ -3,6 +3,7 @@ $(document).ready(function() {
 	// Global
 	var gradientTimeout;
 
+
 	// Fullpage.js
 	$('#fullpage').fullpage({
 		scrollBar: false,
@@ -26,6 +27,20 @@ $(document).ready(function() {
 				$('#header .container').removeClass('gradient');
 			}
 		}
+	});
+
+
+	// Menu
+	$('nav li').hover(
+		function() {
+			$(this).find('.highliner').animate({
+				width: "100%"
+			}, 200);
+		},
+		function() {
+			$(this).find('.highliner').animate({
+				width: "0%"
+			}, 200);
 	});
 
 	// Home

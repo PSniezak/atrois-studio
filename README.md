@@ -28,7 +28,7 @@ GRIS 	#787878
 
 #### MENU
 
-Home page + scroll					http://www.acnestudios.com/
+DONE - Home page + scroll					http://www.acnestudios.com/
 DONE - Le dégradé en haut et en bas 		http://crapisgood.com/#
 Le système du menu					http://annarosa.com/
 Esthétique du menu					http://public-library.org/
