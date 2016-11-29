@@ -1,0 +1,179 @@
+/* FONTS */
+@font-face {
+	font-family: 'DIN Pro Black';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro Black'), url('../fonts/DINPro-Black.woff') format('woff');
+}
+@font-face {
+	font-family: 'DIN Pro Light';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro Light'), url('../fonts/DINPro-Light.woff') format('woff');
+}
+@font-face {
+	font-family: 'DIN Pro Medium';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro Medium'), url('../fonts/DINPro-Medium.woff') format('woff');
+}
+@font-face {
+	font-family: 'DIN Pro';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro'), url('../fonts/DINPro.woff') format('woff');
+}
+@font-face {
+	font-family: 'DIN Pro Black Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro Black Italic'), url('../fonts/DINPro-BlackItalic.woff') format('woff');
+}
+@font-face {
+	font-family: 'DIN Pro Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro Bold'), url('../fonts/DINPro-Bold.woff') format('woff');
+}
+@font-face {
+	font-family: 'DIN Pro Bold Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro Bold Italic'), url('../fonts/DINPro-BoldItalic.woff') format('woff');
+}
+@font-face {
+	font-family: 'DIN Pro Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro Italic'), url('../fonts/DINPro-Italic.woff') format('woff');
+}
+@font-face {
+	font-family: 'DIN Pro Light Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro Light Italic'), url('../fonts/DINPro-LightItalic.woff') format('woff');
+}
+@font-face {
+	font-family: 'DIN Pro Medium Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('DIN Pro Medium Italic'), url('../fonts/DINPro-MediumItalic.woff') format('woff');
+}
+@font-face {
+	font-family: 'FF DIN';
+	font-style: normal;
+	font-weight: normal;
+	src: local('FF DIN Regular'), url('../fonts/FFDIN.woff') format('woff');
+}
+@font-face {
+	font-family: 'FF DIN Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('FF DIN Italic'), url('../fonts/FFDIN-Italic.woff') format('woff');
+}
+
+/* GENERAL */
+$black: #000000;
+$grey: #787878;
+
+body {
+	padding: 50px;
+	font: 14px "DIN Pro", sans-serif, Arial;
+}
+
+a, p, span {
+	letter-spacing: 1px;
+}
+
+a {
+	color: $black;
+	text-decoration: none;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+/* HEADER */
+#header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 45px;
+
+	.container {
+		margin: 0 auto;
+		max-width: 900px;
+
+		.left, .middle, .right {
+			display: inline-block;
+
+			ul, li {
+				display: inline-block;
+
+				&:not(:last-child) {
+					margin-right: 22px;
+				}
+				a {
+					font: 12px 'DIN Pro Medium';
+				}
+			}
+		}
+		.left {
+			width: 30%;
+
+			h1 a {
+				font: 12px "DIN Pro Bold", sans-serif, Arial;
+			}
+		}
+		.middle {
+			width: 40%;
+
+			ul, li {
+				&:not(:last-child) {
+					margin-right: 22px;
+				}
+			}
+		}
+		.right {
+			width: 30%;
+
+			ul, li {
+				float: right;
+				&:not(:first-child) {
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
+
+
+/* CONTENT */
+#fullpage {
+	width: 100%; height: 100%;
+	text-align: center;
+
+	.section {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+
+		.container {
+			margin: 0 auto;
+			vertical-align: middle;
+			width: 100%;
+			max-width: 900px;
+		}
+	}
+}
+
+
+/* FOOTER */
+#footer {
+	position: fixed;
+	bottom: 0;
+}
