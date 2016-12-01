@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	// Global
 	var gradientTimeout;
+	var anchors = ['accueil', 'projets', 'à-propos', 'contact', 'presse', 'store'];
 
 
 	// Fullpage.js
@@ -12,6 +13,7 @@ $(document).ready(function() {
 		fixedElements: '#header, #additional',
 
 		onLeave: function(index, nextIndex, direction) {
+			// 
 			if (index == 1 && direction == "down") {
 				$('#additional .social').fadeIn();
 
@@ -28,14 +30,12 @@ $(document).ready(function() {
 				$('#header .container').removeClass('gradient');
 			}
 
+			// Menu
+			$("nav li[data-menuanchor='" + anchors[nextIndex - 1] +"']").find('.highliner').animate({
+				width: "100%"
+			}, 200);
 			$('nav li.active').find('.highliner').animate({
 				width: "0%"
-			}, 200);
-		},
-
-		afterLoad: function(anchorLink, index) {
-			$('nav li.active').find('.highliner').animate({
-				width: "100%"
 			}, 200);
 		}
 	});
