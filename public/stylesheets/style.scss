@@ -72,6 +72,7 @@
 	src: local('FF DIN Italic'), url('../fonts/FFDIN-Italic.woff') format('woff');
 }
 
+
 /* GENERAL */
 $black: #000000;
 $grey: #787878;
@@ -81,7 +82,7 @@ body {
 	font: 14px "DIN Pro", sans-serif, Arial;
 }
 
-a, p, span {
+a, p, span, h1, h2, h3, h4, h5, h6 {
 	letter-spacing: 1px;
 }
 
@@ -94,6 +95,9 @@ ul, li {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+h3 {
+	font: 13px "DIN Pro Medium", sans-serif, Arial;
 }
 .gradient {
 	background:-moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
@@ -117,7 +121,10 @@ ul, li {
 
 
 /* HEADER */
-#header {
+#header-mobile {
+	display: none;
+}
+#header-desktop {
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -125,7 +132,7 @@ ul, li {
 	z-index: 100;
 
 	.container {
-		height: 160px;
+		height: 220px;
 		margin: 0 auto;
 		max-width: 900px;
 		z-index: 100;
@@ -219,6 +226,75 @@ ul, li {
 	}
 }
 
+/* ABOUT */
+#section-about {
+	.container {
+		margin-top: 196px !important;
+
+		.right {
+			vertical-align: top;
+			display: inline-block;
+			max-width: 200px;
+
+			h3 {
+				margin-top: 8px;
+			}
+		}
+		.left {
+			display: inline-block;
+			max-width: 450px;
+			margin-left: 20px;
+
+			p {
+				text-align: left;
+				font: 10px "DIN Pro Light";
+				line-height: 14px;
+			}
+		}
+	}
+}
+
+/* Contact */
+#section-contact {
+	.container {
+		.columns {
+			display: inline-block;
+			width: 100%;	
+			text-align: left;
+
+			.title {
+				font: 13px "DIN Pro Medium";
+			}
+			.regular {
+				font: 13px "DIN Pro";
+			}
+			.italic {
+				font: 13px "DIN Pro Italic";
+			}
+			.lighter {
+				font: 8px "DIN Pro Light";
+			}
+			.helper {
+				display: inline-block;
+				height: 1px;
+				width: 30%;
+			}
+			.left {
+				text-align: left;
+				display: inline-block;
+				
+			}
+			.right {
+				margin-left: 20px;
+				vertical-align: top;
+				text-align: left;
+				display: inline-block;
+
+			}
+		}
+	}
+}
+
 
 /* ADDITIONAL */
 #additional {
@@ -256,4 +332,17 @@ ul, li {
 			}
 		}
 	}
+}
+
+@media (max-width: 768px) {
+	#header-mobile {
+		display: block;
+	}
+	#header-desktop {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	
 }

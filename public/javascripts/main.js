@@ -10,7 +10,7 @@ $(document).ready(function() {
 		scrollBar: false,
 		autoScrolling: true,
 		menu: '#menu-desktop',
-		fixedElements: '#header, #additional',
+		fixedElements: '#header-desktop, #header-mobile, #additional',
 
 		onLeave: function(index, nextIndex, direction) {
 			// 
@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 				gradientTimeout = setTimeout(function() {
 					$('#additional .gradient-reverse').fadeIn();
-					$('#header .container').addClass('gradient');
+					$('#header-desktop .container').addClass('gradient');
 				}, 2000);
 
 			} else if (nextIndex == 1 && direction == "up") {
@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 				$('#additional .social').fadeOut();
 				$('#additional .gradient-reverse').fadeOut();
-				$('#header .container').removeClass('gradient');
+				$('#header-desktop .container').removeClass('gradient');
 			}
 
 			// Menu
