@@ -4,10 +4,19 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session')
 
 var index = require('./routes/index');
+var admin = require('./routes/admin');
 
 var app = express();
+
+// Session
+app.use(session({
+  secret: 'atrois123.',
+  resave: true,
+  saveUninitialized: true
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,12 +32,14 @@ app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   indentedSyntax: false,
+  outputStyle: 'compressed',
   debug: true
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/', admin);
 app.use('/en', index);
 app.use('/fr', index);
 
