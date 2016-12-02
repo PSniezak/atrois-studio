@@ -1,21 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-/*router.get('/login', function (req, res) {
-	res.render('login', { title: 'Admin' });
-  // if (!req.query.username || !req.query.password) {
-  //   res.send('login failed');    
-  // } else if(req.query.username === "admin" || req.query.password === "admin") {
-  //   req.session.user = "admin";
-  //   req.session.admin = true;
-  //   res.send("login success!");
-  // }
-});
-
-router.all('/admin/*', requireLogin, function(req, res, next) {
-	res.render('admin', { title: 'Admin' });
-	sess = req.session;
-});*/
 
 router.get('/login', function(req,res){
 	res.render('login', { title: 'Admin' });
@@ -47,6 +32,7 @@ router.get('/logout',function(req,res){
 		}
 	});
 });
+
 
 module.exports = router;
 

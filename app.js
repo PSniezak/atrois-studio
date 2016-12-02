@@ -4,10 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session')
+var session = require('express-session');
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'mysql',
+  database: 'atrois-studio'
+});
 
 var index = require('./routes/index');
 var admin = require('./routes/admin');
+var project = require('./routes/project');
+var publication = require('./routes/publication');
 
 var app = express();
 
@@ -40,6 +50,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/', admin);
+app.use('/', project);
+app.use('/', publication);
 app.use('/en', index);
 app.use('/fr', index);
 
