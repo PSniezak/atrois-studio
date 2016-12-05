@@ -1,17 +1,18 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
+var express       = require('express'),
+    path          = require('path'),
+    favicon       = require('serve-favicon'),
+    logger        = require('morgan'),
+    cookieParser  = require('cookie-parser'),
+    bodyParser    = require('body-parser'),
+    session       = require('express-session'),
+    flash         = require('connect-flash');
 
 // MySQL
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'mysql',
+  password: '',
   database: 'atrois-studio'
 });
 
@@ -28,6 +29,8 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
+
+app.use(flash());
 
 // Engine setup
 app.set('views', path.join(__dirname, 'views'));
