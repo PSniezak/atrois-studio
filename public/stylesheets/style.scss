@@ -1,75 +1,75 @@
 /* FONTS */
 @font-face {
-	font-family: 'DIN Pro Black';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro Black'), url('../fonts/DINPro-Black.woff') format('woff');
+  font-family: 'DIN Pro Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro Black'), url('../fonts/DINPro-Black.woff') format('woff');
 }
 @font-face {
-	font-family: 'DIN Pro Light';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro Light'), url('../fonts/DINPro-Light.woff') format('woff');
+  font-family: 'DIN Pro Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro Light'), url('../fonts/DINPro-Light.woff') format('woff');
 }
 @font-face {
-	font-family: 'DIN Pro Medium';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro Medium'), url('../fonts/DINPro-Medium.woff') format('woff');
+  font-family: 'DIN Pro Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro Medium'), url('../fonts/DINPro-Medium.woff') format('woff');
 }
 @font-face {
-	font-family: 'DIN Pro';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro'), url('../fonts/DINPro.woff') format('woff');
+  font-family: 'DIN Pro';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro'), url('../fonts/DINPro.woff') format('woff');
 }
 @font-face {
-	font-family: 'DIN Pro Black Italic';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro Black Italic'), url('../fonts/DINPro-BlackItalic.woff') format('woff');
+  font-family: 'DIN Pro Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro Black Italic'), url('../fonts/DINPro-BlackItalic.woff') format('woff');
 }
 @font-face {
-	font-family: 'DIN Pro Bold';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro Bold'), url('../fonts/DINPro-Bold.woff') format('woff');
+  font-family: 'DIN Pro Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro Bold'), url('../fonts/DINPro-Bold.woff') format('woff');
 }
 @font-face {
-	font-family: 'DIN Pro Bold Italic';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro Bold Italic'), url('../fonts/DINPro-BoldItalic.woff') format('woff');
+  font-family: 'DIN Pro Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro Bold Italic'), url('../fonts/DINPro-BoldItalic.woff') format('woff');
 }
 @font-face {
-	font-family: 'DIN Pro Italic';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro Italic'), url('../fonts/DINPro-Italic.woff') format('woff');
+  font-family: 'DIN Pro Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro Italic'), url('../fonts/DINPro-Italic.woff') format('woff');
 }
 @font-face {
-	font-family: 'DIN Pro Light Italic';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro Light Italic'), url('../fonts/DINPro-LightItalic.woff') format('woff');
+  font-family: 'DIN Pro Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro Light Italic'), url('../fonts/DINPro-LightItalic.woff') format('woff');
 }
 @font-face {
-	font-family: 'DIN Pro Medium Italic';
-	font-style: normal;
-	font-weight: normal;
-	src: local('DIN Pro Medium Italic'), url('../fonts/DINPro-MediumItalic.woff') format('woff');
+  font-family: 'DIN Pro Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Pro Medium Italic'), url('../fonts/DINPro-MediumItalic.woff') format('woff');
 }
 @font-face {
-	font-family: 'FF DIN';
-	font-style: normal;
-	font-weight: normal;
-	src: local('FF DIN Regular'), url('../fonts/FFDIN.woff') format('woff');
+  font-family: 'FF DIN';
+  font-style: normal;
+  font-weight: normal;
+  src: local('FF DIN Regular'), url('../fonts/FFDIN.woff') format('woff');
 }
 @font-face {
-	font-family: 'FF DIN Italic';
-	font-style: normal;
-	font-weight: normal;
-	src: local('FF DIN Italic'), url('../fonts/FFDIN-Italic.woff') format('woff');
+  font-family: 'FF DIN Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('FF DIN Italic'), url('../fonts/FFDIN-Italic.woff') format('woff');
 }
 
 
@@ -78,271 +78,271 @@ $black: #000000;
 $grey: #787878;
 
 body {
-	padding: 50px;
-	font: 14px "DIN Pro", sans-serif, Arial;
+  padding: 50px;
+  font: 14px "DIN Pro", sans-serif, Arial;
 }
 
 a, p, span, h1, h2, h3, h4, h5, h6 {
-	letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 
 a {
-	color: $black;
-	text-decoration: none;
+  color: $black;
+  text-decoration: none;
 }
 
 ul, li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 h3 {
-	font: 13px "DIN Pro Medium", sans-serif, Arial;
+  font: 13px "DIN Pro Medium", sans-serif, Arial;
 }
 .gradient {
-	background:-moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-	background:-webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-	background:linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+  background:-moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  background:-webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background:linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
 }
 .gradient-reverse {
-	display: none;
-	position: fixed;
-	bottom: 0;
-	width: 100%; height: 75px;
-	background:-moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-	background:-webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-	background:linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%; height: 75px;
+  background:-moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  background:-webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background:linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
 }
 .blend {
-	mix-blend-mode: exclusion;
+  mix-blend-mode: exclusion;
 }
 
 
 /* HEADER */
 #header-mobile {
-	display: none;
+  display: none;
 }
 #header-desktop {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	height: 45px;
-	z-index: 100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 45px;
+  z-index: 100;
 
-	.container {
-		height: 220px;
-		margin: 0 auto;
-		max-width: 900px;
-		z-index: 100;
+  .container {
+    height: 220px;
+    margin: 0 auto;
+    max-width: 900px;
+    z-index: 100;
 
-		.left, .middle, .right {
-			display: inline-block;
+    .left, .middle, .right {
+      display: inline-block;
 
-			ul, li {
-				display: inline-block;
-				position: relative;
+      ul, li {
+        display: inline-block;
+        position: relative;
 
-				&:not(:last-child) {
-					margin-right: 22px;
-				}
-				a {
-					font: 12px 'DIN Pro Medium', sans-serif, Arial;
-				}
-				.highliner {
-					position: absolute;
-					left: 0; top: 100%;
-					height: 1px; width: 0%;
-					background-color: black;
-				}
-			}
-		}
-		.left {
-			width: 30%;
+        &:not(:last-child) {
+          margin-right: 22px;
+        }
+        a {
+          font: 12px 'DIN Pro Medium', sans-serif, Arial;
+        }
+        .highliner {
+          position: absolute;
+          left: 0; top: 100%;
+          height: 1px; width: 0%;
+          background-color: black;
+        }
+      }
+    }
+    .left {
+      width: 30%;
 
-			h1 a {
-				font: 12px "DIN Pro Bold", sans-serif, Arial;
-			}
-		}
-		.middle {
-			width: 40%;
+      h1 a {
+        font: 12px "DIN Pro Bold", sans-serif, Arial;
+      }
+    }
+    .middle {
+      width: 40%;
 
-			ul, li {
-				&:not(:last-child) {
-					margin-right: 22px;
-				}
-			}
-		}
-		.right {
-			width: 30%;
+      ul, li {
+        &:not(:last-child) {
+          margin-right: 22px;
+        }
+      }
+    }
+    .right {
+      width: 30%;
 
-			ul, li {
-				float: right;
-				&:not(:first-child) {
-					margin-right: 10px;
-				}
-			}
-		}
-	}
+      ul, li {
+        float: right;
+        &:not(:first-child) {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
 }
 
 
 /* CONTENT */
 #fullpage {
-	width: 100%; height: 100%;
-	text-align: center;
+  width: 100%; height: 100%;
+  text-align: center;
 
-	.section {
-		display: table;
-		table-layout: fixed;
-		width: 100%;
+  .section {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
 
-		.container {
-			margin: 0 auto;
-			vertical-align: middle;
-			width: 100%;
-			max-width: 900px;
-		}
-	}
+    .container {
+      margin: 0 auto;
+      vertical-align: middle;
+      width: 100%;
+      max-width: 900px;
+    }
+  }
 }
 
 
 /* HOME */
 #section-home {
-	background-size: cover;
-	background-image: url("/images/test/bg.png");
-	position: relative;
+  background-size: cover;
+  background-image: url("/images/test/bg.png");
+  position: relative;
 
-	.arrow-down {
-		width: 100%;
-		position: absolute;
-		bottom: 28px;
+  .arrow-down {
+    width: 100%;
+    position: absolute;
+    bottom: 28px;
 
-		img {
-			cursor: pointer;
-			width: 40px; height: 45px;
-		}
-	}
+    img {
+      cursor: pointer;
+      width: 40px; height: 45px;
+    }
+  }
 }
 
 /* ABOUT */
 #section-about {
-	.container {
-		margin-top: 196px !important;
+  .container {
+    margin-top: 196px !important;
 
-		.right {
-			vertical-align: top;
-			display: inline-block;
-			max-width: 200px;
+    .right {
+      vertical-align: top;
+      display: inline-block;
+      max-width: 200px;
 
-			h3 {
-				margin-top: 8px;
-			}
-		}
-		.left {
-			display: inline-block;
-			max-width: 450px;
-			margin-left: 20px;
+      h3 {
+        margin-top: 8px;
+      }
+    }
+    .left {
+      display: inline-block;
+      max-width: 450px;
+      margin-left: 20px;
 
-			p {
-				text-align: left;
-				font: 10px "DIN Pro Light";
-				line-height: 14px;
-			}
-		}
-	}
+      p {
+        text-align: left;
+        font: 10px "DIN Pro Light";
+        line-height: 14px;
+      }
+    }
+  }
 }
 
 /* Contact */
 #section-contact {
-	.container {
-		.columns {
-			display: inline-block;
-			width: 100%;	
-			text-align: left;
+  .container {
+    .columns {
+      display: inline-block;
+      width: 100%;    
+      text-align: left;
 
-			.title {
-				font: 13px "DIN Pro Medium";
-			}
-			.regular {
-				font: 13px "DIN Pro";
-			}
-			.italic {
-				font: 13px "DIN Pro Italic";
-			}
-			.lighter {
-				font: 8px "DIN Pro Light";
-			}
-			.helper {
-				display: inline-block;
-				height: 1px;
-				width: 30%;
-			}
-			.left {
-				text-align: left;
-				display: inline-block;
-				
-			}
-			.right {
-				margin-left: 20px;
-				vertical-align: top;
-				text-align: left;
-				display: inline-block;
+      .title {
+        font: 13px "DIN Pro Medium";
+      }
+      .regular {
+        font: 13px "DIN Pro";
+      }
+      .italic {
+        font: 13px "DIN Pro Italic";
+      }
+      .lighter {
+        font: 8px "DIN Pro Light";
+      }
+      .helper {
+        display: inline-block;
+        height: 1px;
+        width: 30%;
+      }
+      .left {
+        text-align: left;
+        display: inline-block;
+        
+      }
+      .right {
+        margin-left: 20px;
+        vertical-align: top;
+        text-align: left;
+        display: inline-block;
 
-			}
-		}
-	}
+      }
+    }
+  }
 }
 
 
 /* ADDITIONAL */
 #additional {
-	.logo {
-		pointer-events: none;
-		position: fixed;
-		left: 100px; bottom: calc(50% - 21px);
+  .logo {
+    pointer-events: none;
+    position: fixed;
+    left: 100px; bottom: calc(50% - 21px);
 
-		img {
-			height: 42px; width: auto;
-		}
-	}
+    img {
+      height: 42px; width: auto;
+    }
+  }
 
-	.copyright {
-		position: fixed;
-		right: 50px; bottom: 50px;
-		font: 12px 'DIN Pro Medium', sans-serif, Arial;
-		writing-mode: vertical-lr;
-		pointer-events: none;
-	}
-	
-	.social {
-		display: none;
-		position: fixed;
-		bottom: 45px; right: 21%;
-		font: 12px 'DIN Pro Medium', sans-serif, Arial;
+  .copyright {
+    position: fixed;
+    right: 50px; bottom: 50px;
+    font: 12px 'DIN Pro Medium', sans-serif, Arial;
+    writing-mode: vertical-lr;
+    pointer-events: none;
+  }
+  
+  .social {
+    display: none;
+    position: fixed;
+    bottom: 45px; right: 21%;
+    font: 12px 'DIN Pro Medium', sans-serif, Arial;
 
-		ul {
-			li {
-				display: inline-block;
+    ul {
+      li {
+        display: inline-block;
 
-				&:not(:first-child) {
-					margin-left: 10px;
-				}
-			}
-		}
-	}
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
-	#header-mobile {
-		display: block;
-	}
-	#header-desktop {
-		display: none;
-	}
+  #header-mobile {
+    display: block;
+  }
+  #header-desktop {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 480px) {
-	
+  
 }

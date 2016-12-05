@@ -5,8 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var mysql = require('mysql');
 
+// MySQL
+var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -28,7 +29,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-// view engine setup
+// Engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -46,8 +47,7 @@ app.use(require('node-sass-middleware')({
   debug: true
 }));
 
-app.use(express.static(path.join(__dirname, 'public')));
-
+// Routes
 app.use('/', index);
 app.use('/', admin);
 app.use('/', project);
@@ -55,20 +55,20 @@ app.use('/', publication);
 app.use('/en', index);
 app.use('/fr', index);
 
-// catch 404 and forward to error handler
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 404 error
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// error handler
+// Error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });
