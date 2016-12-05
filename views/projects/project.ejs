@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
+    <title>Atrois Studio - Projets </title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
@@ -18,7 +18,17 @@
 
   <body>
 
-    {{{body}}}
+    <div>
+		<ul>
+			<li>
+			<% for(var i=0; i<data.length; i++) { %>
+				<p><%= data[i].name %></p>
+				<a href="/projects/edit/<%= data[i].id %>">Editer ce projet</a><br>
+				<a href="/projects/delete/<%= data[i].id %>">Supprimer ce projet</a>
+			<% } %>
+			</li>
+		</ul>
+	</div>
 
     <script type="text/javascript" src="/libraries/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="/libraries/scrolloverflow.min.js"></script>
@@ -26,27 +36,29 @@
     <script src="/libraries/pnotify.custom.min.js"></script>
     <script type="text/javascript" src="/javascripts/main.js"></script>
 
-    {{#each successMessages}}
-      <script type="text/javascript">
+    <script>
+      <% if (successMessages) { %>
+      <% for(var i=0; i<successMessages.length; i++) { %>
         $(function(){
             new PNotify({
                 type: 'success',
-                text: '{{ this }}'
+                text: '<%= successMessages[i] %>'
             });
-        });
-      </script>
-    {{/each}}
+        });  
+      <% } %>
+      <% } %>
 
-    {{#each errorMessages}}
-      <script type="text/javascript">
+      <% if (errorMessages) { %>
+    <% for(var i=0; i<errorMessages.length; i++) { %>
         $(function(){
-            new PNotify({
-                type: 'error',
-                text: '{{ this }}'
-            });
-        });
-      </script>
-    {{/each}}
+          new PNotify({
+              type: 'error',
+              text: '<%= errorMessages[i] %>'
+          });
+        });  
+    <% } %>
+    <% } %>
+    </script>
 
   </body>
 </html>

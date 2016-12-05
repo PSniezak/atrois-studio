@@ -1,11 +1,32 @@
 var express = require('express');
 var router = express.Router();
 
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'atrois-studio'
+});
+
+
 /*
  * GET Home FR
 */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Atrois Studio' });
+  connection.query('SELECT DISTINCT year FROM projects ORDER BY year ASC', function(err, years) {
+    if(err)
+      req.flash('error', err);
+
+    console.log(years);
+
+    connection.query('SELECT * FROM projects ORDER BY year ASC', function(err, projects) {
+      if(err)
+        req.flash('error', err);
+
+      res.render('index', { title: 'Atrois Studio', projects: projects, years: years});
+    });
+  });
 });
 
 /*
@@ -29,4 +50,4 @@ router.get('/jp', function(req, res, next) {
   res.render('index-jp', { title: 'Atrois Studio' });
 });
 
-module.exports = router;
+ module.exports = router;

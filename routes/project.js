@@ -25,7 +25,7 @@ router.get('/projects', requireLogin, function(req, res) {
  * GET Project new
 */
 router.get('/projects/add', requireLogin, function(req, res){
-  res.render('projects/add_project', {page_title:"Add Projects-Node.js"});
+  res.render('projects/add_project');
 });
 
 /*
