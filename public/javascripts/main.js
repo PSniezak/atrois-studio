@@ -31,12 +31,31 @@ $(document).ready(function() {
       }
 
       // Menu
-      $("nav li[data-menuanchor='" + anchors[nextIndex - 1] +"']").find('.highliner').animate({
-        width: "100%"
-      }, 200);
-      $('nav li.active').find('.highliner').animate({
-        width: "0%"
-      }, 200);
+      if (direction == "up") {
+        $("nav li[data-menuanchor='" + anchors[nextIndex - 1] +"']").find('.highliner').css({'right': 0, 'left': 'auto'});
+        $("nav li[data-menuanchor='" + anchors[nextIndex - 1] +"']").find('.highliner').animate({
+          width: "100%"
+        }, 200);
+        $('nav li.active').find('.highliner').css({'left': 0, 'right': 'auto'});
+        $('nav li.active').find('.highliner').animate({
+          width: "0%"
+        }, 200);
+      } else {
+        $("nav li[data-menuanchor='" + anchors[nextIndex - 1] +"']").find('.highliner').css({'left': 0, 'right': 'auto'});
+        $("nav li[data-menuanchor='" + anchors[nextIndex - 1] +"']").find('.highliner').animate({
+          width: "100%"
+        }, 200);
+        $('nav li.active').find('.highliner').css({'right': 0, 'left': 'auto'});
+        $('nav li.active').find('.highliner').animate({
+          width: "0%"
+        }, 200);
+      }
+    },
+
+    afterRender: function() {
+      var pressHeight = $('#section-press').height();
+      var pressOffset = $('#section-press .container .columns').offset().top - $('#section-press').offset().top;
+      $('#section-press .container .columns, #section-press .container .columns ul').height(pressHeight - pressOffset);
     }
   });
 

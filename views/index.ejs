@@ -174,16 +174,18 @@
               <div class="header">
                 <h3>Publications</h3>                
               </div>
+              
+              <div class="gradient-press"></div>
 
               <ul>
-                <% for(i = 0; i < 15; i++) { %>
-                  <% if (!publications[0].award) { -%>
+                <% for(i = 0; i < publications.length; i++) { %>
+                  <% if (!publications[i].award) { -%>
                     <li>
-                      <a target="_blank" href="<%= publications[0].url %>">
+                      <a target="_blank" href="<%= publications[i].url %>">
                         <p>
-                          <span class="season"><%= publications[0].season %></span>
-                          <span class="title"><%= publications[0].title %></span>
-                          <span class="client"><%= publications[0].client %></span>
+                          <span class="season"><%= publications[i].season %></span>
+                          <span class="title"><%= publications[i].title %></span>
+                          <span class="client"><%= publications[i].client %></span>
                         </p>
                       </a>
                     </li>
@@ -197,15 +199,17 @@
                 <h3>Awards</h3>                
               </div>
 
+              <div class="gradient-press"></div>
+
               <ul>
-                <% for(i = 0; i < 15; i++) { %>
-                  <% if (!publications[0].award) { -%>
+                <% for(i = 0; i < publications.length; i++) { %>
+                  <% if (publications[i].award) { -%>
                     <li>
-                      <a target="_blank" href="<%= publications[0].url %>">
+                      <a target="_blank" href="<%= publications[i].url %>">
                         <p>
-                          <span class="season"><%= publications[0].season %></span>
-                          <span class="title"><%= publications[0].title %></span>
-                          <span class="client"><%= publications[0].client %></span>
+                          <span class="season"><%= publications[i].season %></span>
+                          <span class="title"><%= publications[i].title %></span>
+                          <span class="client"><%= publications[i].client %></span>
                         </p>
                       </a>
                     </li>

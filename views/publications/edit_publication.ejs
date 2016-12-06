@@ -13,7 +13,7 @@
 		<input type="text" name="url" id="url" value="<%= data[i].url %>">
 
 		<label for="award">Award</label>
-		<input type="checkbox" name="award" id="award" value="<%= data[i].award %>">
+		<input type="checkbox" name="award" id="award" <% if (data[i].award == true) { -%>checked<% } -%>>
 
 		<label for="place">Ordre</label>
 		<input type="text" name="place" id="place" value="<%= data[i].place %>">
