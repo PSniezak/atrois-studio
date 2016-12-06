@@ -75,7 +75,9 @@
           <% for(var i=0; i<years.length; i++) { %>
             <h2><%= years[i].year %></h2>
             <% for(var j=0; j<projects.length; j++) { %>
-              <p><%= projects[j].name %></p>
+              <% if(projects[j].year == years[i].year) { %> 
+                <p><%= projects[j].name %></p>
+              <% } %>
             <% } %>
           <% } %>
         </div>
@@ -166,7 +168,53 @@
       <!-- PRESS -->
       <div data-anchor="presse" id="section-press" class="section">
         <div class="container">
-          <h1>Presse</h1>
+          <div class="columns">
+            <div class="helper"></div>
+            <div class="left normal-scroll">
+              <div class="header">
+                <h3>Publications</h3>                
+              </div>
+
+              <ul>
+                <% for(i = 0; i < 15; i++) { %>
+                  <% if (!publications[0].award) { -%>
+                    <li>
+                      <a target="_blank" href="<%= publications[0].url %>">
+                        <p>
+                          <span class="season"><%= publications[0].season %></span>
+                          <span class="title"><%= publications[0].title %></span>
+                          <span class="client"><%= publications[0].client %></span>
+                        </p>
+                      </a>
+                    </li>
+                  <% } -%>
+                <% } %>
+                <li class="height-helper"></li>
+              </ul>
+            </div>
+            <div class="right normal-scroll">
+              <div class="header">
+                <h3>Awards</h3>                
+              </div>
+
+              <ul>
+                <% for(i = 0; i < 15; i++) { %>
+                  <% if (!publications[0].award) { -%>
+                    <li>
+                      <a target="_blank" href="<%= publications[0].url %>">
+                        <p>
+                          <span class="season"><%= publications[0].season %></span>
+                          <span class="title"><%= publications[0].title %></span>
+                          <span class="client"><%= publications[0].client %></span>
+                        </p>
+                      </a>
+                    </li>
+                  <% } -%>
+                <% } %>
+                <li class="height-helper"></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 

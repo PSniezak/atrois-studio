@@ -31,12 +31,12 @@ GRIS 	#787878
 DONE - Home page + scroll					http://www.acnestudios.com/
 DONE - Le dégradé en haut et en bas 		http://crapisgood.com/#
 DONE - Le système du menu					http://annarosa.com/
-Esthétique du menu					http://public-library.org/
+DONE - Esthétique du menu					http://public-library.org/
 Hover projets desktop				http://geordiewood.com/ et/ou http://public-library.org/
 Hover projets mobile				https://bonsoirparis.fr/
 Système de calage des années		http://public-library.org/ (les chiffres en haut à droite qui changent)
 L’animation du scroll 				https://www.simonmillerusa.com/
-Animation soulignement				http://laurentpisoni.com/presse
+DONE - Animation soulignement				http://laurentpisoni.com/presse
 
 
 #### PROJETS

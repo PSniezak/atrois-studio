@@ -18,13 +18,16 @@ router.get('/', function(req, res, next) {
     if(err)
       req.flash('error', err);
 
-    console.log(years);
-
     connection.query('SELECT * FROM projects ORDER BY year ASC', function(err, projects) {
       if(err)
         req.flash('error', err);
 
-      res.render('index', { title: 'Atrois Studio', projects: projects, years: years});
+      connection.query('SELECT * FROM publications ORDER BY award ASC', function(err, publications) {
+        if(err)
+          req.flash('error', err);
+
+        res.render('index', { title: 'Atrois Studio', projects: projects, years: years, publications: publications});
+      });
     });
   });
 });

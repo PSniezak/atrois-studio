@@ -229,7 +229,7 @@ h3 {
 /* ABOUT */
 #section-about {
   .container {
-    margin-top: 196px !important;
+      
 
     .right {
       vertical-align: top;
@@ -289,12 +289,86 @@ h3 {
         vertical-align: top;
         text-align: left;
         display: inline-block;
-
       }
     }
   }
 }
 
+
+/* Press */
+#section-press {
+  .container {
+    height: 260px;
+
+    .columns {
+      display: inline-block;
+      width: 100%;    
+      text-align: left;
+      height: 400px;
+      overflow-y: hidden;
+
+      .helper {
+        display: inline-block;
+        height: 1px;
+        width: 30%;
+      }
+      .right, .left {
+        cursor: s-resize;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+      .left {
+        text-align: left;
+        display: inline-block;
+        width: 22%;
+      }
+      .right {
+        width: 22%;
+        margin-left: 20px;
+        vertical-align: top;
+        text-align: left;
+        display: inline-block;
+      }
+
+      h3 {
+        font: 13px "DIN Pro Medium", sans-serif, Arial;
+      }
+      ul {
+        overflow-y : scroll;
+        height: 500px;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        li {
+          p {
+            span {
+              display: block;
+            }
+            .season {
+              color: $grey;
+              font: 8px "DIN Pro Medium", sans-serif, Arial;
+              line-height: 9px;
+            }
+            .title {
+              font: 13px "DIN Pro Medium", sans-serif, Arial;
+              line-height: 15px;
+            }
+            .client {
+              font: 13px "DIN Pro Italic", sans-serif, Arial;
+              line-height: 15px;
+            }
+          }
+        }
+        .height-helper {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
 
 /* ADDITIONAL */
 #additional {

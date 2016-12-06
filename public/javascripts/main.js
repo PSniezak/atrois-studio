@@ -10,6 +10,7 @@ $(document).ready(function() {
     scrollBar: false,
     autoScrolling: true,
     menu: '#menu-desktop',
+    normalScrollElements: '.normal-scroll',
     fixedElements: '#header-desktop, #header-mobile, #additional',
 
     onLeave: function(index, nextIndex, direction) {

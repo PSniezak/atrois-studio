@@ -1,0 +1,23 @@
+<% for(var i=0; i<data.length; i++) { %>
+	<form action="/publications/edit/<%= data[i].id %>" method="POST">
+		<label for="season">Saison</label>
+		<input type="text" name="season" id="season" value="<%= data[i].season %>">
+
+		<label for="title">Titre</label>
+		<input type="text" name="title" id="title" value="<%= data[i].title %>">
+
+		<label for="client">Client</label>
+		<input type="text" name="client" id="client" value="<%= data[i].client %>">
+
+		<label for="url">Lien</label>
+		<input type="text" name="url" id="url" value="<%= data[i].url %>">
+
+		<label for="award">Award</label>
+		<input type="checkbox" name="award" id="award" value="<%= data[i].award %>">
+
+		<label for="place">Ordre</label>
+		<input type="text" name="place" id="place" value="<%= data[i].place %>">
+
+		<input type="submit" value="Éditer cette publication">
+	</form>
+<% } %>
