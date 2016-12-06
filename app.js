@@ -10,10 +10,10 @@ var express       = require('express'),
 // MySQL
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'atrois-studio'
+  host: 'eu-cdbr-west-01.cleardb.com',
+  user: 'b4883f2ddaa320',
+  password: '4ec0e84f',
+  database: 'heroku_261b3e78d7568f1'
 });
 
 var index = require('./routes/index');
