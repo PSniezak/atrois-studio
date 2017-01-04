@@ -19,17 +19,31 @@
   <body>
 
     <div>
-    <p><a href="/projects/add">Ajouter un projet</a></p>
-		<ul>
-			<li>
-			<% for(var i=0; i<data.length; i++) { %>
-				<p><%= data[i].name %></p>
-				<a href="/projects/edit/<%= data[i].id %>">Editer ce projet</a><br>
-				<a href="/projects/delete/<%= data[i].id %>">Supprimer ce projet</a>
-			<% } %>
-			</li>
-		</ul>
-	</div>
+      <p><a href="/admin">Retour au dashboard</a><hr></p>
+      <p><a href="/projects/add">Ajouter un projet</a></p>
+
+      <table style="width: 100%;">
+        <tr style="width: 100%;">
+          <th>Cover</th>
+          <th>Name</th>
+          <th>Year</th>
+          <th>Action</th>
+        </tr>
+
+        <% for(var i=0; i<data.length; i++) { %>
+          <tr style="width: 100%;">
+            <td><img width="50" src="/uploads/projects/covers/<%= data[i].cover %>"></td>
+            <td><%= data[i].name %></td>
+            <td><%= data[i].year %></td>
+            <td>
+              <a href="/projects/edit/<%= data[i].id %>">Editer ce projet</a><br>
+              <a href="/projects/media/<%= data[i].id %>">Gérer les medias</a><br>
+              <a href="/projects/delete/<%= data[i].id %>">Supprimer ce projet</a>
+            </td>
+          </tr>
+        <% } %>
+      </table>
+  	</div>
 
     <script type="text/javascript" src="/libraries/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="/libraries/scrolloverflow.min.js"></script>

@@ -52,4 +52,4 @@ Navigation sur l’écran séparée en deux		http://annikawirken.com/archive/#36
 
 #### PRESS / AWARDS
 
-Scroll dans une colonne				http://about.researchanddevelopment.se/
+DONE - Scroll dans une colonne				http://about.researchanddevelopment.se/

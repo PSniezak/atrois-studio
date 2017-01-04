@@ -1,4 +1,4 @@
-<form action="/projects/add" method="POST">
+<form action="/projects/add" method="POST" enctype="multipart/form-data">
 	<label for="year">Année</label>
 	<input type="text" name="year" id="year">
 	
@@ -22,6 +22,9 @@
 
 	<label for="place">Ordre</label>
 	<input type="text" name="place" id="place">
+
+	<label for="cover">Cover</label>
+	<input type="file" name="cover" id="cover" value="">
 
 	<input type="submit" value="Ajouter ce projet">
 </form>

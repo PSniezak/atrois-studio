@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
+var fs = require("fs");
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'eu-cdbr-west-01.cleardb.com',
-  user: 'b4883f2ddaa320',
-  password: '4ec0e84f',
-  database: 'heroku_261b3e78d7568f1'
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'atrois-studio'
 });
 
 /*
@@ -33,25 +33,30 @@ router.get('/projects/add', requireLogin, function(req, res){
 */
 router.post('/projects/add', requireLogin, function(req, res){
 
-  var input = JSON.parse(JSON.stringify(req.body));
+  var data = {};
 
-  var data = {
-    year    : input.year,
-    client : input.client,
-    name   : input.name,
-    categories   : input.categories,
-    season : input.season,
-    url: input.url,
-    description: input.description,
-    place: input.place
-  };
+  req.pipe(req.busboy);
+  req.busboy.on('file', function(fieldname, file, filename) {
+    if (!fs.existsSync('./public/uploads/projects/covers/')){
+        fs.mkdirSync('./public/uploads/projects/covers/');
+    }
+    var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename); 
+    file.pipe(fstream);
+    data["cover"] = filename;
+  });
 
-  var query = connection.query("INSERT INTO projects set ? ", data, function(err, rows) {
-    if (err)
-      req.flash('error', err);
+  req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
+    data[fieldname] = val;
+  });
 
-    req.flash('success', "Le projet a bien été ajouté");
-    res.redirect('/projects');
+  req.busboy.on('finish', function() {
+    var query = connection.query("INSERT INTO projects set ? ", data, function(err, rows) {
+      if (err)
+        req.flash('error', err);
+
+      req.flash('success', "Le projet a bien été ajouté");
+      res.redirect('/projects');
+    });
   });
 });
 
@@ -74,26 +79,41 @@ router.get('/projects/edit/:id', requireLogin, function(req, res){
 */
 router.post('/projects/edit/:id', requireLogin, function(req, res){
 
-  var input = JSON.parse(JSON.stringify(req.body));
   var id = req.params.id;
+  var data = {};
 
-  var data = {
-    year    : input.year,
-    client : input.client,
-    name   : input.name,
-    categories   : input.categories,
-    season : input.season,
-    url: input.url,
-    description: input.description,
-    place: input.place
-  };
+  req.pipe(req.busboy);
+  req.busboy.on('file', function(fieldname, file, filename) {
+    var test = "a" + filename + "a";
+    console.log('1');
 
-  connection.query("UPDATE projects set ? WHERE id = ? ", [data, id], function(err, rows) {
-    if (err)
-      req.flash('error', err);
+    if (test != "aa") {
+      console.log('2');
+      var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename); 
+      file.pipe(fstream);
+      data["cover"] = filename;
+    } else {
+      if (data["cover"] == '') {
+        delete data['cover'];
+      }
+      file.resume();
+    }
+    console.log('3');
+  });
 
-    req.flash('success', "Le projet a bien été édité");
-    res.redirect('/projects');
+  req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
+    data[fieldname] = val;
+  });
+
+  req.busboy.on('finish', function() {
+    console.log(data);
+    connection.query("UPDATE projects set ? WHERE id = ? ", [data, id], function(err, rows) {
+      if (err)
+        req.flash('error', err);
+
+      req.flash('success', "Le projet a bien été édité");
+      res.redirect('/projects');
+    });
   });
 });
 

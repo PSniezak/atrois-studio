@@ -5,15 +5,16 @@ var express       = require('express'),
     cookieParser  = require('cookie-parser'),
     bodyParser    = require('body-parser'),
     session       = require('express-session'),
-    flash         = require('connect-flash');
+    flash         = require('connect-flash'),
+    busboy        = require("connect-busboy");
 
 // MySQL
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'eu-cdbr-west-01.cleardb.com',
-  user: 'b4883f2ddaa320',
-  password: '4ec0e84f',
-  database: 'heroku_261b3e78d7568f1'
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'atrois-studio'
 });
 
 var index = require('./routes/index');
@@ -40,6 +41,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(busboy());
 app.use(cookieParser());
 
 app.use(require('node-sass-middleware')({

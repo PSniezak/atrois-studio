@@ -1,5 +1,5 @@
 <% for(var i=0; i<data.length; i++) { %>
-	<form action="/projects/edit/<%= data[i].id %>" method="POST">
+	<form action="/projects/edit/<%= data[i].id %>" method="POST" enctype="multipart/form-data">
 		<label for="year">Année</label>
 		<input type="text" name="year" id="year" value="<%= data[i].year %>">
 		
@@ -23,6 +23,10 @@
 
 		<label for="place">Ordre</label>
 		<input type="text" name="place" id="place" value="<%= data[i].place %>">
+
+		<label for="cover">Cover</label>
+		<img width="50" src="/uploads/projects/covers/<%= data[i].cover %>">
+		<input type="file" name="cover" id="cover">
 
 		<input type="submit" value="Éditer ce projet">
 	</form>
