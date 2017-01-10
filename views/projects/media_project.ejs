@@ -1,0 +1,18 @@
+<% for (var i = 0; i < project.length; i++) { -%>
+	<a href="/projects">Retour aux projets</a>
+	<p>Médias de <%= project[i].name %></p>
+
+	<% for (var j = 0; j < data.length; j++) { -%>
+		<div class="images">
+			<img width="50" src="/uploads/projects/<%= project[i].id %>/<%= data[j].media %>">
+			<a href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>	
+		</div>
+	<% } -%>
+
+	<form method="POST" action="/projects/media/<%= project[i].id %>" enctype="multipart/form-data">
+		<label for="media">Média</label>
+		<input type="file" name="media" id="media">
+
+		<input type="submit" value="Ajouter ce média">
+	</form>
+<% } -%>

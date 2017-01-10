@@ -61,6 +61,70 @@ router.post('/projects/add', requireLogin, function(req, res){
 });
 
 /*
+ * GET Medias
+*/
+router.get('/projects/media/:id', requireLogin, function(req, res){
+  var id = req.params.id;
+
+  connection.query('SELECT * FROM projects WHERE id = ?', [id], function(err, project) {
+    if(err)
+      req.flash('error', err);
+
+    connection.query('SELECT * FROM medias WHERE project_id = ?', [id], function(err, rows) {
+      if(err)
+        req.flash('error', err);
+
+      res.render('projects/media_project', {project:project, data:rows});
+    });
+  });
+});
+
+/*
+ * POST Media
+*/
+router.post('/projects/media/:id', requireLogin, function(req, res){
+  var id = req.params.id;
+
+  var data = {project_id: id};
+
+  req.pipe(req.busboy);
+  req.busboy.on('file', function(fieldname, file, filename) {
+    if (!fs.existsSync('./public/uploads/projects/' + id + '/')){
+        fs.mkdirSync('./public/uploads/projects/' + id + '/');
+    }
+    var fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename); 
+    file.pipe(fstream);
+    data["media"] = filename;
+  });
+
+  req.busboy.on('finish', function() {
+    var query = connection.query("INSERT INTO medias set ? ", data, function(err, rows) {
+      if (err)
+        req.flash('error', err);
+
+      req.flash('success', "Le média a bien été ajouté");
+      res.redirect('/projects/media/' + id);
+    });
+  });
+});
+
+/*
+ * DELETE Media 
+*/
+router.get('/projects/media/:project/delete/:media', requireLogin, function(req, res){
+  var media = req.params.media;
+  var project = req.params.project;
+
+  connection.query("DELETE FROM medias WHERE id = ? ", [media], function(err, rows) {
+    if(err)
+      req.flash('error', err);
+
+    req.flash('success', "Le média a bien été supprimé");
+    res.redirect('/projects/media/' + project);
+  });
+});
+
+/*
  * GET Project edit
 */
 router.get('/projects/edit/:id', requireLogin, function(req, res){

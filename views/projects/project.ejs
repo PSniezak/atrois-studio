@@ -22,27 +22,37 @@
       <p><a href="/admin">Retour au dashboard</a><hr></p>
       <p><a href="/projects/add">Ajouter un projet</a></p>
 
-      <table style="width: 100%;">
-        <tr style="width: 100%;">
-          <th>Cover</th>
-          <th>Name</th>
-          <th>Year</th>
-          <th>Action</th>
-        </tr>
-
-        <% for(var i=0; i<data.length; i++) { %>
+      <% if (data) { -%>
+        <table style="width: 100%;">
           <tr style="width: 100%;">
-            <td><img width="50" src="/uploads/projects/covers/<%= data[i].cover %>"></td>
-            <td><%= data[i].name %></td>
-            <td><%= data[i].year %></td>
-            <td>
-              <a href="/projects/edit/<%= data[i].id %>">Editer ce projet</a><br>
-              <a href="/projects/media/<%= data[i].id %>">Gérer les medias</a><br>
-              <a href="/projects/delete/<%= data[i].id %>">Supprimer ce projet</a>
-            </td>
+            <th>Cover</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Action</th>
           </tr>
-        <% } %>
-      </table>
+
+          <% for(var i=0; i<data.length; i++) { %>
+            <tr style="width: 100%;">
+              <td>
+                <% if(data[i].cover) { %>
+                  <img width="50" src="/uploads/projects/covers/<%= data[i].cover %>">
+                <% } else { %>
+                  <img width="50" src="http://placehold.it/50x50">
+                <% } %>
+              </td>
+              <td><%= data[i].name %></td>
+              <td><%= data[i].year %></td>
+              <td>
+                <a href="/projects/edit/<%= data[i].id %>">Editer ce projet</a><br>
+                <a href="/projects/media/<%= data[i].id %>">Gérer les medias</a><br>
+                <a href="/projects/delete/<%= data[i].id %>">Supprimer ce projet</a>
+              </td>
+            </tr>
+          <% } %>
+        </table>
+      <% } else { -%>
+        <tr>Aucun projet disponible.</tr>
+      <% } -%>
   	</div>
 
     <script type="text/javascript" src="/libraries/jquery-3.1.1.min.js"></script>
@@ -53,26 +63,26 @@
 
     <script>
       <% if (successMessages) { %>
-      <% for(var i=0; i<successMessages.length; i++) { %>
-        $(function(){
+        <% for(var i=0; i<successMessages.length; i++) { %>
+          $(function(){
             new PNotify({
-                type: 'success',
-                text: '<%= successMessages[i] %>'
+              type: 'success',
+              text: '<%= successMessages[i] %>'
             });
-        });  
-      <% } %>
+          });  
+        <% } %>
       <% } %>
 
       <% if (errorMessages) { %>
-    <% for(var i=0; i<errorMessages.length; i++) { %>
-        $(function(){
-          new PNotify({
-              type: 'error',
-              text: '<%= errorMessages[i] %>'
-          });
-        });  
-    <% } %>
-    <% } %>
+        <% for(var i=0; i<errorMessages.length; i++) { %>
+          $(function(){
+            new PNotify({
+                type: 'error',
+                text: '<%= errorMessages[i] %>'
+            });
+          });  
+        <% } %>
+      <% } %>
     </script>
 
   </body>
