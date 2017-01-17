@@ -3,6 +3,10 @@ $(document).ready(function() {
   // Global
   var gradientTimeout;
   var anchors = ['accueil', 'projets', 'à-propos', 'contact', 'presse', 'store'];
+  var projectsContainers = [0];
+  var projectsInterval;
+  var containerProjectOffset;
+  var highestYear;
 
 
   // Fullpage.js
@@ -22,7 +26,7 @@ $(document).ready(function() {
         gradientTimeout = setTimeout(function() {
           $('#additional .gradient-reverse').fadeIn();
           $('#header-desktop .container').addClass('gradient');
-        }, 2000);
+        }, 650);
 
       } else if (nextIndex == 1 && direction == "up") {
         clearTimeout(gradientTimeout);
@@ -56,13 +60,37 @@ $(document).ready(function() {
       if (index == 2) {
         $('.year-fixed').hide();
         $('.year').fadeOut();
+
+        clearTimeout(projectsInterval);
       }
     },
 
     afterLoad: function(anchorLink, index) {
       if (index == 2) {
         $('.year-fixed').fadeIn();
-        $('.year').fadeIn();
+
+        projectsInterval = setInterval(function() {
+          var newContainerProjectOffset = $('#section-projects .container').offset().top - $('#section-projects').offset().top;
+          var calculatedHeight = containerProjectOffset - newContainerProjectOffset;
+
+          for (var i = 0; i < projectsContainers.length; i++) {
+            var highest;
+
+            if (calculatedHeight + 50 > projectsContainers[i]) {
+              highest = i;
+            }
+          }
+
+          $('.year').each(function() {
+            if ($(this).data('year') >= highestYear - highest && $(this).data('year') != highestYear) {
+              $(this).fadeOut(100);
+            } else {
+              $(this).fadeIn('fast');
+            }
+          });
+
+          $('.year-fixed span').html(highestYear - highest);
+        }, 100);
       }
     },
 
@@ -72,9 +100,19 @@ $(document).ready(function() {
       $('#section-press .container .columns, #section-press .container .columns ul').height(pressHeight - pressOffset);
 
       var yearSectionOffset = $('.year-section').offset().left;
-      var containerProjectOffset = $('#section-projects .container').offset().top - $('#section-projects').offset().top;
+      containerProjectOffset = $('#section-projects .container').offset().top - $('#section-projects').offset().top;
       $('.year-fixed').css('left', yearSectionOffset - 58);
       $('.year-fixed').css('margin-top', containerProjectOffset - 32);
+
+      $('.year-section').each(function(index) {
+        projectsContainers.push($(this).height());
+      });
+
+      for (var i = 1; i < projectsContainers.length; i++) {
+        projectsContainers[i] += projectsContainers[i - 1];
+      }
+
+      highestYear = $('.year-fixed span').html();
     }
   });
 
@@ -97,10 +135,8 @@ $(document).ready(function() {
       }
     });
 
-
   // Home
   $('#section-home .arrow-down a').on('click', function() {
     $.fn.fullpage.moveSectionDown();
   });
-
 });

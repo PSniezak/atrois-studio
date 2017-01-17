@@ -17,7 +17,7 @@ Les liens s’ouvrent dans une nouvelle fenêtre.
 Tout le site est en DIN. Il y a 5 graisses, BOLD MEDIUM REGULAR ITALIC et LIGHT.
 À l’exception du menu et quelques autres choses, le site est en taille 13.
 Toute la typographie est espacée de 1px.
-Effet sur la typo valable pour TOUT le site http://www.other-studio.com/work/grand-circus-magazine-issue-3 
+Effet sur la typo valable pour TOUT le site http://www.other-studio.com/work/grand-circus-magazine-issue-3
 
 #### COULEURS
 
@@ -34,8 +34,8 @@ DONE - Le système du menu					http://annarosa.com/
 DONE - Esthétique du menu					http://public-library.org/
 Hover projets desktop				http://geordiewood.com/ et/ou http://public-library.org/
 Hover projets mobile				https://bonsoirparis.fr/
-Système de calage des années		http://public-library.org/ (les chiffres en haut à droite qui changent)
-L’animation du scroll 				https://www.simonmillerusa.com/
+DONE - Système de calage des années		http://public-library.org/ (les chiffres en haut à droite qui changent)
+DONE - L’animation du scroll 				https://www.simonmillerusa.com/
 DONE - Animation soulignement				http://laurentpisoni.com/presse
 
 
