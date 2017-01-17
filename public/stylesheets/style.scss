@@ -186,6 +186,18 @@ h3 {
     }
   }
 }
+.year-fixed {
+  display: none;
+  position: fixed;
+  margin-top: 21%;
+  top: 0;
+
+  span {
+    font: 52px 'DIN Pro Bold';
+    color: $grey;
+    opacity: .3;
+  }
+}
 
 
 /* CONTENT */
@@ -226,11 +238,71 @@ h3 {
   }
 }
 
+/* PROJECTS */
+#section-projects {
+  .container {
+    position: relative;
+
+    .year-section {
+      position: relative;
+
+      &:first-child {
+        margin-top: 40%;
+      }
+
+      &:last-child {
+        margin-bottom: 220px;
+      }
+
+      .year {
+        position: absolute;
+        top: -32px; left: -58px;
+        display: none;
+
+        span {
+          font: 52px 'DIN Pro Bold';
+          color: $grey;
+          opacity: .3;
+        }
+      }
+      .projects-list {
+        text-align: left;
+        width: 100%;
+
+        li {
+          width: 20%;
+          display: inline-block;
+          margin-bottom: 36px;
+          margin-right: 6.2%;
+
+          &:nth-child(4n + 0) {
+            margin-right: 0%;
+          }
+
+          a {
+            .client {
+              font: 13px 'DIN Pro Medium';
+              line-height: 15px;
+              color: $black;
+            }
+            .title {
+              font: 13px 'DIN Pro';
+              line-height: 15px;
+              color: $black;
+            }
+            .categories {
+              font: 8px "DIN Pro Light";
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 /* ABOUT */
 #section-about {
   .container {
-      
-
     .right {
       vertical-align: top;
       display: inline-block;
@@ -259,7 +331,7 @@ h3 {
   .container {
     .columns {
       display: inline-block;
-      width: 100%;    
+      width: 100%;
       text-align: left;
 
       .title {
@@ -282,7 +354,7 @@ h3 {
       .left {
         text-align: left;
         display: inline-block;
-        
+
       }
       .right {
         margin-left: 20px;
@@ -302,7 +374,7 @@ h3 {
 
     .columns {
       display: inline-block;
-      width: 100%;    
+      width: 100%;
       text-align: left;
       height: 400px;
       overflow-y: hidden;
@@ -405,7 +477,7 @@ h3 {
     writing-mode: vertical-lr;
     pointer-events: none;
   }
-  
+
   .social {
     display: none;
     position: fixed;
@@ -434,7 +506,7 @@ h3 {
 }
 
 @media screen and (max-width: 480px) {
-  
+
 }
 
 

@@ -11,7 +11,9 @@ $(document).ready(function() {
     autoScrolling: true,
     menu: '#menu-desktop',
     normalScrollElements: '.normal-scroll',
-    fixedElements: '#header-desktop, #header-mobile, #additional',
+    scrollOverflow: true,
+    keyboardScrolling: false,
+    fixedElements: '#header-desktop, #header-mobile, #additional, .year-fixed',
 
     onLeave: function(index, nextIndex, direction) {
       if (index == 1 && direction == "down") {
@@ -50,12 +52,27 @@ $(document).ready(function() {
           width: "0%"
         }, 200);
       }
+
+      if (index == 2) {
+        $('.year-fixed').hide();
+        $('.year').fadeOut();
+      }
+    },
+
+    afterLoad: function(anchorLink, index) {
+      if (index == 2) {
+        $('.year-fixed').fadeIn();
+        $('.year').fadeIn();
+      }
     },
 
     afterRender: function() {
       var pressHeight = $('#section-press').height();
       var pressOffset = $('#section-press .container .columns').offset().top - $('#section-press').offset().top;
       $('#section-press .container .columns, #section-press .container .columns ul').height(pressHeight - pressOffset);
+
+      var yearSectionOffset = $('.year-section').offset().left;
+      $('.year-fixed').css('left', yearSectionOffset - 58);
     }
   });
 

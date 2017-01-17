@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'root',
+  password: 'paulsniezak123.',
   database: 'atrois-studio'
 });
 
@@ -40,7 +40,7 @@ router.post('/projects/add', requireLogin, function(req, res){
     if (!fs.existsSync('./public/uploads/projects/covers/')){
         fs.mkdirSync('./public/uploads/projects/covers/');
     }
-    var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename); 
+    var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
     file.pipe(fstream);
     data["cover"] = filename;
   });
@@ -92,7 +92,7 @@ router.post('/projects/media/:id', requireLogin, function(req, res){
     if (!fs.existsSync('./public/uploads/projects/' + id + '/')){
         fs.mkdirSync('./public/uploads/projects/' + id + '/');
     }
-    var fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename); 
+    var fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
     file.pipe(fstream);
     data["media"] = filename;
   });
@@ -109,7 +109,7 @@ router.post('/projects/media/:id', requireLogin, function(req, res){
 });
 
 /*
- * DELETE Media 
+ * DELETE Media
 */
 router.get('/projects/media/:project/delete/:media', requireLogin, function(req, res){
   var media = req.params.media;
@@ -129,7 +129,7 @@ router.get('/projects/media/:project/delete/:media', requireLogin, function(req,
 */
 router.get('/projects/edit/:id', requireLogin, function(req, res){
   var id = req.params.id;
-  
+
   connection.query('SELECT * FROM projects WHERE id = ?', [id], function(err, rows) {
     if(err)
       req.flash('error', err);
@@ -153,7 +153,7 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
 
     if (test != "aa") {
       console.log('2');
-      var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename); 
+      var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
       file.pipe(fstream);
       data["cover"] = filename;
     } else {
@@ -182,7 +182,7 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
 });
 
 /*
- * DELETE Project 
+ * DELETE Project
 */
 router.get('/projects/delete/:id', requireLogin, function(req, res){
   var id = req.params.id;

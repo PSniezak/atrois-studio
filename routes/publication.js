@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'root',
+  password: 'paulsniezak123.',
   database: 'atrois-studio'
 });
 
@@ -66,7 +66,7 @@ router.post('/publications/add', requireLogin, function(req, res){
 */
 router.get('/publications/edit/:id', requireLogin, function(req, res){
   var id = req.params.id;
-  
+
   connection.query('SELECT * FROM publications WHERE id = ?', [id], function(err, rows) {
     if(err)
       req.flash('error', err);
@@ -108,7 +108,7 @@ router.post('/publications/edit/:id', requireLogin, function(req, res){
 });
 
 /*
- * DELETE Publication 
+ * DELETE Publication
 */
 router.get('/publications/delete/:id', requireLogin, function(req, res){
   var id = req.params.id;

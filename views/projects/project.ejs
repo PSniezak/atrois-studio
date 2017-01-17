@@ -22,7 +22,7 @@
       <p><a href="/admin">Retour au dashboard</a><hr></p>
       <p><a href="/projects/add">Ajouter un projet</a></p>
 
-      <% if (data) { -%>
+      <% if (data.length > 0) { -%>
         <table style="width: 100%;">
           <tr style="width: 100%;">
             <th>Cover</th>
@@ -69,7 +69,7 @@
               type: 'success',
               text: '<%= successMessages[i] %>'
             });
-          });  
+          });
         <% } %>
       <% } %>
 
@@ -80,7 +80,7 @@
                 type: 'error',
                 text: '<%= errorMessages[i] %>'
             });
-          });  
+          });
         <% } %>
       <% } %>
     </script>
