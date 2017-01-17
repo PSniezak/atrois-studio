@@ -72,7 +72,9 @@ $(document).ready(function() {
       $('#section-press .container .columns, #section-press .container .columns ul').height(pressHeight - pressOffset);
 
       var yearSectionOffset = $('.year-section').offset().left;
+      var containerProjectOffset = $('#section-projects .container').offset().top - $('#section-projects').offset().top;
       $('.year-fixed').css('left', yearSectionOffset - 58);
+      $('.year-fixed').css('margin-top', containerProjectOffset - 32);
     }
   });
 
