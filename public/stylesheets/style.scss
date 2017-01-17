@@ -186,18 +186,6 @@ h3 {
     }
   }
 }
-.year-fixed {
-  display: none;
-  position: fixed;
-  margin-top: 21%;
-  top: 0;
-
-  span {
-    font: 52px 'DIN Pro Bold';
-    color: $grey;
-    opacity: .3;
-  }
-}
 
 
 /* CONTENT */
@@ -258,6 +246,7 @@ h3 {
         position: absolute;
         top: -32px; left: -58px;
         display: none;
+        pointer-events: none;
 
         span {
           font: 52px 'DIN Pro Bold';
@@ -277,7 +266,7 @@ h3 {
           &:nth-child(4n + 0) {
             margin-right: 0%;
           }
-          
+
           li {
             .client {
               font: 13px 'DIN Pro Medium';
@@ -295,6 +284,37 @@ h3 {
           }
         }
       }
+    }
+  }
+}
+.year-fixed {
+  display: none;
+  position: fixed;
+  margin-top: 21%;
+  top: 0;
+  pointer-events: none;
+
+  span {
+    font: 52px 'DIN Pro Bold';
+    color: $grey;
+    opacity: .3;
+  }
+}
+.covers-container {
+  // display: none;
+  position: fixed;
+  z-index: 1;
+  top: 10%;
+  right: 0;
+
+  .cover {
+    display: none;
+    max-width: 870px;
+
+    img {
+      width: 100%;
+      height: auto;
+      float: right;
     }
   }
 }

@@ -16,6 +16,7 @@ $(document).ready(function() {
     menu: '#menu-desktop',
     normalScrollElements: '.normal-scroll',
     scrollOverflow: true,
+    animateAnchor: false,
     keyboardScrolling: false,
     fixedElements: '#header-desktop, #header-mobile, #additional, .year-fixed',
 
@@ -58,8 +59,9 @@ $(document).ready(function() {
       }
 
       if (index == 2) {
-        $('.year-fixed').hide();
-        $('.year').fadeOut();
+        $('.year-fixed').stop().hide();
+        $('.year').stop().fadeOut();
+        $('.cover').hide();
 
         clearTimeout(projectsInterval);
       }
@@ -138,5 +140,15 @@ $(document).ready(function() {
   // Home
   $('#section-home .arrow-down a').on('click', function() {
     $.fn.fullpage.moveSectionDown();
+  });
+
+  // Projects
+  $('.project-link').hover(function() {
+    var name = $(this).data('name');
+    $(".cover[data-name='" + name +"']").show();
+
+  }, function() {
+    var name = $(this).data('name');
+    $(".cover[data-name='" + name +"']").hide();
   });
 });

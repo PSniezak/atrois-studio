@@ -32,7 +32,7 @@ DONE - Home page + scroll					http://www.acnestudios.com/
 DONE - Le dégradé en haut et en bas 		http://crapisgood.com/#
 DONE - Le système du menu					http://annarosa.com/
 DONE - Esthétique du menu					http://public-library.org/
-Hover projets desktop				http://geordiewood.com/ et/ou http://public-library.org/
+DONE - Hover projets desktop				http://geordiewood.com/ et/ou http://public-library.org/
 Hover projets mobile				https://bonsoirparis.fr/
 DONE - Système de calage des années		http://public-library.org/ (les chiffres en haut à droite qui changent)
 DONE - L’animation du scroll 				https://www.simonmillerusa.com/

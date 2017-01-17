@@ -50,6 +50,7 @@ router.post('/projects/add', requireLogin, function(req, res){
   });
 
   req.busboy.on('finish', function() {
+    console.log(data);
     var query = connection.query("INSERT INTO projects set ? ", data, function(err, rows) {
       if (err)
         req.flash('error', err);

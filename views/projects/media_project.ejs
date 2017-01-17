@@ -2,11 +2,13 @@
 	<a href="/projects">Retour aux projets</a>
 	<p>Médias de <%= project[i].name %></p>
 
-	<% for (var j = 0; j < data.length; j++) { -%>
-		<div class="images">
-			<img width="50" src="/uploads/projects/<%= project[i].id %>/<%= data[j].media %>">
-			<a href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>	
-		</div>
+	<% if(data.length > 0) { -%>
+		<% for (var j = 0; j < data.length; j++) { -%>
+			<div class="images">
+				<img width="50" src="/uploads/projects/<%= project[i].id %>/<%= data[j].media %>">
+				<a href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>
+			</div>
+		<% } -%>
 	<% } -%>
 
 	<form method="POST" action="/projects/media/<%= project[i].id %>" enctype="multipart/form-data">
