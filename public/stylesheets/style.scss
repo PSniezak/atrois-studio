@@ -268,8 +268,7 @@ h3 {
       .projects-list {
         text-align: left;
         width: 100%;
-
-        li {
+        a {
           width: 20%;
           display: inline-block;
           margin-bottom: 36px;
@@ -278,8 +277,8 @@ h3 {
           &:nth-child(4n + 0) {
             margin-right: 0%;
           }
-
-          a {
+          
+          li {
             .client {
               font: 13px 'DIN Pro Medium';
               line-height: 15px;
