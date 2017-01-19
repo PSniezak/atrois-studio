@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
  * GET Home FR
 */
 router.get('/', function(req, res, next) {
-  connection.query('SELECT DISTINCT year FROM projects ORDER BY year ASC', function(err, years) {
+  connection.query('SELECT DISTINCT year FROM projects ORDER BY year DESC', function(err, years) {
     if(err)
       req.flash('error', err);
 
