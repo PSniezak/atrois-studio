@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
     if(err)
       req.flash('error', err);
 
-    connection.query('SELECT * FROM projects ORDER BY year ASC', function(err, projects) {
+    connection.query('SELECT * FROM projects ORDER BY year DESC', function(err, projects) {
       if(err)
         req.flash('error', err);
 
