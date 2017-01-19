@@ -145,10 +145,10 @@ $(document).ready(function() {
   // Projects
   $('.project-link').hover(function() {
     var name = $(this).data('name');
-    $(".cover[data-name='" + name +"']").show();
+    $('.cover[data-name="' + name +'"]').show();
 
   }, function() {
     var name = $(this).data('name');
-    $(".cover[data-name='" + name +"']").hide();
+    $('.cover[data-name="' + name +'"]').hide();
   });
 });
