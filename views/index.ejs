@@ -80,7 +80,7 @@
                 <ul class="projects-list">
                   <% for(var j=0; j<projects.length; j++) { %>
                     <% if(projects[j].year == years[i].year) { %>
-                      <a target="_blank" href="http://google.fr" class="project-link" data-name="<%= projects[j].name %>">
+                      <a target="_blank" href="http://google.fr" class="project-link" data-name="<%= projects[j].name %>-<%= projects[j].id %>">
                         <li>
                           <span class="client"><%= projects[j].client %></span>
                           <br>
@@ -287,7 +287,7 @@
 
     <div class="covers-container">
       <% for(var i=0; i<projects.length; i++) { %>
-        <div class="cover" data-name="<%= projects[i].name %>">
+        <div class="cover" data-name="<%= projects[i].name %>-<%= projects[i].id %>">
           <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name %>">
         </div>
       <% } %>
