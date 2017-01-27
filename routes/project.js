@@ -81,6 +81,20 @@ router.get('/projects/media/:id', requireLogin, function(req, res){
 });
 
 /*
+ * GET all medias
+*/
+router.get('/projects/media/:id/all', function(req, res){
+  var id = req.params.id;
+
+  connection.query('SELECT * FROM medias WHERE project_id = ?', [id], function(err, media) {
+    if(err)
+      req.flash('error', err);
+
+    res.json({medias:media});
+  });
+});
+
+/*
  * POST Media
 */
 router.post('/projects/media/:id', requireLogin, function(req, res){
