@@ -521,9 +521,8 @@ h3 {
 
 /* ADDITIONAL */
 #additional {
-  z-index: 2000;
-
   .logo {
+    z-index: 3000;
     pointer-events: none;
     position: fixed;
     left: 100px; bottom: calc(50% - 21px);
@@ -534,6 +533,7 @@ h3 {
   }
 
   .copyright {
+    z-index: 3000;
     position: fixed;
     right: 50px; bottom: 50px;
     font: 12px 'DIN Pro Medium', sans-serif, Arial;
@@ -542,6 +542,7 @@ h3 {
   }
 
   .social {
+    z-index: 3000;
     display: none;
     position: fixed;
     bottom: 45px; right: 21%;
