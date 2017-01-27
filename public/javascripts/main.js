@@ -155,28 +155,31 @@ $(document).ready(function() {
   $('.project-link').on('click', function() {
     var id = $(this).data('id');
     var nameId = $(this).data('name');
-    // If slider alredy exist, just display this one, no ajax
 
-    $.ajax({
-      url: "/projects/media/" + id + "/all",
-      context: document.body
-    }).done(function(data) {
-      var slides = "";
+    // Test if slider already exist
+    if ($('#'+id).length) {
+      $('#projects-sliders').show("slide", { direction: "down" }, 500);
+    } else {
+      $.ajax({
+        url: "/projects/media/" + id + "/all",
+        context: document.body
+      }).done(function(data) {
+        var slides = "";
 
-      for (var media in data.medias) {
-        slides += '<div class="slide"><div class="overflower"><img src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
-      }
+        for (var media in data.medias) {
+          slides += '<div class="slide"><div class="overflower"><img src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
+        }
 
-      $('#projects-sliders').append("<div id='" + id + "'>" + slides + "</div>");
+        $('#projects-sliders').append("<div id='" + id + "'>" + slides + "</div>");
 
-      $('#projects-sliders').imagesLoaded( function() {
-        $('#'+id).slick({
-          arrows: false
+        $('#projects-sliders').show("slide", { direction: "down" }, 500);
+
+        $('#projects-sliders').imagesLoaded( function() {
+          $('#'+id).slick({
+            arrows: false
+          });
         });
-
-        // $('#projects-sliders').show("slide", { direction: "down" }, 500);
-        $('#projects-sliders').show();
       });
-    });
+    }
   });
 });
