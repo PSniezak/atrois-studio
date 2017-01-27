@@ -152,34 +152,55 @@ $(document).ready(function() {
     $('.cover[data-name="' + name +'"]').hide();
   });
 
+  // Desktop slider
+
+
+
+  // TO DO : Stop scroll actibity on fullpage slider
+
+
   $('.project-link').on('click', function() {
     var id = $(this).data('id');
     var nameId = $(this).data('name');
 
-    // Test if slider already exist
     if ($('#'+id).length) {
+      $('#'+id).addClass('active').show();
       $('#projects-sliders').show("slide", { direction: "down" }, 500);
     } else {
       $.ajax({
         url: "/projects/media/" + id + "/all",
         context: document.body
       }).done(function(data) {
-        var slides = "";
+        if (data.medias.length > 0) {
+          var slides = "";
 
-        for (var media in data.medias) {
-          slides += '<div class="slide"><div class="overflower"><img src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
-        }
+          for (var media in data.medias) {
+            slides += '<div class="slide"><div class="overflower"><img src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
+          }
 
-        $('#projects-sliders').append("<div id='" + id + "'>" + slides + "</div>");
+          $('#projects-sliders').append("<div id='" + id + "'>" + slides + "</div>");
 
-        $('#projects-sliders').show("slide", { direction: "down" }, 500);
+          $('#projects-sliders').show("slide", { direction: "down" }, 500);
+          $('#'+id).addClass('active');
 
-        $('#projects-sliders').imagesLoaded( function() {
-          $('#'+id).slick({
-            arrows: false
+          $('#projects-sliders').imagesLoaded( function() {
+            $('#'+id).slick({
+              arrows: false
+            });
           });
-        });
+        }
       });
     }
+  });
+  $('.close-button').on('click', function() {
+    $('#projects-sliders').fadeOut('fast', function() {
+      $('.slick-slider.active').hide().removeClass('active');
+    });
+  });
+  $('.right-cover').on('click', function() {
+    $('.slick-slider.active').slick('slickNext');
+  });
+  $('.left-cover').on('click', function() {
+    $('.slick-slider.active').slick('slickPrev');
   });
 });
