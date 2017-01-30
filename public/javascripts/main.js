@@ -163,7 +163,7 @@ $(document).ready(function() {
     var id = $(this).data('id');
     var nameId = $(this).data('name');
 
-    if ($('#'+id).length) {
+    if ($('#' + id + ' .slide').length > 1) {
       $('#'+id).addClass('active').show();
       toggleAdditionnal();
       $('#projects-sliders').show("slide", { direction: "down" }, 500);
@@ -179,7 +179,7 @@ $(document).ready(function() {
             slides += '<div class="slide"><div class="overflower"><img src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
           }
 
-          $('#projects-sliders').append("<div id='" + id + "'>" + slides + "</div>");
+          $('#projects-sliders #' + id).append(slides).show();
 
           $('#projects-sliders').show("slide", { direction: "down" }, 500);
           toggleAdditionnal();

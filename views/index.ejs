@@ -66,6 +66,22 @@
       </div>
       <div class="left-cover"></div>
       <div class="right-cover"></div>
+      <% for(var j=0; j<projects.length; j++) { %>
+        <div id="<%= projects[j].id %>" class="unique-slider">
+          <div class="slide">
+            <div class="left">
+              <%= projects[j].client %>
+              <%= projects[j].season %>
+              <%= projects[j].categories %>
+              <%= projects[j].url %>
+            </div>
+            <div class="right">
+              <%= projects[j].title %>
+              <%= projects[j].description %>
+            </div>
+          </div>
+        </div>
+      <% } %>
     </div>
 
     <div id="fullpage">
