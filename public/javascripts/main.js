@@ -209,7 +209,6 @@ $(document).ready(function() {
 });
 
 var toggleAdditionnal = function() {
-  console.log('salut');
   $('#header-desktop').fadeToggle('fast');
   $('#additional').fadeToggle('fast');
 }
