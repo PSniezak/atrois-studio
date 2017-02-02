@@ -68,16 +68,21 @@
       <div class="right-cover"></div>
       <% for(var j=0; j<projects.length; j++) { %>
         <div id="<%= projects[j].id %>" class="unique-slider">
-          <div class="slide">
-            <div class="left">
-              <%= projects[j].client %>
-              <%= projects[j].season %>
-              <%= projects[j].categories %>
-              <%= projects[j].url %>
-            </div>
-            <div class="right">
-              <%= projects[j].title %>
-              <%= projects[j].description %>
+          <div class="slide presentation-slide">
+            <div class="presentation-container">
+              <div class="left">
+                <span class="client"><%= projects[j].client %></span>
+                <br>
+                <span class="season"><%= projects[j].season %></span>
+                <br>
+                <p class="categories"><%= projects[j].categories %></p>
+                <a class="url" href="<%= projects[j].url %>"><%= projects[j].url %></a>
+              </div>
+              <div class="right">
+                <span class="name"><%= projects[j].name %></span>
+                <br>
+                <span class="description"><%= projects[j].description %></span>
+              </div>
             </div>
           </div>
         </div>

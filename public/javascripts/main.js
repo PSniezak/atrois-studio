@@ -153,12 +153,6 @@ $(document).ready(function() {
   });
 
   // Desktop slider
-
-
-
-  // TO DO : Stop scroll actibity on fullpage slider
-
-
   $('.project-link').on('click', function() {
     var id = $(this).data('id');
     var nameId = $(this).data('name');
@@ -192,6 +186,7 @@ $(document).ready(function() {
           toggleAdditionnal();
           $('#'+id).addClass('active');
 
+          $('#'+id+' .presentation-container .categories').html($('#'+id+' .presentation-container .categories').html().replace(/, /g, '<br>'));
           $('#projects-sliders').imagesLoaded( function() {
             $('#'+id).slick({
               arrows: false,
