@@ -340,6 +340,14 @@ h3 {
       width: 30px; height: auto;
     }
   }
+  .center-cover {
+    position: absolute;
+    height: 500px; width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+  }
   .right-cover, .left-cover {
     z-index: 100;
     position: absolute;

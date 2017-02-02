@@ -7,6 +7,7 @@ $(document).ready(function() {
   var projectsInterval;
   var containerProjectOffset;
   var highestYear;
+  var aditionnalInterval;
 
 
   // Fullpage.js
@@ -121,6 +122,14 @@ $(document).ready(function() {
 
   // Menu
   $('nav li a').on('click', function() {
+    if ($('.slick-slider.active').length > 0) {
+      toggleAdditionnal();
+      $('#projects-sliders').fadeOut('fast', function() {
+        $('.slick-slider.active video').trigger('pause');
+        $('.slick-slider.active').hide().removeClass('active');
+      });
+    }
+
     $(this).next().css('width', '100%');
   });
   $('nav li').hover(
@@ -219,6 +228,21 @@ $(document).ready(function() {
     } else {
       $('.slick-slider.active video').trigger('pause');
     }
+  });
+  $('.center-cover').hover(
+    function() {
+      if (aditionnalInterval) {
+        clearTimeout(aditionnalInterval);
+        console.log("salut");
+      } else {
+        console.log("je test le additional");
+        toggleAdditionnal();
+      }
+    },
+    function() {
+      aditionnalInterval = setTimeout(function() {
+        toggleAdditionnal();
+      }, 3000);
   });
 });
 
