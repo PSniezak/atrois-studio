@@ -167,6 +167,9 @@ $(document).ready(function() {
       $('#'+id).addClass('active').show();
       toggleAdditionnal();
       $('#projects-sliders').show("slide", { direction: "down" }, 500);
+      if ($('.slick-slider.active .slick-current video').length > 0) {
+        $('.slick-slider.active .slick-current video').get(0).play();
+      }
     } else {
       $.ajax({
         url: "/projects/media/" + id + "/all",
@@ -176,7 +179,11 @@ $(document).ready(function() {
           var slides = "";
 
           for (var media in data.medias) {
-            slides += '<div class="slide"><div class="overflower"><img src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
+            if (data.medias[media].media) {
+              slides += '<div class="slide"><div class="overflower"><img src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
+            } else {
+              slides += '<div class="slide"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div>';
+            }
           }
 
           $('#projects-sliders #' + id).append(slides).show();
@@ -187,7 +194,8 @@ $(document).ready(function() {
 
           $('#projects-sliders').imagesLoaded( function() {
             $('#'+id).slick({
-              arrows: false
+              arrows: false,
+              fade: true
             });
           });
         }
@@ -197,14 +205,25 @@ $(document).ready(function() {
   $('.close-button').on('click', function() {
     toggleAdditionnal();
     $('#projects-sliders').fadeOut('fast', function() {
+      $('.slick-slider.active video').trigger('pause');
       $('.slick-slider.active').hide().removeClass('active');
     });
   });
   $('.right-cover').on('click', function() {
     $('.slick-slider.active').slick('slickNext');
+    if ($('.slick-slider.active .slick-current video').length > 0) {
+      $('.slick-slider.active .slick-current video').get(0).play();
+    } else {
+      $('.slick-slider.active video').trigger('pause');
+    }
   });
   $('.left-cover').on('click', function() {
     $('.slick-slider.active').slick('slickPrev');
+    if ($('.slick-slider.active .slick-current video').length > 0) {
+      $('.slick-slider.active .slick-current video').get(0).play();
+    } else {
+      $('.slick-slider.active video').trigger('pause');
+    }
   });
 });
 

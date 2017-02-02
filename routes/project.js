@@ -50,7 +50,6 @@ router.post('/projects/add', requireLogin, function(req, res){
   });
 
   req.busboy.on('finish', function() {
-    console.log(data);
     var query = connection.query("INSERT INTO projects set ? ", data, function(err, rows) {
       if (err)
         req.flash('error', err);
@@ -107,9 +106,25 @@ router.post('/projects/media/:id', requireLogin, function(req, res){
     if (!fs.existsSync('./public/uploads/projects/' + id + '/')){
         fs.mkdirSync('./public/uploads/projects/' + id + '/');
     }
-    var fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
-    file.pipe(fstream);
-    data["media"] = filename;
+    console.log(fieldname);
+    console.log("salut:"+filename+"/");
+    console.log(filename.length);
+
+    var fstream;
+
+    if (fieldname == "video" && filename.length > 0) {
+      console.log("dans vidéo");
+      data["video"] = filename;
+      fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
+      file.pipe(fstream);
+    } else if (fieldname == "media" && filename.length > 0) {
+      console.log("dans média");
+      data["media"] = filename;
+      fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
+      file.pipe(fstream);
+    }
+
+    file.resume();
   });
 
   req.busboy.on('finish', function() {
@@ -164,10 +179,8 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
   req.pipe(req.busboy);
   req.busboy.on('file', function(fieldname, file, filename) {
     var test = "a" + filename + "a";
-    console.log('1');
 
     if (test != "aa") {
-      console.log('2');
       var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
       file.pipe(fstream);
       data["cover"] = filename;
@@ -177,7 +190,6 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
       }
       file.resume();
     }
-    console.log('3');
   });
 
   req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
