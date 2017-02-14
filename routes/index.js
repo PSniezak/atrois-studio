@@ -18,11 +18,11 @@ router.get('/', function(req, res, next) {
     if(err)
       req.flash('error', err);
 
-    connection.query('SELECT * FROM projects ORDER BY year DESC', function(err, projects) {
+    connection.query('SELECT * FROM projects ORDER BY year DESC, id DESC', function(err, projects) {
       if(err)
         req.flash('error', err);
 
-      connection.query('SELECT * FROM publications ORDER BY award ASC', function(err, publications) {
+      connection.query('SELECT * FROM publications ORDER BY award ASC, id DESC', function(err, publications) {
         if(err)
           req.flash('error', err);
 
