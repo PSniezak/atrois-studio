@@ -249,15 +249,13 @@ $(document).ready(function() {
 var showAdditionnal = function() {
   if ($('.slick-slider.active').length > 0) {
     $('#header-desktop .container').removeClass('gradient');
-    $('#header-desktop').fadeIn('fast');
+    $('#header-desktop, #additional').fadeIn('fast');
   } else {
     $('#header-desktop .container').addClass('gradient');
-    $('#header-desktop').fadeIn('fast');
+    $('#header-desktop, #additional').fadeIn('fast');
   }
-  $('#additional').fadeIn('fast');
 };
 
 var hideAdditionnal = function() {
-  $('#header-desktop').fadeOut('fast');
-  $('#additional').fadeOut('fast');
+  $('#header-desktop, #additional').fadeOut('fast');
 };
