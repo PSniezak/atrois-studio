@@ -34,7 +34,7 @@ $(document).ready(function() {
 
         gradientTimeout = setTimeout(function() {
           $('#additional .gradient-reverse').fadeIn();
-          $('#header-desktop .container').addClass('gradient');
+          $('#header-desktop .container, #header-mobile .container').addClass('gradient');
         }, 650);
 
       } else if (nextIndex == 1 && direction == "up") {
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
         $('#additional .social').fadeOut();
         $('#additional .gradient-reverse').fadeOut();
-        $('#header-desktop .container').removeClass('gradient');
+        $('#header-desktop .container, #header-mobile .container').removeClass('gradient');
       }
 
       // Menu
