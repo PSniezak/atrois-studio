@@ -9,6 +9,12 @@ $(document).ready(function() {
   var highestYear;
   var aditionnalInterval;
   var timer_on = false;
+  var isMobile = false;
+
+  if (window.innerWidth < 768) {
+    $('html').addClass('mobile');
+    isMobile = true;
+  }
 
 
   // Fullpage.js
@@ -105,7 +111,11 @@ $(document).ready(function() {
 
       var yearSectionOffset = $('.year-section').offset().left;
       containerProjectOffset = $('#section-projects .container').offset().top - $('#section-projects').offset().top;
-      $('.year-fixed').css('left', yearSectionOffset - 58);
+      if (isMobile) {
+        $('.year-fixed').css('left', '5%');
+      } else {
+        $('.year-fixed').css('left', yearSectionOffset - 58);
+      }
       $('.year-fixed').css('margin-top', containerProjectOffset - 32);
 
       $('.year-section').each(function(index) {

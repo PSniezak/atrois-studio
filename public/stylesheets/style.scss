@@ -132,7 +132,7 @@ h3 {
 
   .logo {
     text-align: center;
-    margin: 8px 0 0 0;
+    margin: 16px 0 0 0;
 
     a {
       font: 13px "DIN Pro Bold", sans-serif, Arial;
@@ -156,7 +156,7 @@ h3 {
       width: 22px;
       height: 2px;
       background-color: $grey;
-      opacity: 0.6;
+      opacity: 0.2;
       -webkit-transition: background-color 0.3s;
       -moz-transition: background-color 0.3s;
       transition: background-color 0.3s;
@@ -700,7 +700,99 @@ h3 {
       bottom: 14px;
     }
   }
+
+  /* PROJECTS */
+  #section-projects {
+    .container {
+      box-sizing: border-box;
+      padding: 0 6% 0 13%;
+
+      .year-section {
+        &:first-child {
+          margin-top: 45%;
+        }
+
+        &:last-child {
+          margin-bottom: 20%;
+        }
+
+        .year {
+          left: -10%;
+        }
+        .projects-list {
+          a {
+            width: 45%;
+            margin-right: 4%;
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  /* ABOUT */
+  #section-about {
+    .container {
+      padding: 0 13% 0 13%;
+      box-sizing: border-box;
+
+      .right {
+
+      }
+      .left {
+        margin-left: auto;
+        p {
+          text-align: justify;
+        }
+      }
+    }
+  }
+
+  /* Contact */
+  #section-contact {
+    .container {
+      .columns {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        margin: 0 auto;
+
+        .helper {
+          display: none;
+        }
+        .left {
+          display: block;
+          margin: 0 auto;
+
+          span, p {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  /* PRESS */
+  #section-press {
+    .container {
+      padding: 0 13% 0 13%;
+      box-sizing: border-box;
+
+      .columns {
+        .helper {
+          display: none;
+        }
+        .right, .left {
+          width: 40%;
+        }
+        .right {
+          margin-left: 18%;
+        }
+      }
+    }
+  }
 }
+
 @media screen and (max-width: 480px) {
 
 }
