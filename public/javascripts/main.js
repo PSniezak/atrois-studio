@@ -26,14 +26,14 @@ $(document).ready(function() {
     scrollOverflow: true,
     animateAnchor: false,
     keyboardScrolling: false,
-    fixedElements: '#header-desktop, #header-mobile, #additional, .year-fixed',
+    fixedElements: '#header-desktop, #header-mobile, #additional, #additional-mobile, .year-fixed',
 
     onLeave: function(index, nextIndex, direction) {
       if (index == 1 && direction == "down") {
         $('#additional .social').fadeIn();
 
         gradientTimeout = setTimeout(function() {
-          $('#additional .gradient-reverse').fadeIn();
+          $('#additional .gradient-reverse, #additional-mobile .gradient-reverse').fadeIn();
           $('#header-desktop .container, #header-mobile .container').addClass('gradient');
         }, 650);
 
@@ -41,7 +41,7 @@ $(document).ready(function() {
         clearTimeout(gradientTimeout);
 
         $('#additional .social').fadeOut();
-        $('#additional .gradient-reverse').fadeOut();
+        $('#additional .gradient-reverse, #additional-mobile .gradient-reverse').fadeOut();
         $('#header-desktop .container, #header-mobile .container').removeClass('gradient');
       }
 
