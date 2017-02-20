@@ -38,7 +38,7 @@ router.post('/projects/add', requireLogin, function(req, res){
   req.pipe(req.busboy);
   req.busboy.on('file', function(fieldname, file, filename) {
     if (!fs.existsSync('./public/uploads/projects/covers/')){
-        fs.mkdirSync('./public/uploads/projects/covers/');
+      fs.mkdirSync('./public/uploads/projects/covers/');
     }
     var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
     file.pipe(fstream);

@@ -166,11 +166,14 @@ $(document).ready(function() {
   // Projects
   $('.project-link').hover(function() {
     var name = $(this).data('name');
-    $('.cover[data-name="' + name +'"]').show();
-
+    if ($('.cover[data-name="' + name +'"]').length > 0) {
+      $('.cover[data-name="' + name +'"]').show();
+    }
   }, function() {
     var name = $(this).data('name');
-    $('.cover[data-name="' + name +'"]').hide();
+    if ($('.cover[data-name="' + name +'"]').length > 0) {
+      $('.cover[data-name="' + name +'"]').hide();
+    }
   });
 
   // Desktop slider

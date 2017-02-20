@@ -314,9 +314,11 @@
 
     <div class="covers-container">
       <% for(var i=0; i<projects.length; i++) { %>
-        <div class="cover" data-name="<%= projects[i].name %>-<%= projects[i].id %>">
-          <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name %>">
-        </div>
+        <% if (projects[i].cover != "") { -%>
+          <div class="cover" data-name="<%= projects[i].name %>-<%= projects[i].id %>">
+            <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name %>">
+          </div>
+        <% } %>
       <% } %>
     </div>
 
