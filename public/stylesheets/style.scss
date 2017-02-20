@@ -746,8 +746,12 @@ h3 {
   }
   #projects-sliders {
     .close-button {
+      right: 26px;
+      top: 16px;
+      opacity: 0.2;
 
       img {
+        width: 18px;
       }
     }
     .center-cover {
@@ -755,6 +759,52 @@ h3 {
     }
     .right-cover, .left-cover {
       display: none;
+    }
+    .unique-slider {
+      .slide {
+        img, video {
+        }
+        video {
+        }
+      }
+      .presentation-slide {
+        .presentation-container {
+          .left, .right {
+          }
+          .left {
+            float: none;
+            margin: 0 auto;
+            text-align: center;
+
+            .client {
+              font: 13px "DIN Pro Medium";
+            }
+            .season {
+              font: 8px "DIN Pro Medium";
+            }
+            .categories {
+              font: 8px "DIN Pro Light";
+              margin-bottom: 17px;
+            }
+            .url {
+              z-index: 40000;
+              cursor: pointer;
+              font: 10px "DIN Pro Light";
+            }
+          }
+          .right {
+            float: none;
+            text-align: center;
+
+            .title {
+              font: 13px "DIN Pro Medium";
+            }
+            .description {
+              font: 10px "DIN Pro Light";
+            }
+          }
+        }
+      }
     }
   }
 
