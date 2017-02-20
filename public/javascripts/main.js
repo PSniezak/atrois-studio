@@ -107,8 +107,11 @@ $(document).ready(function() {
     afterRender: function() {
       var pressHeight = $('#section-press').height();
       var pressOffset = $('#section-press .container .columns').offset().top - $('#section-press').offset().top;
-      if (!isMobile) {
-        $('#section-press .container .columns, #section-press .container .columns ul').height(pressHeight - pressOffset);
+
+      $('#section-press .container .columns, #section-press .container .columns ul').height(pressHeight - pressOffset);
+
+      if (isMobile) {
+        $('#section-press .container').css('height', '100%');
       }
 
       var yearSectionOffset = $('.year-section').offset().left;
