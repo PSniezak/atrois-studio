@@ -111,7 +111,7 @@ $(document).ready(function() {
       $('#section-press .container .columns, #section-press .container .columns ul').height(pressHeight - pressOffset);
 
       if (isMobile) {
-        $('#section-press .container').css('height', '100%');
+        $('#section-press .container').height(pressHeight - pressOffset);
       }
 
       var yearSectionOffset = $('.year-section').offset().left;

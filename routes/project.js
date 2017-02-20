@@ -106,9 +106,6 @@ router.post('/projects/media/:id', requireLogin, function(req, res){
     if (!fs.existsSync('./public/uploads/projects/' + id + '/')){
         fs.mkdirSync('./public/uploads/projects/' + id + '/');
     }
-    console.log(fieldname);
-    console.log("salut:"+filename+"/");
-    console.log(filename.length);
 
     var fstream;
 
@@ -197,7 +194,6 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
   });
 
   req.busboy.on('finish', function() {
-    console.log(data);
     connection.query("UPDATE projects set ? WHERE id = ? ", [data, id], function(err, rows) {
       if (err)
         req.flash('error', err);
