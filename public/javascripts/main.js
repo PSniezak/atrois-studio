@@ -107,7 +107,9 @@ $(document).ready(function() {
     afterRender: function() {
       var pressHeight = $('#section-press').height();
       var pressOffset = $('#section-press .container .columns').offset().top - $('#section-press').offset().top;
-      $('#section-press .container .columns, #section-press .container .columns ul').height(pressHeight - pressOffset);
+      if (!isMobile) {
+        $('#section-press .container .columns, #section-press .container .columns ul').height(pressHeight - pressOffset);
+      }
 
       var yearSectionOffset = $('.year-section').offset().left;
       containerProjectOffset = $('#section-projects .container').offset().top - $('#section-projects').offset().top;

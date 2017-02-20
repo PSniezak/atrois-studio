@@ -722,7 +722,7 @@ h3 {
 
       .year-section {
         &:first-child {
-          margin-top: 45%;
+          margin-top: 40%;
         }
 
         &:last-child {
@@ -793,6 +793,7 @@ h3 {
       box-sizing: border-box;
 
       .columns {
+        overflow-y: initial;
         .helper {
           display: none;
         }
