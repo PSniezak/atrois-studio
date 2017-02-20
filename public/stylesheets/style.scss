@@ -80,6 +80,7 @@ $grey: #787878;
 body {
   padding: 50px;
   font: 14px "DIN Pro", sans-serif, Arial;
+  position: relative;
 }
 
 a, p, span, h1, h2, h3, h4, h5, h6 {
@@ -743,6 +744,19 @@ h3 {
       }
     }
   }
+  #projects-sliders {
+    .close-button {
+
+      img {
+      }
+    }
+    .center-cover {
+      display: none;
+    }
+    .right-cover, .left-cover {
+      display: none;
+    }
+  }
 
   /* ABOUT */
   #section-about {
@@ -791,7 +805,7 @@ h3 {
     .container {
       padding: 0 13% 0 13%;
       box-sizing: border-box;
-      margin-top: 35% !important;
+      margin-top: 28% !important;
 
       .columns {
         overflow-y: initial;
@@ -799,10 +813,10 @@ h3 {
           display: none;
         }
         .right, .left {
-          width: 40%;
+          width: 46%;
         }
         .right {
-          margin-left: 18%;
+          margin-left: 6%;
         }
       }
     }

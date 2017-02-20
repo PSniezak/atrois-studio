@@ -220,7 +220,14 @@ $(document).ready(function() {
           $('#projects-sliders').imagesLoaded( function() {
             $('#'+id).slick({
               arrows: false,
-              fade: true
+              fade: true,
+              responsive: [
+                {
+                  breakpoint: 768,
+                  settings: {
+                  }
+                }
+              ]
             });
           });
         }
