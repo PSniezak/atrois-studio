@@ -142,6 +142,7 @@ h3 {
       padding: 16px 0 0 0;
 
       a {
+        margin-left: 2%;
         font: 13px "DIN Pro Bold", sans-serif, Arial;
       }
     }
@@ -185,6 +186,27 @@ h3 {
         &::after {
           top: 5px;
         }
+
+        &.is-clicked {
+          background-color: rgba(255, 255, 255, 0);
+
+          &::before {
+            top: 0;
+            -webkit-transform: rotate(135deg);
+            -moz-transform: rotate(135deg);
+            -ms-transform: rotate(135deg);
+            -o-transform: rotate(135deg);
+            transform: rotate(135deg);
+          }
+          &::after {
+            top: 0;
+            -webkit-transform: rotate(225deg);
+            -moz-transform: rotate(225deg);
+            -ms-transform: rotate(225deg);
+            -o-transform: rotate(225deg);
+            transform: rotate(225deg);
+          }
+        }
       }
     }
     .mobile-close-button {
@@ -213,6 +235,51 @@ h3 {
     }
   }
 }
+#menu-container-mobile {
+  position: absolute;
+  z-index: 1800;
+  width: 100%; height: 100%;
+  background-color: white;
+  display: none;
+
+  .container {
+    width: 100%; height: 100%;
+    position: relative;
+    margin: 25% 0 0 8%;
+    display: none;
+
+    ul li {
+      margin-bottom: 2px;
+
+      a {
+        font: 13px 'DIN Pro Medium', sans-serif, Arial;
+      }
+    }
+    .languages {
+      margin-bottom: 10%;
+    }
+    #menu-mobile {
+      margin-bottom: 10%;
+
+      ul li:last-of-type {
+        margin-top: 10%;
+      }
+    }
+    .social {
+
+    }
+  }
+  .copyright {
+    display: none;
+    z-index: 3000;
+    position: fixed;
+    right: 10px; bottom: 40px;
+    font: 12px 'DIN Pro Medium', sans-serif, Arial;
+    writing-mode: vertical-lr;
+    pointer-events: none;
+  }
+}
+
 #header-desktop {
   position: fixed;
   top: 0;
