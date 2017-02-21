@@ -192,8 +192,10 @@ $(document).ready(function() {
 
     if ($('#' + id + ' .slide').length > 1) {
       $('#'+id).addClass('active').show();
-      showAdditionnal();
-      $('#header-desktop .container, #header-mobile .container').addClass('gradient');
+      if (!isMobile) {
+        showAdditionnal();
+      }
+      $('#header-desktop .container, #header-mobile .container').removeClass('gradient');
       $('#projects-sliders').show("slide", { direction: "down" }, 500);
       if ($('.slick-slider.active .slick-current video').length > 0) {
         $('.slick-slider.active .slick-current video').get(0).play();
@@ -224,7 +226,10 @@ $(document).ready(function() {
           }
           $('#'+id).addClass('active');
 
-          $('#'+id+' .presentation-container .categories').html($('#'+id+' .presentation-container .categories').html().replace(/, /g, '<br>'));
+          if (!isMobile) {
+            $('#'+id+' .presentation-container .categories').html($('#'+id+' .presentation-container .categories').html().replace(/, /g, '<br>'));
+          }
+
           $('#projects-sliders').imagesLoaded( function() {
             $('#'+id).slick({
               arrows: false,
@@ -241,9 +246,16 @@ $(document).ready(function() {
         }
       });
     }
+
+    $('.mobile-close-button').show();
   });
-  $('.close-button').on('click', function() {
-    showAdditionnal();
+  $('.close-button, .mobile-close-button').on('click', function() {
+    if (!isMobile) {
+      showAdditionnal();
+    }
+
+    $('.mobile-close-button').hide();
+
     $('#header-desktop .container, #header-mobile .container').addClass('gradient');
     $('#projects-sliders').fadeOut('fast', function() {
       $('.slick-slider.active video').trigger('pause');
@@ -281,11 +293,9 @@ $(document).ready(function() {
 
 var showAdditionnal = function() {
   if ($('.slick-slider.active').length > 0) {
-    console.log("salut");
     $('#header-desktop .container, #header-mobile .container').removeClass('gradient');
     $('#header-desktop, #additional').fadeIn('fast');
   } else {
-    console.log("salut 2");
     $('#header-desktop .container, #header-mobile .container').addClass('gradient');
     $('#header-desktop, #additional').fadeIn('fast');
   }

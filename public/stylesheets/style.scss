@@ -187,6 +187,30 @@ h3 {
         }
       }
     }
+    .mobile-close-button {
+      display: none;
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      width: 18px;
+      height: 18px;
+      opacity: 0.2;
+
+      &::before, &::after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 18px;
+        width: 2px;
+        background-color: #333;
+      }
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
   }
 }
 #header-desktop {
@@ -406,6 +430,7 @@ h3 {
       width: 30px; height: auto;
     }
   }
+
   .center-cover {
     position: absolute;
     height: 500px; width: 500px;
@@ -746,13 +771,7 @@ h3 {
   }
   #projects-sliders {
     .close-button {
-      right: 26px;
-      top: 16px;
-      opacity: 0.2;
-
-      img {
-        width: 18px;
-      }
+      display: none;
     }
     .center-cover {
       display: none;
@@ -769,38 +788,22 @@ h3 {
       }
       .presentation-slide {
         .presentation-container {
-          .left, .right {
-          }
           .left {
             float: none;
             margin: 0 auto;
             text-align: center;
+            margin-bottom: 26px;
 
-            .client {
-              font: 13px "DIN Pro Medium";
-            }
-            .season {
-              font: 8px "DIN Pro Medium";
-            }
             .categories {
-              font: 8px "DIN Pro Light";
-              margin-bottom: 17px;
-            }
-            .url {
-              z-index: 40000;
-              cursor: pointer;
-              font: 10px "DIN Pro Light";
+              margin-bottom: 5px;
             }
           }
           .right {
             float: none;
             text-align: center;
 
-            .title {
-              font: 13px "DIN Pro Medium";
-            }
             .description {
-              font: 10px "DIN Pro Light";
+              text-align: justify;
             }
           }
         }
