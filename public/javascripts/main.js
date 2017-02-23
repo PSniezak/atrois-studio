@@ -237,7 +237,7 @@ $(document).ready(function() {
     if ($('#' + id + ' .slide').length > 1) {
       $('#'+id).addClass('active').show();
       if (!isMobile) {
-        showAdditionnal();
+        hideAdditionnal();
       } else {
         $('.mobile-close-button').show();
       }

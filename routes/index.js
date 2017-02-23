@@ -36,21 +36,66 @@ router.get('/', function(req, res, next) {
  * GET Home EN
 */
 router.get('/en', function(req, res, next) {
-  res.render('index-en', { title: 'Atrois Studio' });
+  connection.query('SELECT DISTINCT year FROM projects ORDER BY year DESC', function(err, years) {
+    if(err)
+      req.flash('error', err);
+
+    connection.query('SELECT * FROM projects ORDER BY year DESC, id DESC', function(err, projects) {
+      if(err)
+        req.flash('error', err);
+
+      connection.query('SELECT * FROM publications ORDER BY award ASC, id DESC', function(err, publications) {
+        if(err)
+          req.flash('error', err);
+
+        res.render('index-en', { title: 'Atrois Studio', projects: projects, years: years, publications: publications});
+      });
+    });
+  });
 });
 
 /*
  * GET Home KOR
 */
 router.get('/kor', function(req, res, next) {
-  res.render('index-kor', { title: 'Atrois Studio' });
+  connection.query('SELECT DISTINCT year FROM projects ORDER BY year DESC', function(err, years) {
+    if(err)
+      req.flash('error', err);
+
+    connection.query('SELECT * FROM projects ORDER BY year DESC, id DESC', function(err, projects) {
+      if(err)
+        req.flash('error', err);
+
+      connection.query('SELECT * FROM publications ORDER BY award ASC, id DESC', function(err, publications) {
+        if(err)
+          req.flash('error', err);
+
+        res.render('index-kor', { title: 'Atrois Studio', projects: projects, years: years, publications: publications});
+      });
+    });
+  });
 });
 
 /*
  * GET Home JP
 */
 router.get('/jp', function(req, res, next) {
-  res.render('index-jp', { title: 'Atrois Studio' });
+  connection.query('SELECT DISTINCT year FROM projects ORDER BY year DESC', function(err, years) {
+    if(err)
+      req.flash('error', err);
+
+    connection.query('SELECT * FROM projects ORDER BY year DESC, id DESC', function(err, projects) {
+      if(err)
+        req.flash('error', err);
+
+      connection.query('SELECT * FROM publications ORDER BY award ASC, id DESC', function(err, publications) {
+        if(err)
+          req.flash('error', err);
+
+        res.render('index-jp', { title: 'Atrois Studio', projects: projects, years: years, publications: publications});
+      });
+    });
+  });
 });
 
  module.exports = router;
