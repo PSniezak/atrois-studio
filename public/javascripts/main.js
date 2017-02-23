@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  $(document).ready(function() {
+    $('#loader .container img').fadeIn();
+  });
 
   // Global
   var gradientTimeout;
