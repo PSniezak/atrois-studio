@@ -36,6 +36,7 @@ $(document).ready(function() {
     scrollOverflow: true,
     animateAnchor: false,
     keyboardScrolling: false,
+    scrollingSpeed: 1200,
     fixedElements: '#header-desktop, #header-mobile, #additional, #additional-mobile, .year-fixed',
 
     onLeave: function(index, nextIndex, direction) {
@@ -219,6 +220,15 @@ $(document).ready(function() {
   // Home
   $('#section-home .arrow-down a').on('click', function() {
     $.fn.fullpage.moveSectionDown();
+  });
+
+  // Covers
+  $('.covers-container .cover').each(function(i, obj) {
+    var posx = (Math.random() * ($(window).width() - $(this).width()) / 2).toFixed();
+    var posy = (Math.random() * ($(window).height() - $(this).height()) / 4).toFixed();
+
+    $(this).find('img').css('left', posx+"px");
+    $(this).find('img').css('top', posy+"px");
   });
 
   // Projects
