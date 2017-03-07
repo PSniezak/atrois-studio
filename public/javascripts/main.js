@@ -252,10 +252,8 @@ $(document).ready(function() {
   $('.project-link').on('click', function() {
     var id = $(this).data('id');
     var nameId = $(this).data('name');
-    console.log("on click", id, nameId);
 
-    if ($('#' + id + ' .slide').length > 2) {
-      console.log("salut");
+    if ($('#' + id + ' .slide').length > 1) {
       $('#'+id).addClass('active').show();
       if (!isMobile) {
         hideAdditionnal();
@@ -282,8 +280,6 @@ $(document).ready(function() {
               slides += '<div class="slide"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div>';
             }
           }
-
-          console.log(slides);
 
           $('#projects-sliders #' + id).append(slides).show();
 
@@ -315,8 +311,6 @@ $(document).ready(function() {
             });
           });
         }
-      }).error(function(data) {
-        console.log(data);
       });
     }
   });
