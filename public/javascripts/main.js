@@ -282,6 +282,8 @@ $(document).ready(function() {
             }
           }
 
+          console.log(slides);
+
           $('#projects-sliders #' + id).append(slides).show();
 
           $('#projects-sliders').show("slide", { direction: "down" }, 500);
