@@ -254,7 +254,8 @@ $(document).ready(function() {
     var nameId = $(this).data('name');
     console.log("on click", id, nameId);
 
-    if ($('#' + id + ' .slide').length > 1) {
+    if ($('#' + id + ' .slide').length > 2) {
+      console.log("salut");
       $('#'+id).addClass('active').show();
       if (!isMobile) {
         hideAdditionnal();
