@@ -225,7 +225,7 @@ $(document).ready(function() {
   // Covers
   $('.covers-container .cover').each(function(i, obj) {
     var posx = (Math.random() * ($(window).width() - $(this).width()) / 2).toFixed();
-    var posy = (Math.random() * ($(window).height() - $(this).height()) / 4).toFixed();
+    var posy = (Math.random() * ($(window).height() - $(this).height()) / 4 - $('#additional .gradient-reverse').height()).toFixed();
 
     $(this).find('img').css('left', posx+"px");
     $(this).find('img').css('top', posy+"px");
