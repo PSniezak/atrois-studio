@@ -19,12 +19,73 @@
   </head>
 
   <body>
-    <div id="header-desktop">
+    <div id="loader">
       <div class="container">
-        <div class="left">
-          <h1><a href="#accueil">Atrois Studio</a></h1>
-        </div><div class="middle">
-          <nav id="menu-desktop">
+        <img src="/images/logo.png" alt="Atrois Studio">
+      </div>
+    </div>
+    <div id=main>
+      <div id="header-desktop">
+        <div class="container">
+          <div class="left">
+            <h1><a href="#accueil">Atrois Studio</a></h1>
+          </div><div class="middle">
+            <nav id="menu-desktop">
+              <ul>
+                <li data-menuanchor="à-propos">
+                  <a href="#à-propos">À propos</a>
+                  <div class="highliner"></div>
+                </li>
+
+                <li data-menuanchor="contact">
+                  <a href="#contact">Contact</a>
+                  <div class="highliner"></div>
+                </li>
+
+                <li data-menuanchor="presse">
+                  <a href="#presse">Presse</a>
+                  <div class="highliner"></div>
+                </li>
+
+                <li data-menuanchor="store">
+                  <a href="#store">Store</a>
+                  <div class="highliner"></div>
+                </li>
+              </ul>
+            </nav>
+            </div><div class="right">
+            <ul>
+              <li><a class="languages" href="/jp">日本</a></li>
+              <li><a class="languages" href="/">Français</a></li>
+              <li><a class="languages" href="/en">English</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="header-mobile">
+        <div class="container">
+          <div class="menu-icon">
+            <span class="hamb-menu"></span>
+          </div>
+          <div class="logo">
+            <a href="#accueil">Atrois Studio</a>
+          </div>
+          <div class="mobile-close-button"></div>
+        </div>
+      </div>
+
+      <div id="menu-container-mobile">
+        <div class="container">
+          <div class="languages">
+            <ul>
+              <li><a class="languages" href="/en">English</a></li>
+              <li><a class="languages" href="/cn">대한민국</a></li>
+              <li><a class="languages" href="/jp">日本</a></li>
+            </ul>
+          </div>
+
+          <nav id="menu-mobile">
             <ul>
               <li data-menuanchor="à-propos">
                 <a href="#à-propos">À propos</a>
@@ -47,61 +108,251 @@
               </li>
             </ul>
           </nav>
-          </div><div class="right">
-          <ul>
-            <li><a class="languages" href="/jp">日本</a></li>
-            <li><a class="languages" href="/">Français</a></li>
-            <li><a class="languages" href="/en">English</a></li>
-          </ul>
+
+          <div class="social">
+            <ul>
+              <li><a target="-_blank" href="https://www.instagram.com/atroistudio/">Instagram</a></li>
+              <li><a target="-_blank" href="https://www.facebook.com/atroistudio/">Facebook</a></li>
+              <li><a target="-_blank" href="https://www.behance.net/atroistudio">Behance</a></li>
+              <li><a target="-_blank" href="https://fr.pinterest.com/atroistudio/">Pinterest</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>© (2016 - 2017)</p>
         </div>
       </div>
-    </div>
 
-    <div id="header-mobile">
-      <div class="container">
-        <div class="menu-icon">
-          <span class="hamb-menu"></span>
+      <div id="projects-sliders">
+        <div class="close-button">
+          <img src="/images/cross.png" alt="Close">
         </div>
+        <div class="left-cover"></div>
+        <div class="right-cover"></div>
+        <div class="center-cover"></div>
+
+        <% for(var j=0; j<projects.length; j++) { %>
+          <div id="<%= projects[j].id %>" class="unique-slider">
+            <div class="slide presentation-slide">
+              <div class="presentation-container">
+                <div class="left">
+                  <span class="client"><%= projects[j].client %></span>
+                  <br>
+                  <span class="season"><%= projects[j].season %></span>
+                  <br>
+                  <p class="categories"><%= projects[j].categories %></p>
+                  <a class="url" href="<%= projects[j].url %>"><%= projects[j].url %></a>
+                </div>
+                <div class="right">
+                  <span class="name"><%= projects[j].name %></span>
+                  <br>
+                  <p class="description"><%= projects[j].description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+
+      <div id="fullpage">
+        <!-- HOME -->
+        <div data-anchor="accueil" id="section-home" class="section">
+          <div class="arrow-down">
+            <a><img src="/images/arrow-down.png" alt="Navigation - Flèche vers le bas"></a>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div data-anchor="projets" id="section-projects" class="section">
+          <div class="container">
+            <% if (years) { %>
+              <% for(var i=0; i<years.length; i++) { %>
+                <div class="year-section">
+                  <div class="year <% if(i === 0) { %>year-fixed<% } %>" data-year="<%= years[i].year %>">
+                    <span><%= years[i].year %></span>
+                  </div>
+                  <ul class="projects-list">
+                    <% for(var j=0; j<projects.length; j++) { %>
+                      <% if(projects[j].year == years[i].year) { %>
+                        <a class="project-link" data-name="<%= projects[j].name %>-<%= projects[j].id %>" data-id="<%= projects[j].id %>">
+                          <li>
+                            <span class="client"><%= projects[j].client %></span>
+                            <br>
+                            <span class="title"><%= projects[j].name %></span>
+                            <p class="categories"><%= projects[j].categories %></p>
+                          </li>
+                        </a>
+                      <% } %>
+                    <% } %>
+                  </ul>
+                </div>
+              <% } %>
+            <% } %>
+          </div>
+        </div>
+
+        <!-- ABOUT -->
+        <div data-anchor="à-propos" id="section-about" class="section">
+          <div class="container">
+            <div class="right">
+              <h3>À propos d'Atrois Studio</h3>
+            </div>
+            <div class="left">
+              <p>
+                Minimalisme et sobriété définissent Atrois Studio.
+                <br><br>
+                Ce studio de direction artistique maîtrise les codes du luxe et cultive le sens du détail. Il détourne les règles établies proposant ainsi une approche plus personnelle à chaque projet.
+                <br><br>
+                Atrois Studio se distingue par son style maîtrisé à l'esthétique épurée. Sa recherche de l’excellence le pousse à entretenir une exigence irréprochable.
+                <br><br>
+                L’image d’Atrois Studio se construit autour d’un travail intemporel dont technicité et raffinement en sont les fondements.
+                <br><br>
+                Atrois Studio manie les codes du luxe avec habileté. Son savoir-faire lui permet d’élaborer des projets d’exception dans les domaines de l'art, du design et de la mode.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ABOUT -->
+        <div data-anchor="contact" id="section-contact" class="section">
+          <div class="container">
+            <div class="columns">
+              <div class="helper"></div>
+              <div class="left">
+                <p>
+                  <span class="title">Contact</span>
+                  <br>
+                  <span class="regular"><a href="mailto:contact@atroistudio.com<">contact@atroistudio.com</a></span>
+                </p>
+                <br>
+                <br>
+                <br>
+                <p>
+                  <span class="title">Press & PR Department</span>
+                  <br>
+                  <span class="regular"><a href="mailto:press@atroistudio.com">press@atroistudio.com</a></span>
+                </p>
+
+                <p>
+                  <span class="title">Project Management</span>
+                  <br>
+                  <span class="regular"><a href="mailto:project@atroistudio.com">project@atroistudio.com</a></span>
+                </p>
+                <br>
+                <br>
+                <p>
+                  <span class="title">Internships</span>
+                  <br>
+                  <span class="regular"><a href="mailto:intern@atroistudio.com">intern@atroistudio.com</a></span>
+                </p>
+
+                <p class="lighter">
+                  We try our best, but we cannot always reply to <br>
+                  every application we receive. Please note that <br>
+                  we won't be able to return printed portfolio in <br>
+                  all applications.
+                </p>
+              </div>
+              <div class="right">
+                <p>
+                  <span class="title">Catégorie Agent - Nom Agent</span>
+                  <br>
+                  <span class="italic">Nom du contact</span>
+                  <br>
+                  <span class="regular"><a href="mailto:contact@nomagent.com">contact@nomagent.com</a></span>
+                </p>
+                <p class="lighter">
+                  +33 (0) 1 23 45 67 89
+                  <br>
+                  1, rue nom de la rue long ou avenue
+                  <br>
+                  12345 Ville, Pays
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRESS -->
+        <div data-anchor="presse" id="section-press" class="section">
+          <div class="container">
+            <div class="columns">
+              <div class="helper"></div>
+              <div class="left normal-scroll">
+                <div class="header">
+                  <h3>Publications</h3>
+                </div>
+
+                <div class="gradient-press"></div>
+
+                <ul>
+                  <% if (publications) { -%>
+                    <% for(i = 0; i < publications.length; i++) { %>
+                      <% if (!publications[i].award) { -%>
+                        <li>
+                          <a target="_blank" href="<%= publications[i].url %>">
+                            <p>
+                              <span class="season"><%= publications[i].season %></span>
+                              <span class="title"><%= publications[i].title %></span>
+                              <span class="client"><%= publications[i].client %></span>
+                            </p>
+                          </a>
+                        </li>
+                      <% } -%>
+                    <% } %>
+                  <% } %>
+                  <li class="height-helper"></li>
+                </ul>
+              </div>
+              <div class="right normal-scroll">
+                <div class="header">
+                  <h3>Awards</h3>
+                </div>
+
+                <div class="gradient-press"></div>
+
+                <ul>
+                  <% if (publications) { -%>
+                    <% for(i = 0; i < publications.length; i++) { %>
+                      <% if (publications[i].award) { -%>
+                        <li>
+                          <a target="_blank" href="<%= publications[i].url %>">
+                            <p>
+                              <span class="season"><%= publications[i].season %></span>
+                              <span class="title"><%= publications[i].title %></span>
+                              <span class="client"><%= publications[i].client %></span>
+                            </p>
+                          </a>
+                        </li>
+                      <% } -%>
+                    <% } %>
+                  <% } %>
+                  <li class="height-helper"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STORE -->
+        <div data-anchor="store" id="section-store" class="section">
+          <div class="container">
+            <h3>En construction</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADDITIONNALS -->
+      <div id="additional">
+        <div class="gradient-reverse"></div>
         <div class="logo">
-          <a href="#accueil">Atrois Studio</a>
-        </div>
-        <div class="mobile-close-button"></div>
-      </div>
-    </div>
-
-    <div id="menu-container-mobile">
-      <div class="container">
-        <div class="languages">
-          <ul>
-            <li><a class="languages" href="/en">English</a></li>
-            <li><a class="languages" href="/cn">대한민국</a></li>
-            <li><a class="languages" href="/jp">日本</a></li>
-          </ul>
+          <img src="/images/logo.png" alt="Logo Atrois Studio">
         </div>
 
-        <nav id="menu-mobile">
-          <ul>
-            <li data-menuanchor="à-propos">
-              <a href="#à-propos">À propos</a>
-              <div class="highliner"></div>
-            </li>
-
-            <li data-menuanchor="contact">
-              <a href="#contact">Contact</a>
-              <div class="highliner"></div>
-            </li>
-
-            <li data-menuanchor="presse">
-              <a href="#presse">Presse</a>
-              <div class="highliner"></div>
-            </li>
-
-            <li data-menuanchor="store">
-              <a href="#store">Store</a>
-              <div class="highliner"></div>
-            </li>
-          </ul>
-        </nav>
+        <div class="copyright">
+          <p>© (2016 - 2017)</p>
+        </div>
 
         <div class="social">
           <ul>
@@ -113,263 +364,19 @@
         </div>
       </div>
 
-      <div class="copyright">
-        <p>© (2016 - 2017)</p>
+      <div id="additional-mobile">
+        <div class="gradient-reverse"></div>
       </div>
-    </div>
 
-    <div id="projects-sliders">
-      <div class="close-button">
-        <img src="/images/cross.png" alt="Close">
-      </div>
-      <div class="left-cover"></div>
-      <div class="right-cover"></div>
-      <div class="center-cover"></div>
-
-      <% for(var j=0; j<projects.length; j++) { %>
-        <div id="<%= projects[j].id %>" class="unique-slider">
-          <div class="slide presentation-slide">
-            <div class="presentation-container">
-              <div class="left">
-                <span class="client"><%= projects[j].client %></span>
-                <br>
-                <span class="season"><%= projects[j].season %></span>
-                <br>
-                <p class="categories"><%= projects[j].categories %></p>
-                <a class="url" href="<%= projects[j].url %>"><%= projects[j].url %></a>
-              </div>
-              <div class="right">
-                <span class="name"><%= projects[j].name %></span>
-                <br>
-                <p class="description"><%= projects[j].description %></p>
-              </div>
+      <div class="covers-container">
+        <% for(var i=0; i<projects.length; i++) { %>
+          <% if (projects[i].cover != "") { -%>
+            <div class="cover" data-name="<%= projects[i].name %>-<%= projects[i].id %>">
+              <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name %>">
             </div>
-          </div>
-        </div>
-      <% } %>
-    </div>
-
-    <div id="fullpage">
-      <!-- HOME -->
-      <div data-anchor="accueil" id="section-home" class="section">
-        <div class="arrow-down">
-          <a><img src="/images/arrow-down.png" alt="Navigation - Flèche vers le bas"></a>
-        </div>
-      </div>
-
-      <!-- PROJECTS -->
-      <div data-anchor="projets" id="section-projects" class="section">
-        <div class="container">
-          <% if (years) { %>
-            <% for(var i=0; i<years.length; i++) { %>
-              <div class="year-section">
-                <div class="year <% if(i === 0) { %>year-fixed<% } %>" data-year="<%= years[i].year %>">
-                  <span><%= years[i].year %></span>
-                </div>
-                <ul class="projects-list">
-                  <% for(var j=0; j<projects.length; j++) { %>
-                    <% if(projects[j].year == years[i].year) { %>
-                      <a class="project-link" data-name="<%= projects[j].name %>-<%= projects[j].id %>" data-id="<%= projects[j].id %>">
-                        <li>
-                          <span class="client"><%= projects[j].client %></span>
-                          <br>
-                          <span class="title"><%= projects[j].name %></span>
-                          <p class="categories"><%= projects[j].categories %></p>
-                        </li>
-                      </a>
-                    <% } %>
-                  <% } %>
-                </ul>
-              </div>
-            <% } %>
           <% } %>
-        </div>
-      </div>
-
-      <!-- ABOUT -->
-      <div data-anchor="à-propos" id="section-about" class="section">
-        <div class="container">
-          <div class="right">
-            <h3>À propos d'Atrois Studio</h3>
-          </div>
-          <div class="left">
-            <p>
-              Minimalisme et sobriété définissent Atrois Studio.
-              <br><br>
-              Ce studio de direction artistique maîtrise les codes du luxe et cultive le sens du détail. Il détourne les règles établies proposant ainsi une approche plus personnelle à chaque projet.
-              <br><br>
-              Atrois Studio se distingue par son style maîtrisé à l'esthétique épurée. Sa recherche de l’excellence le pousse à entretenir une exigence irréprochable.
-              <br><br>
-              L’image d’Atrois Studio se construit autour d’un travail intemporel dont technicité et raffinement en sont les fondements.
-              <br><br>
-              Atrois Studio manie les codes du luxe avec habileté. Son savoir-faire lui permet d’élaborer des projets d’exception dans les domaines de l'art, du design et de la mode.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ABOUT -->
-      <div data-anchor="contact" id="section-contact" class="section">
-        <div class="container">
-          <div class="columns">
-            <div class="helper"></div>
-            <div class="left">
-              <p>
-                <span class="title">Contact</span>
-                <br>
-                <span class="regular"><a href="mailto:contact@atroistudio.com<">contact@atroistudio.com</a></span>
-              </p>
-              <br>
-              <br>
-              <br>
-              <p>
-                <span class="title">Press & PR Department</span>
-                <br>
-                <span class="regular"><a href="mailto:press@atroistudio.com">press@atroistudio.com</a></span>
-              </p>
-
-              <p>
-                <span class="title">Project Management</span>
-                <br>
-                <span class="regular"><a href="mailto:project@atroistudio.com">project@atroistudio.com</a></span>
-              </p>
-              <br>
-              <br>
-              <p>
-                <span class="title">Internships</span>
-                <br>
-                <span class="regular"><a href="mailto:intern@atroistudio.com">intern@atroistudio.com</a></span>
-              </p>
-
-              <p class="lighter">
-                We try our best, but we cannot always reply to <br>
-                every application we receive. Please note that <br>
-                we won't be able to return printed portfolio in <br>
-                all applications.
-              </p>
-            </div>
-            <div class="right">
-              <p>
-                <span class="title">Catégorie Agent - Nom Agent</span>
-                <br>
-                <span class="italic">Nom du contact</span>
-                <br>
-                <span class="regular"><a href="mailto:contact@nomagent.com">contact@nomagent.com</a></span>
-              </p>
-              <p class="lighter">
-                +33 (0) 1 23 45 67 89
-                <br>
-                1, rue nom de la rue long ou avenue
-                <br>
-                12345 Ville, Pays
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRESS -->
-      <div data-anchor="presse" id="section-press" class="section">
-        <div class="container">
-          <div class="columns">
-            <div class="helper"></div>
-            <div class="left normal-scroll">
-              <div class="header">
-                <h3>Publications</h3>
-              </div>
-
-              <div class="gradient-press"></div>
-
-              <ul>
-                <% if (publications) { -%>
-                  <% for(i = 0; i < publications.length; i++) { %>
-                    <% if (!publications[i].award) { -%>
-                      <li>
-                        <a target="_blank" href="<%= publications[i].url %>">
-                          <p>
-                            <span class="season"><%= publications[i].season %></span>
-                            <span class="title"><%= publications[i].title %></span>
-                            <span class="client"><%= publications[i].client %></span>
-                          </p>
-                        </a>
-                      </li>
-                    <% } -%>
-                  <% } %>
-                <% } %>
-                <li class="height-helper"></li>
-              </ul>
-            </div>
-            <div class="right normal-scroll">
-              <div class="header">
-                <h3>Awards</h3>
-              </div>
-
-              <div class="gradient-press"></div>
-
-              <ul>
-                <% if (publications) { -%>
-                  <% for(i = 0; i < publications.length; i++) { %>
-                    <% if (publications[i].award) { -%>
-                      <li>
-                        <a target="_blank" href="<%= publications[i].url %>">
-                          <p>
-                            <span class="season"><%= publications[i].season %></span>
-                            <span class="title"><%= publications[i].title %></span>
-                            <span class="client"><%= publications[i].client %></span>
-                          </p>
-                        </a>
-                      </li>
-                    <% } -%>
-                  <% } %>
-                <% } %>
-                <li class="height-helper"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- STORE -->
-      <div data-anchor="store" id="section-store" class="section">
-        <div class="container">
-          <h3>En construction</h3>
-        </div>
-      </div>
-    </div>
-
-    <!-- ADDITIONNALS -->
-    <div id="additional">
-      <div class="gradient-reverse"></div>
-      <div class="logo">
-        <img src="/images/logo.png" alt="Logo Atrois Studio">
-      </div>
-
-      <div class="copyright">
-        <p>© (2016 - 2017)</p>
-      </div>
-
-      <div class="social">
-        <ul>
-          <li><a target="-_blank" href="https://www.instagram.com/atroistudio/">Instagram</a></li>
-          <li><a target="-_blank" href="https://www.facebook.com/atroistudio/">Facebook</a></li>
-          <li><a target="-_blank" href="https://www.behance.net/atroistudio">Behance</a></li>
-          <li><a target="-_blank" href="https://fr.pinterest.com/atroistudio/">Pinterest</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div id="additional-mobile">
-      <div class="gradient-reverse"></div>
-    </div>
-
-    <div class="covers-container">
-      <% for(var i=0; i<projects.length; i++) { %>
-        <% if (projects[i].cover != "") { -%>
-          <div class="cover" data-name="<%= projects[i].name %>-<%= projects[i].id %>">
-            <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name %>">
-          </div>
         <% } %>
-      <% } %>
+      </div>
     </div>
 
     <script type="text/javascript" src="/libraries/jquery-3.1.1.min.js"></script>
