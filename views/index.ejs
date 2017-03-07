@@ -56,9 +56,9 @@
             </nav>
             </div><div class="right">
             <ul>
-              <li><a href="/jp">日本</a></li>
-              <li><a href="/kor">대한민국</a></li>
-              <li><a href="/en">English</a></li>
+              <li><a class="languages" href="/jp">日本</a></li>
+              <li><a class="languages" href="/kor">대한민국</a></li>
+              <li><a class="languages" href="/en">English</a></li>
             </ul>
           </div>
         </div>
@@ -80,9 +80,9 @@
         <div class="container">
           <div class="languages">
             <ul>
-              <li><a href="/en">English</a></li>
-              <li><a href="/kor">대한민국</a></li>
-              <li><a href="/jp">日本</a></li>
+              <li><a class="languages" href="/en">English</a></li>
+              <li><a class="languages" href="/kor">대한민국</a></li>
+              <li><a class="languages" href="/jp">日本</a></li>
             </ul>
           </div>
 
@@ -148,7 +148,7 @@
                 <div class="right">
                   <span class="name"><%= projects[j].name %></span>
                   <br>
-                  <p class="description"><%= projects[j].description %></p>
+                  <p class="description"><%- projects[j].description %></p>
                 </div>
               </div>
             </div>
@@ -255,7 +255,7 @@
                   all applications.
                 </p>
               </div>
-              <%# <div class="right">
+              <div class="right">
                 <p>
                   <span class="title">Catégorie Agent - Nom Agent</span>
                   <br>
@@ -270,7 +270,7 @@
                   <br>
                   12345 Ville, Pays
                 </p>
-              </div>%>
+              </div>
             </div>
           </div>
         </div>

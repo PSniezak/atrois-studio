@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+  $('.languages').on('click', function(e) {
+    e.preventDefault();
+    var hash = window.location.hash.substr(1);
+    var href = $(this).attr('href') + "#" + hash;
+    $(location).attr('href', href);
+  });
+
   $('#loader .container img').fadeIn();
 
   // Global

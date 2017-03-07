@@ -590,6 +590,7 @@ h3 {
           .categories {
             font: 8px "DIN Pro Light";
             margin-bottom: 17px;
+            color: grey;
           }
           .url {
             z-index: 40000;
@@ -659,6 +660,7 @@ h3 {
       }
       .lighter {
         font: 8px "DIN Pro Light";
+        color: $grey;
       }
       .helper {
         display: inline-block;
@@ -671,6 +673,7 @@ h3 {
 
       }
       .right {
+        display: none !important;
         margin-left: 20px;
         vertical-align: top;
         text-align: left;
@@ -726,6 +729,8 @@ h3 {
         width: 22%;
       }
       .right {
+        display: none !important;
+
         width: 22%;
         margin-left: 20px;
         vertical-align: top;
@@ -790,6 +795,7 @@ h3 {
     right: 50px; bottom: 50px;
     font: 12px 'DIN Pro Medium', sans-serif, Arial;
     writing-mode: vertical-lr;
+    -webkit-writing-mode: vertical-lr;
     pointer-events: none;
   }
 

@@ -2,7 +2,7 @@
 	<form action="/projects/edit/<%= data[i].id %>" method="POST" enctype="multipart/form-data">
 		<label for="year">Année</label>
 		<input type="text" name="year" id="year" value="<%= data[i].year %>">
-		
+
 		<label for="client">Client</label>
 		<input type="text" name="client" id="client" value="<%= data[i].client %>">
 
@@ -19,7 +19,7 @@
 		<input type="text" name="url" id="url" value="<%= data[i].url %>">
 
 		<label for="description">Description</label>
-		<input type="text" name="description" id="description" value="<%= data[i].description %>">
+		<textarea type="text" name="description" id="description" rows="8" cols="80"><%= data[i].description %></textarea>
 
 		<label for="place">Ordre</label>
 		<input type="text" name="place" id="place" value="<%= data[i].place %>">

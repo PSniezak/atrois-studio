@@ -46,7 +46,11 @@ router.post('/projects/add', requireLogin, function(req, res){
   });
 
   req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
-    data[fieldname] = val;
+    if (fieldname == "description") {
+      data[fieldname] = val.replace(/\r\n|\r|\n/g,"<br />");
+    } else {
+      data[fieldname] = val;
+    }
   });
 
   req.busboy.on('finish', function() {
@@ -190,7 +194,11 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
   });
 
   req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
-    data[fieldname] = val;
+    if (fieldname == "description") {
+      data[fieldname] = val.replace(/\r\n|\r|\n/g,"<br />");
+    } else {
+      data[fieldname] = val;
+    }
   });
 
   req.busboy.on('finish', function() {
