@@ -252,6 +252,7 @@ $(document).ready(function() {
   $('.project-link').on('click', function() {
     var id = $(this).data('id');
     var nameId = $(this).data('name');
+    console.log("on click", id, nameId);
 
     if ($('#' + id + ' .slide').length > 1) {
       $('#'+id).addClass('active').show();
