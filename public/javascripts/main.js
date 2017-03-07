@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+  $('#loader .container img').fadeIn();
+
+  // Languages
   $('.languages').on('click', function(e) {
     e.preventDefault();
     var hash = window.location.hash.substr(1);
@@ -7,7 +10,9 @@ $(document).ready(function() {
     $(location).attr('href', href);
   });
 
-  $('#loader .container img').fadeIn();
+  // Additional
+  var offsetSocial = $('#header-desktop .container .middle li:last').offset().left;
+  $('#additional .social').css('left', offsetSocial - 44);
 
   // Global
   var gradientTimeout;
