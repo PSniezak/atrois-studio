@@ -381,5 +381,14 @@
     <script type="text/javascript" src="/libraries/imagesloaded.min.js"></script>
     <script type="text/javascript" src="/javascripts/main.js"></script>
 
+    <script type="text/javascript">
+      $(window).on('load', function() {
+        setTimeout(function() {
+          $('#loader').fadeOut();
+          $('#main').animate({opacity: 1}, 1000);
+        }, 1000);
+      });
+    </script>
+
   </body>
 </html>
