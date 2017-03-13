@@ -128,9 +128,6 @@
         <div class="close-button">
           <img src="/images/cross.png" alt="Close">
         </div>
-        <div class="left-cover"></div>
-        <div class="right-cover"></div>
-        <div class="center-cover"></div>
 
         <% for(var j=0; j<projects.length; j++) { %>
           <div id="<%= projects[j].id %>" class="unique-slider">
@@ -142,12 +139,19 @@
                   <span class="season"><%= projects[j].season_en %></span>
                   <br>
                   <p class="categories"><%= projects[j].categories_en %></p>
-                  <a class="url" href="<%= projects[j].url %>"><%= projects[j].url %></a>
+                  <div class="url-container">
+                    <a class="url" target="_blank" href="<%= projects[j].url %>"><%= projects[j].url %></a>
+                  </div>
                 </div>
                 <div class="right">
                   <span class="name"><%= projects[j].name_en %></span>
                   <br>
-                  <p class="description"><%- projects[j].description_en %></p>
+                  <div class="overflower-container">
+                    <div class="overflower">
+                      <p class="description"><%- projects[j].description_en %></p>
+                    </div>
+                    <a class="toggle-more">+ d'informations sur ce projet</a>
+                  </div>
                 </div>
               </div>
             </div>
