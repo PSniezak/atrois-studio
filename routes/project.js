@@ -46,7 +46,7 @@ router.post('/projects/add', requireLogin, function(req, res){
   });
 
   req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
-    if (fieldname == "description") {
+    if (fieldname == "description" || fieldname == "description_en" || fieldname == "description_jp" || fieldname == "description_kor") {
       data[fieldname] = val.replace(/\r\n|\r|\n/g,"<br />");
     } else {
       data[fieldname] = val;
@@ -114,12 +114,10 @@ router.post('/projects/media/:id', requireLogin, function(req, res){
     var fstream;
 
     if (fieldname == "video" && filename.length > 0) {
-      console.log("dans vidéo");
       data["video"] = filename;
       fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
       file.pipe(fstream);
     } else if (fieldname == "media" && filename.length > 0) {
-      console.log("dans média");
       data["media"] = filename;
       fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
       file.pipe(fstream);
@@ -194,7 +192,7 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
   });
 
   req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
-    if (fieldname == "description") {
+    if (fieldname == "description" || fieldname == "description_en" || fieldname == "description_jp" || fieldname == "description_kor") {
       data[fieldname] = val.replace(/\r\n|\r|\n/g,"<br />");
     } else {
       data[fieldname] = val;

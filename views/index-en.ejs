@@ -137,17 +137,17 @@
             <div class="slide presentation-slide">
               <div class="presentation-container">
                 <div class="left">
-                  <span class="client"><%= projects[j].client %></span>
+                  <span class="client"><%= projects[j].client_en %></span>
                   <br>
-                  <span class="season"><%= projects[j].season %></span>
+                  <span class="season"><%= projects[j].season_en %></span>
                   <br>
-                  <p class="categories"><%= projects[j].categories %></p>
+                  <p class="categories"><%= projects[j].categories_en %></p>
                   <a class="url" href="<%= projects[j].url %>"><%= projects[j].url %></a>
                 </div>
                 <div class="right">
-                  <span class="name"><%= projects[j].name %></span>
+                  <span class="name"><%= projects[j].name_en %></span>
                   <br>
-                  <p class="description"><%= projects[j].description %></p>
+                  <p class="description"><%- projects[j].description_en %></p>
                 </div>
               </div>
             </div>
@@ -175,12 +175,12 @@
                   <ul class="projects-list">
                     <% for(var j=0; j<projects.length; j++) { %>
                       <% if(projects[j].year == years[i].year) { %>
-                        <a class="project-link" data-name="<%= projects[j].name %>-<%= projects[j].id %>" data-id="<%= projects[j].id %>">
+                        <a class="project-link" data-name="<%= projects[j].name_en %>-<%= projects[j].id %>" data-id="<%= projects[j].id %>">
                           <li>
-                            <span class="client"><%= projects[j].client %></span>
+                            <span class="client"><%= projects[j].client_en %></span>
                             <br>
-                            <span class="title"><%= projects[j].name %></span>
-                            <p class="categories"><%= projects[j].categories %></p>
+                            <span class="title"><%= projects[j].name_en %></span>
+                            <p class="categories"><%= projects[j].categories_en %></p>
                           </li>
                         </a>
                       <% } %>
@@ -293,9 +293,9 @@
                         <li>
                           <a target="_blank" href="<%= publications[i].url %>">
                             <p>
-                              <span class="season"><%= publications[i].season %></span>
-                              <span class="title"><%= publications[i].title %></span>
-                              <span class="client"><%= publications[i].client %></span>
+                              <span class="season"><%= publications[i].season_en %></span>
+                              <span class="title"><%= publications[i].title_en %></span>
+                              <span class="client"><%= publications[i].client_en %></span>
                             </p>
                           </a>
                         </li>
@@ -319,9 +319,9 @@
                         <li>
                           <a target="_blank" href="<%= publications[i].url %>">
                             <p>
-                              <span class="season"><%= publications[i].season %></span>
-                              <span class="title"><%= publications[i].title %></span>
-                              <span class="client"><%= publications[i].client %></span>
+                              <span class="season"><%= publications[i].season_en %></span>
+                              <span class="title"><%= publications[i].title_en %></span>
+                              <span class="client"><%= publications[i].client_en %></span>
                             </p>
                           </a>
                         </li>
@@ -371,8 +371,8 @@
       <div class="covers-container">
         <% for(var i=0; i<projects.length; i++) { %>
           <% if (projects[i].cover != "") { -%>
-            <div class="cover" data-name="<%= projects[i].name %>-<%= projects[i].id %>">
-              <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name %>">
+            <div class="cover" data-name="<%= projects[i].name_en %>-<%= projects[i].id %>">
+              <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name_en %>">
             </div>
           <% } %>
         <% } %>

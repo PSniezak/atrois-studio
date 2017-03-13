@@ -39,8 +39,17 @@ router.post('/publications/add', requireLogin, function(req, res){
 
   var data = {
     season: input.season,
+    season_en: input.season_en,
+    season_jp: input.season_jp,
+    season_kor: input.season_kor,
     title: input.title,
+    title_en: input.title_en,
+    title_jp: input.title_jp,
+    title_kor: input.title_kor,
     client: input.client,
+    client_en: input.client_en,
+    client_jp: input.client_jp,
+    client_kor: input.client_kor,
     url: input.url,
     award: input.award,
     place: input.place
@@ -85,8 +94,17 @@ router.post('/publications/edit/:id', requireLogin, function(req, res){
 
   var data = {
     season: input.season,
+    season_en: input.season_en,
+    season_jp: input.season_jp,
+    season_kor: input.season_kor,
     title: input.title,
+    title_en: input.title_en,
+    title_jp: input.title_jp,
+    title_kor: input.title_kor,
     client: input.client,
+    client_en: input.client_en,
+    client_jp: input.client_jp,
+    client_kor: input.client_kor,
     url: input.url,
     award: input.award,
     place: input.place
