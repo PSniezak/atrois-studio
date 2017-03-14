@@ -38,6 +38,7 @@ $(document).ready(function() {
     autoScrolling: true,
     menu: '#menu-desktop, #menu-mobile',
     normalScrollElements: '.normal-scroll',
+    normalScrollElementTouchThreshold: 10,
     scrollOverflow: true,
     animateAnchor: false,
     keyboardScrolling: false,
@@ -158,6 +159,14 @@ $(document).ready(function() {
 
     $('#menu-container-mobile .container, #menu-container-mobile .copyright').fadeOut("fast", function() {
       $('#menu-container-mobile').hide("slide", { direction: "down" }, 500);
+
+      if ($('.slick-slider.active').length > 0) {
+        $('#header-desktop .container, #header-mobile .container').addClass('gradient');
+        $('#projects-sliders').fadeOut('fast', function() {
+          $('.slick-slider.active video').trigger('pause');
+          $('.slick-slider.active').hide().removeClass('active');
+        });
+      }
     });
   });
   $('nav li a').on('click', function() {
@@ -175,6 +184,7 @@ $(document).ready(function() {
 
       $('#menu-container-mobile .container, #menu-container-mobile .copyright').fadeOut("fast", function() {
         $('#menu-container-mobile').hide("slide", { direction: "down" }, 500);
+        $('.mobile-close-button').hide();
       });
     } else {
       if ($('.slick-slider.active').length > 0) {
@@ -210,6 +220,7 @@ $(document).ready(function() {
 
       $('#menu-container-mobile .container, #menu-container-mobile .copyright').fadeOut("fast", function() {
         $('#menu-container-mobile').hide("slide", { direction: "down" }, 500);
+        $('.mobile-close-button').show();
       });
     } else {
       isMenuActive = true;
@@ -217,6 +228,7 @@ $(document).ready(function() {
 
       $('#menu-container-mobile').show("slide", { direction: "down" }, 500, function() {
         $('#menu-container-mobile .container, #menu-container-mobile .copyright').fadeIn();
+        $('.mobile-close-button').hide();
       });
     }
   });
@@ -281,7 +293,7 @@ $(document).ready(function() {
             if (data.medias[media].media) {
               slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower"><img src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
             } else {
-              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div>';
+              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
             }
           }
 
@@ -363,28 +375,29 @@ $(document).ready(function() {
       $('.slick-slider.active video').trigger('pause');
     }
   });
-  $('.presentation-container').hover(
-    function() {
+  if (!isMobile) {
+    $('.presentation-container').hover(
+      function() {
+        showAdditionnal();
+      },
+      function() {
+        setTimeout(function() {
+          if ($('.slick-slider.active').length > 0) {
+            hideAdditionnal();
+          }
+        }, 3000);
+    });
+    $(document).on("mouseenter", ".center-cover", function() {
       showAdditionnal();
-    },
-    function() {
+    });
+    $(document).on("mouseleave", ".center-cover", function() {
       setTimeout(function() {
         if ($('.slick-slider.active').length > 0) {
           hideAdditionnal();
         }
       }, 3000);
-  });
-  $(document).on("mouseenter", ".center-cover", function() {
-    showAdditionnal();
-  });
-
-  $(document).on("mouseleave", ".center-cover", function() {
-    setTimeout(function() {
-      if ($('.slick-slider.active').length > 0) {
-        hideAdditionnal();
-      }
-    }, 3000);
-  });
+    });
+  }
 });
 
 var showAdditionnal = function() {
