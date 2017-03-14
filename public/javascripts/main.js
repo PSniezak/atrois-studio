@@ -332,9 +332,8 @@ $(document).ready(function() {
           $('#projects-sliders').imagesLoaded( function() {
             $('#'+id).slick({
               arrows: false,
+              lazyLoad: 'progressive',
               fade: true,
-              vertical: true,
-              verticalSwiping: true,
               responsive: [
                 {
                   breakpoint: 768,
