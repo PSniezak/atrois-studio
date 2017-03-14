@@ -238,6 +238,19 @@ $(document).ready(function() {
     $.fn.fullpage.moveSectionDown();
   });
 
+  $('#section-home .background-slider').slick({
+    slidesToShow: 1,
+	  autoplay: true,
+	  autoplaySpeed: 6000,
+    speed: 800,
+    infinite: true,
+    fade: true,
+    arrows: false,
+    swipe: false,
+    pauseOnFocus: false,
+    pauseOnHover: false
+  });
+
   // Covers
   $('.covers-container .cover').each(function(i, obj) {
     var posx = (Math.random() * ($(window).width() - $(this).width()) / 2).toFixed();
@@ -265,7 +278,7 @@ $(document).ready(function() {
   });
 
   // Desktop slider
-  $('.project-link').on('click', function() {
+  $('.project-link, .background-slide').on('click', function() {
     var id = $(this).data('id');
     var nameId = $(this).data('name');
 
@@ -332,7 +345,6 @@ $(document).ready(function() {
           $('#projects-sliders').imagesLoaded( function() {
             $('#'+id).slick({
               arrows: false,
-              lazyLoad: 'progressive',
               fade: true,
               responsive: [
                 {
@@ -354,7 +366,9 @@ $(document).ready(function() {
 
     $('.mobile-close-button').hide();
 
-    $('#header-desktop .container, #header-mobile .container').addClass('gradient');
+    if (!$('#section-home').hasClass('active')) {
+      $('#header-desktop .container, #header-mobile .container').addClass('gradient');
+    }
     $('#projects-sliders').fadeOut('fast', function() {
       $('.slick-slider.active video').trigger('pause');
       $('.slick-slider.active').hide().removeClass('active');
@@ -406,7 +420,9 @@ var showAdditionnal = function() {
     $('#header-desktop .container, #header-mobile .container').removeClass('gradient');
     $('#header-desktop, #additional').stop().fadeIn('fast');
   } else {
-    $('#header-desktop .container, #header-mobile .container').addClass('gradient');
+    if (!$('#section-home').hasClass('active')) {
+      $('#header-desktop .container, #header-mobile .container').addClass('gradient');
+    }
     $('#header-desktop, #additional').stop().fadeIn('fast');
   }
 };

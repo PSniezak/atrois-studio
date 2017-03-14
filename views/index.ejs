@@ -165,6 +165,14 @@
       <div id="fullpage">
         <!-- HOME -->
         <div data-anchor="accueil" id="section-home" class="section">
+          <div class="background-slider">
+            <% for(var z=0; z<projects.length; z++) { %>
+              <% if (projects[z].showcase) { %>
+                <div class="background-slide" style="background-image: url(/uploads/projects/covers/<%= projects[z].cover %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+              <% } %>
+            <% } %>
+          </div>
+
           <div class="arrow-down">
             <a><img src="/images/arrow-down.png" alt="Navigation - Flèche vers le bas"></a>
           </div>

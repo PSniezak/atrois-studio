@@ -45,7 +45,12 @@
               <td>
                 <a href="/projects/edit/<%= data[i].id %>">Editer ce projet</a><br>
                 <a href="/projects/media/<%= data[i].id %>">Gérer les medias</a><br>
-                <a href="/projects/delete/<%= data[i].id %>">Supprimer ce projet</a>
+                <a href="/projects/delete/<%= data[i].id %>">Supprimer ce projet</a><br>
+                <% if(data[i].showcase) { %>
+                  <a href="/projects/unshowcase/<%= data[i].id %>">Enlever de la home</a>
+                <% } else { %>
+                  <a href="/projects/showcase/<%= data[i].id %>">Ajouter à la home</a>
+                <% } %>
               </td>
             </tr>
           <% } %>

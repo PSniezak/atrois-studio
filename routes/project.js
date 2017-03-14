@@ -98,6 +98,36 @@ router.get('/projects/media/:id/all', function(req, res){
 });
 
 /*
+ * POST Showcase
+*/
+router.get('/projects/showcase/:id', requireLogin, function(req, res){
+  var id = req.params.id;
+
+  connection.query('UPDATE projects SET showcase = 1 WHERE id = ?', [id], function(err, media) {
+    if(err)
+      req.flash('error', err);
+
+    req.flash('success', "Le projet est maintenant showcasé.");
+    res.redirect('/projects');
+  });
+});
+
+/*
+ * POST Unshowcase
+*/
+router.get('/projects/unshowcase/:id', requireLogin, function(req, res){
+  var id = req.params.id;
+
+  connection.query('UPDATE projects SET showcase = 0 WHERE id = ?', [id], function(err, media) {
+    if(err)
+      req.flash('error', err);
+
+    req.flash('success', "Le projet a été unshowcasé.");
+    res.redirect('/projects');
+  });
+});
+
+/*
  * POST Media
 */
 router.post('/projects/media/:id', requireLogin, function(req, res){

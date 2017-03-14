@@ -393,10 +393,24 @@ h3 {
 
 /* HOME */
 #section-home {
-  background-size: cover;
-  background-image: url("/images/test/001_WONDERGLASS_INVITE_SALONE_DEL_MOBILE_15_BY_ATROIS_STUDIO_WEB_HD_1.jpg");
-  background-position: center;
   position: relative;
+
+  .background-slider {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0;
+    overflow: hidden;
+
+    * {
+      width: 100%; height: 100%;
+    }
+
+    .background-slide {
+      cursor: pointer;
+      width: 100%; height: 100%;
+      background-size: cover;
+    }
+  }
 
   .arrow-down {
     width: 100%;
@@ -648,6 +662,7 @@ h3 {
               max-height: 120px;
             }
             .description, .toggle-more {
+              text-align: justify;
               font: 10px "DIN Pro Light";
             }
             .toggle-more {
