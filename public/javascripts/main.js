@@ -324,7 +324,7 @@ $(document).ready(function() {
               $('#'+id+' .presentation-container .right .overflower').css('max-height', 120);
             } else {
               $(this).html('Fermer');
-              $('#'+id+' .presentation-container .right .overflower').css('max-height', $('#'+id+' .presentation-container .right .overflower p').height());
+              $('#'+id+' .presentation-container .right .overflower').css('max-height', $('#'+id+' .presentation-container .right .overflower p').height() + 20);
             }
 
           });

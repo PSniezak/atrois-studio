@@ -561,6 +561,7 @@ h3 {
 
       .overflower {
         overflow: hidden;
+        -webkit-overflow-scrolling: touch;
         height: 100%; width: 100%;
 
         img, video {
@@ -643,6 +644,7 @@ h3 {
 
             .overflower {
               overflow: hidden;
+              -webkit-overflow-scrolling: touch;
               max-height: 120px;
             }
             .description, .toggle-more {
@@ -963,7 +965,7 @@ h3 {
       .presentation-slide {
         .presentation-container {
           top: 25%;
-          
+
           .left {
             float: none;
             margin: 0 auto;
@@ -1048,6 +1050,11 @@ h3 {
         }
         .right, .left {
           width: 46%;
+          min-height: 101%;
+
+          ul {
+            min-height: 101%;
+          }
         }
         .right {
           margin-left: 6%;
