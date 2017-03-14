@@ -333,6 +333,7 @@ $(document).ready(function() {
             $('#'+id).slick({
               arrows: false,
               fade: true,
+              verticalSwiping: true,
               responsive: [
                 {
                   breakpoint: 768,
