@@ -349,25 +349,25 @@ $(document).ready(function() {
           $('#'+id+' .presentation-container .right .toggle-more').on('click', function() {
             if ($(this).html() == "Fermer" || $(this).html() == "Close" || $(this).html() == "닫기" || $(this).html() == "閉じる") {
               if (language == "kor") {
-                $(this).html('+ 이 프로젝트에 대한 정보');
+                $('#'+id+' .presentation-container .right .toggle-more').html('+ 이 프로젝트에 대한 정보');
               } else if (language == "jp") {
-                $(this).html('+ このプロジェクトに関する情報');
+                $('#'+id+' .presentation-container .right .toggle-more').html('+ このプロジェクトに関する情報');
               } else if (language == "en") {
-                $(this).html('+ informations about this project');
+                $('#'+id+' .presentation-container .right .toggle-more').html('+ informations about this project');
               } else {
-                $(this).html('+ d\'informations sur ce projet');
+                $('#'+id+' .presentation-container .right .toggle-more').html('+ d\'informations sur ce projet');
               }
 
               $('#'+id+' .presentation-container .right .overflower').css('max-height', 120);
             } else {
               if (language == "kor") {
-                $(this).html('닫기');
+                $('#'+id+' .presentation-container .right .toggle-more').html('닫기');
               } else if (language == "jp") {
-                $(this).html('閉じる');
+                $('#'+id+' .presentation-container .right .toggle-more').html('閉じる');
               } else if (language == "en") {
-                $(this).html('Close');
+                $('#'+id+' .presentation-container .right .toggle-more').html('Close');
               } else {
-                $(this).html('Fermer');
+                $('#'+id+' .presentation-container .right .toggle-more').html('Fermer');
               }
 
               $('#'+id+' .presentation-container .right .overflower').css('max-height', $('#'+id+' .presentation-container .right .overflower p').height() + 20);
