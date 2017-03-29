@@ -208,7 +208,7 @@ h3 {
           transition: transform .3s, top .3s, background-color 0s;
         }
         &::before {
-          top: -5px;
+          top: -6px;
         }
         &::after {
           top: 5px;
@@ -303,6 +303,7 @@ h3 {
     right: 10px; bottom: 40px;
     font: 12px 'DIN Pro Medium', sans-serif, Arial;
     writing-mode: vertical-lr;
+    -webkit-writing-mode: vertical-lr;
     pointer-events: none;
   }
 }
@@ -409,6 +410,22 @@ h3 {
       cursor: pointer;
       width: 100%; height: 100%;
       background-size: cover;
+    }
+
+    .background-video {
+      position: absolute;
+  		right: 0;
+  		bottom: 0;
+  		top:0;
+  		right:0;
+  		width: 100%;
+  		height: 100%;
+  		background-size: 100% 100%;
+   		background-color: white; /* in case the video doesn't fit the whole page*/
+  		background-position: center center;
+  		background-size: contain;
+   		object-fit: cover; /*cover video background */
+   		z-index:3;
     }
   }
 
@@ -878,7 +895,7 @@ h3 {
         display: inline-block;
 
         &:not(:first-child) {
-          margin-left: 10px;
+          margin-left: 22px;
         }
       }
     }

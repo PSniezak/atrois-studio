@@ -25,6 +25,7 @@ $(document).ready(function() {
   var timer_on = false;
   var isMobile = false;
   var isMenuActive = false;
+  var language = window.location.pathname;
 
   if (window.innerWidth < 768) {
     $('html').addClass('mobile');
@@ -45,6 +46,11 @@ $(document).ready(function() {
     fixedElements: '#header-desktop, #header-mobile, #additional, #additional-mobile, .year-fixed',
 
     onLeave: function(index, nextIndex, direction) {
+      if (nextIndex == 2) {
+        $('.fp-scroller, .iScrollIndicator').css('transform', 'translate(0px, 0px)');
+        $('.fp-section').find('.fp-scrollable').data('iscrollInstance').y = 0;
+      }
+
       if (index == 1 && direction == "down") {
         $('#additional .social').fadeIn();
 
@@ -241,7 +247,7 @@ $(document).ready(function() {
   $('#section-home .background-slider').slick({
     slidesToShow: 1,
 	  autoplay: true,
-	  autoplaySpeed: 6000,
+	  autoplaySpeed: 3000,
     speed: 800,
     infinite: true,
     fade: true,
@@ -250,6 +256,10 @@ $(document).ready(function() {
     pauseOnFocus: false,
     pauseOnHover: false
   });
+
+  if ($('#section-home .background-slider video').length > 0) {
+    $('#section-home .background-slider video').get(0).play();
+  }
 
   // Covers
   $('.covers-container .cover').each(function(i, obj) {
@@ -295,8 +305,13 @@ $(document).ready(function() {
         $('.slick-slider.active .slick-current video').get(0).play();
       }
     } else {
+      if (isMobile) {
+        var fetchUrl = "/projects/media_mobile/" + id + "/all";
+      } else {
+        var fetchUrl = "/projects/media/" + id + "/all";
+      }
       $.ajax({
-        url: "/projects/media/" + id + "/all",
+        url: fetchUrl,
         context: document.body
       }).done(function(data) {
         if (data.medias.length > 0) {
@@ -304,7 +319,7 @@ $(document).ready(function() {
 
           for (var media in data.medias) {
             if (data.medias[media].media) {
-              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower"><img src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
+              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower"><img data-lazy="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
             } else {
               slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
             }
@@ -332,11 +347,29 @@ $(document).ready(function() {
           }
 
           $('#'+id+' .presentation-container .right .toggle-more').on('click', function() {
-            if ($(this).html() == "Fermer") {
-              $(this).html('+ d\'informations sur ce projet');
+            if ($(this).html() == "Fermer" || $(this).html() == "Close" || $(this).html() == "닫기" || $(this).html() == "閉じる") {
+              if (language == "kor") {
+                $(this).html('+ 이 프로젝트에 대한 정보');
+              } else if (language == "jp") {
+                $(this).html('+ このプロジェクトに関する情報');
+              } else if (language == "en") {
+                $(this).html('+ informations about this project');
+              } else {
+                $(this).html('+ d\'informations sur ce projet');
+              }
+
               $('#'+id+' .presentation-container .right .overflower').css('max-height', 120);
             } else {
-              $(this).html('Fermer');
+              if (language == "kor") {
+                $(this).html('닫기');
+              } else if (language == "jp") {
+                $(this).html('閉じる');
+              } else if (language == "en") {
+                $(this).html('Close');
+              } else {
+                $(this).html('Fermer');
+              }
+
               $('#'+id+' .presentation-container .right .overflower').css('max-height', $('#'+id+' .presentation-container .right .overflower p').height() + 20);
             }
 
@@ -346,6 +379,7 @@ $(document).ready(function() {
             $('#'+id).slick({
               arrows: false,
               fade: true,
+              lazyLoad: 'progressive',
               responsive: [
                 {
                   breakpoint: 768,

@@ -4,19 +4,49 @@
 
 	<% if(data.length > 0) { -%>
 		<% for (var j = 0; j < data.length; j++) { -%>
-			<div class="images">
-				<img width="50" src="/uploads/projects/<%= project[i].id %>/<%= data[j].media %>">
-				<a href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>
-			</div>
+			<% if(data[j].mobile == 0) { -%>
+				<div class="images">
+					<form method="POST" action="/projects/media/<%= project[i].id %>/place/<%= data[j].id %>" enctype="multipart/form-data">
+						<input type="text" name="place" id="place" value="<%= data[j].place %>">
+						<img width="50" src="/uploads/projects/<%= project[i].id %>/<%= data[j].media %>">
+						<a href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>
+						<input type="submit" value="Mettre à jour ce média">
+					</form>
+				</div>
+			<% } -%>
 		<% } -%>
 	<% } -%>
 
 	<form method="POST" action="/projects/media/<%= project[i].id %>" enctype="multipart/form-data">
-		<label for="media">Média</label>
-		<input type="file" name="media" id="media">
-		<label for="video">Vidéo</label>
+		<label for="media">Média desktop</label>
+		<input type="file" name="media" id="media" multiple>
+		<label for="video">Vidéo desktop</label>
 		<input type="file" name="video" id="video">
 
-		<input type="submit" value="Ajouter ce média">
+		<input type="submit" value="Ajouter ce média desktop">
+	</form>
+
+	<% if(data.length > 0) { -%>
+		<% for (var j = 0; j < data.length; j++) { -%>
+			<% if(data[j].mobile == 1) { -%>
+				<div class="images">
+					<form method="POST" action="/projects/media/<%= project[i].id %>/place/<%= data[j].id %>" enctype="multipart/form-data">
+						<input type="text" name="place" id="place" value="<%= data[j].place %>">
+						<img width="50" src="/uploads/projects/<%= project[i].id %>/<%= data[j].media %>">
+						<a href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>
+						<input type="submit" value="Mettre à jour ce média">
+					</form>
+				</div>
+			<% } -%>
+		<% } -%>
+	<% } -%>
+
+	<form method="POST" action="/projects/media_mobile/<%= project[i].id %>" enctype="multipart/form-data">
+		<label for="media">Média mobile</label>
+		<input type="file" name="media" id="media" multiple>
+		<label for="video">Vidéo mobile</label>
+		<input type="file" name="video" id="video">
+
+		<input type="submit" value="Ajouter ce média mobile">
 	</form>
 <% } -%>

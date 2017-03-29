@@ -36,13 +36,28 @@ router.post('/projects/add', requireLogin, function(req, res){
   var data = {};
 
   req.pipe(req.busboy);
-  req.busboy.on('file', function(fieldname, file, filename) {
-    if (!fs.existsSync('./public/uploads/projects/covers/')){
-      fs.mkdirSync('./public/uploads/projects/covers/');
+  req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+    if (!fs.existsSync('./public/uploads/projects/covers')){
+      fs.mkdirSync('./public/uploads/projects/covers');
     }
-    var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
-    file.pipe(fstream);
-    data["cover"] = filename;
+
+    var fstream;
+
+    console.log('./public/uploads/projects/covers/' + filename);
+
+    if (fieldname == "showcase_cover" && filename.length > 0) {
+      fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
+      file.pipe(fstream);
+
+      data["showcase_cover"] = filename;
+      data["showcase_type"] = mimetype;
+    } else if (fieldname != "showcase_cover" && filename.length > 0) {
+      fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
+      file.pipe(fstream);
+      data["cover"] = filename;
+    }
+
+    file.resume();
   });
 
   req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
@@ -74,7 +89,7 @@ router.get('/projects/media/:id', requireLogin, function(req, res){
     if(err)
       req.flash('error', err);
 
-    connection.query('SELECT * FROM medias WHERE project_id = ?', [id], function(err, rows) {
+    connection.query('SELECT * FROM medias WHERE project_id = ? ORDER BY place ASC', [id], function(err, rows) {
       if(err)
         req.flash('error', err);
 
@@ -89,7 +104,21 @@ router.get('/projects/media/:id', requireLogin, function(req, res){
 router.get('/projects/media/:id/all', function(req, res){
   var id = req.params.id;
 
-  connection.query('SELECT * FROM medias WHERE project_id = ?', [id], function(err, media) {
+  connection.query('SELECT * FROM medias WHERE project_id = ? AND mobile = 0 ORDER BY place ASC', [id], function(err, media) {
+    if(err)
+      req.flash('error', err);
+
+    res.json({medias:media});
+  });
+});
+
+/*
+ * GET all mobile medias
+*/
+router.get('/projects/media_mobile/:id/all', function(req, res){
+  var id = req.params.id;
+
+  connection.query('SELECT * FROM medias WHERE project_id = ? AND mobile = 1 ORDER BY place ASC', [id], function(err, media) {
     if(err)
       req.flash('error', err);
 
@@ -134,6 +163,7 @@ router.post('/projects/media/:id', requireLogin, function(req, res){
   var id = req.params.id;
 
   var data = {project_id: id};
+  data["mobile"] = false;
 
   req.pipe(req.busboy);
   req.busboy.on('file', function(fieldname, file, filename) {
@@ -147,22 +177,94 @@ router.post('/projects/media/:id', requireLogin, function(req, res){
       data["video"] = filename;
       fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
       file.pipe(fstream);
+      var query = connection.query("INSERT INTO medias set ? ", data, function(err, rows) {
+        if (err)
+          req.flash('error', err);
+      });
     } else if (fieldname == "media" && filename.length > 0) {
       data["media"] = filename;
       fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
       file.pipe(fstream);
+      var query = connection.query("INSERT INTO medias set ? ", data, function(err, rows) {
+        if (err)
+          req.flash('error', err);
+      });
     }
 
     file.resume();
   });
 
   req.busboy.on('finish', function() {
-    var query = connection.query("INSERT INTO medias set ? ", data, function(err, rows) {
-      if (err)
+    req.flash('success', "Le média a bien été ajouté");
+    res.redirect('/projects/media/' + id);
+  });
+});
+
+/*
+ * POST Media mobile
+*/
+router.post('/projects/media_mobile/:id', requireLogin, function(req, res){
+  var id = req.params.id;
+
+  var data = {project_id: id};
+  data["mobile"] = true;
+
+  req.pipe(req.busboy);
+  req.busboy.on('file', function(fieldname, file, filename) {
+    if (!fs.existsSync('./public/uploads/projects/' + id + '/')){
+        fs.mkdirSync('./public/uploads/projects/' + id + '/');
+    }
+
+    var fstream;
+
+    if (fieldname == "video" && filename.length > 0) {
+      data["video"] = filename;
+      fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
+      file.pipe(fstream);
+      var query = connection.query("INSERT INTO medias set ? ", data, function(err, rows) {
+        if (err)
+          req.flash('error', err);
+      });
+    } else if (fieldname == "media" && filename.length > 0) {
+      data["media"] = filename;
+      fstream = fs.createWriteStream('./public/uploads/projects/' + id + '/' + filename);
+      file.pipe(fstream);
+      var query = connection.query("INSERT INTO medias set ? ", data, function(err, rows) {
+        if (err)
+          req.flash('error', err);
+      });
+    }
+
+    file.resume();
+  });
+
+  req.busboy.on('finish', function() {
+    req.flash('success', "Le média a bien été ajouté");
+    res.redirect('/projects/media/' + id);
+  });
+});
+
+/*
+ * UPDATE Media place
+*/
+router.post('/projects/media/:project/place/:media', requireLogin, function(req, res){
+  var media = req.params.media;
+  var project = req.params.project;
+  var data = {};
+
+  req.pipe(req.busboy);
+
+  req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
+    data[fieldname] = val;
+  });
+
+  req.busboy.on('finish', function() {
+    connection.query("UPDATE medias SET ? WHERE id = ? ", [data, media], function(err, rows) {
+      if(err)
         req.flash('error', err);
 
-      req.flash('success', "Le média a bien été ajouté");
-      res.redirect('/projects/media/' + id);
+      req.flash('success', "Le média a bien été mis à jour");
+      res.redirect('/projects/media/' + project);
     });
   });
 });

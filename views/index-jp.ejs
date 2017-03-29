@@ -150,7 +150,7 @@
                     <div class="overflower">
                       <p class="description"><%- projects[j].description_jp %></p>
                     </div>
-                    <a class="toggle-more">+ d'informations sur ce projet</a>
+                    <a class="toggle-more">+ このプロジェクトに関する情報</a>
                   </div>
                 </div>
               </div>
@@ -165,7 +165,15 @@
           <div class="background-slider">
             <% for(var z=0; z<projects.length; z++) { %>
               <% if (projects[z].showcase) { %>
-                <div class="background-slide" style="background-image: url(/uploads/projects/covers/<%= projects[z].cover %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+                <% if (projects[z].showcase_type == "video/mp4") { %>
+                  <div class="background-slide" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>">
+                    <video class="background-video" loop muted data-autoplay>
+                			<source src="/uploads/projects/covers/<%= projects[z].showcase_cover %>" type="video/mp4">
+                		</video>
+                  </div>
+                <% } else { %>
+                  <div class="background-slide" data-lazy="/uploads/projects/covers/<%= projects[z].showcase_cover %>" style="background-image: url(/uploads/projects/covers/<%= projects[z].showcase_cover %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+                <% } %>
               <% } %>
             <% } %>
           </div>
@@ -382,7 +390,7 @@
 
       <div class="covers-container">
         <% for(var i=0; i<projects.length; i++) { %>
-          <% if (projects[i].cover != "") { -%>
+          <% if (projects[i].cover) { -%>
             <div class="cover" data-name="<%= projects[i].name_jp %>-<%= projects[i].id %>">
               <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name_jp %>">
             </div>

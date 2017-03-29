@@ -9,6 +9,8 @@ var connection = mysql.createConnection({
   database: 'atrois-studio'
 });
 
+console.log("salut");
+
 
 /*
  * GET Home FR
