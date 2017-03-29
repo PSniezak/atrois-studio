@@ -34,6 +34,7 @@ router.get('/projects/add', requireLogin, function(req, res){
 router.post('/projects/add', requireLogin, function(req, res){
 
   var data = {};
+  data["showcase"] = false;
 
   req.pipe(req.busboy);
   req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
@@ -42,8 +43,6 @@ router.post('/projects/add', requireLogin, function(req, res){
     }
 
     var fstream;
-
-    console.log('./public/uploads/projects/covers/' + filename);
 
     if (fieldname == "showcase_cover" && filename.length > 0) {
       fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
@@ -69,7 +68,6 @@ router.post('/projects/add', requireLogin, function(req, res){
   });
 
   req.busboy.on('finish', function() {
-    console.log(data);
     var query = connection.query("INSERT INTO projects set ? ", data, function(err, rows) {
       if (err)
         req.flash('error', err);
@@ -311,17 +309,29 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
   req.pipe(req.busboy);
   req.busboy.on('file', function(fieldname, file, filename) {
     var test = "a" + filename + "a";
+    var fstream;
 
-    if (test != "aa") {
-      var fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
-      file.pipe(fstream);
-      data["cover"] = filename;
+    if (filename.length > 0) {
+      if (fieldname == "showcase_cover") {
+        fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
+        file.pipe(fstream);
+
+        data["showcase_cover"] = filename;
+        data["showcase_type"] = mimetype;
+      } else if (fieldname != "showcase_cover") {
+        fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
+        file.pipe(fstream);
+        data["cover"] = filename;
+      }
     } else {
       if (data["cover"] == '') {
         delete data['cover'];
+      } else if (data["showcase_cover"] == '') {
+        delete data['showcase_cover'];
       }
-      file.resume();
     }
+
+    file.resume();
   });
 
   req.busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) {
