@@ -348,11 +348,11 @@ $(document).ready(function() {
 
           $('#'+id+' .presentation-container .right .toggle-more').on('click', function() {
             if ($(this).html() == "Fermer" || $(this).html() == "Close" || $(this).html() == "닫기" || $(this).html() == "閉じる") {
-              if (language == "kor") {
+              if (language == "/kor") {
                 $('#'+id+' .presentation-container .right .toggle-more').html('+ 이 프로젝트에 대한 정보');
-              } else if (language == "jp") {
+              } else if (language == "/jp") {
                 $('#'+id+' .presentation-container .right .toggle-more').html('+ このプロジェクトに関する情報');
-              } else if (language == "en") {
+              } else if (language == "/en") {
                 $('#'+id+' .presentation-container .right .toggle-more').html('+ informations about this project');
               } else {
                 $('#'+id+' .presentation-container .right .toggle-more').html('+ d\'informations sur ce projet');
@@ -360,11 +360,11 @@ $(document).ready(function() {
 
               $('#'+id+' .presentation-container .right .overflower').css('max-height', 120);
             } else {
-              if (language == "kor") {
+              if (language == "/kor") {
                 $('#'+id+' .presentation-container .right .toggle-more').html('닫기');
-              } else if (language == "jp") {
+              } else if (language == "/jp") {
                 $('#'+id+' .presentation-container .right .toggle-more').html('閉じる');
-              } else if (language == "en") {
+              } else if (language == "/en") {
                 $('#'+id+' .presentation-container .right .toggle-more').html('Close');
               } else {
                 $('#'+id+' .presentation-container .right .toggle-more').html('Fermer');

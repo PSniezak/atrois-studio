@@ -163,6 +163,7 @@ router.post('/projects/media/:id', requireLogin, function(req, res){
 
   var data = {project_id: id};
   data["mobile"] = false;
+  data["place"] = 0;
 
   req.pipe(req.busboy);
   req.busboy.on('file', function(fieldname, file, filename) {
@@ -207,6 +208,7 @@ router.post('/projects/media_mobile/:id', requireLogin, function(req, res){
 
   var data = {project_id: id};
   data["mobile"] = true;
+  data["place"] = 0;
 
   req.pipe(req.busboy);
   req.busboy.on('file', function(fieldname, file, filename) {
@@ -307,7 +309,7 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
   var data = {};
 
   req.pipe(req.busboy);
-  req.busboy.on('file', function(fieldname, file, filename) {
+  req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
     var test = "a" + filename + "a";
     var fstream;
 
