@@ -50,7 +50,13 @@ router.post('/projects/add', requireLogin, function(req, res){
 
       data["showcase_cover"] = filename;
       data["showcase_type"] = mimetype;
-    } else if (fieldname != "showcase_cover" && filename.length > 0) {
+    } else if (fieldname == "showcase_cover_mobile" && filename.length > 0) {
+      fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
+      file.pipe(fstream);
+
+      data["showcase_cover_mobile"] = filename;
+      data["showcase_type_mobile"] = mimetype;
+    } else if (fieldname != "showcase_cover" && fieldname != "showcase_cover_mobile" && filename.length > 0) {
       fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
       file.pipe(fstream);
       data["cover"] = filename;
@@ -320,7 +326,13 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
 
         data["showcase_cover"] = filename;
         data["showcase_type"] = mimetype;
-      } else if (fieldname != "showcase_cover") {
+      } else if (fieldname == "showcase_cover_mobile") {
+        fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
+        file.pipe(fstream);
+
+        data["showcase_cover"] = filename;
+        data["showcase_type"] = mimetype;
+      } else if (fieldname != "showcase_cover" && fieldname != "showcase_cover_mobile") {
         fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
         file.pipe(fstream);
         data["cover"] = filename;

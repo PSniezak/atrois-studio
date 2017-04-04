@@ -247,7 +247,7 @@ $(document).ready(function() {
   $('#section-home .background-slider').slick({
     slidesToShow: 1,
 	  autoplay: true,
-	  autoplaySpeed: 3000,
+	  autoplaySpeed: 2600,
     speed: 800,
     infinite: true,
     fade: true,
