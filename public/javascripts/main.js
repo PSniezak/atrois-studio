@@ -244,21 +244,39 @@ $(document).ready(function() {
     $.fn.fullpage.moveSectionDown();
   });
 
-  $('#section-home .background-slider').slick({
-    slidesToShow: 1,
-	  autoplay: true,
-	  autoplaySpeed: 2600,
-    speed: 800,
-    infinite: true,
-    fade: true,
-    arrows: false,
-    swipe: false,
-    pauseOnFocus: false,
-    pauseOnHover: false
-  });
+  if (isMobile) {
+    $('#section-home .background-slider').hide();
+    $('#section-home .background-slider-mobile').show();
 
-  if ($('#section-home .background-slider video').length > 0) {
-    $('#section-home .background-slider video').get(0).play();
+    $('#section-home .background-slider-mobile').slick({
+      slidesToShow: 1,
+  	  autoplay: true,
+  	  autoplaySpeed: 2600,
+      speed: 800,
+      infinite: true,
+      fade: true,
+      arrows: false,
+      swipe: false,
+      pauseOnFocus: false,
+      pauseOnHover: false
+    });
+  } else {
+    $('#section-home .background-slider').slick({
+      slidesToShow: 1,
+  	  autoplay: true,
+  	  autoplaySpeed: 2600,
+      speed: 800,
+      infinite: true,
+      fade: true,
+      arrows: false,
+      swipe: false,
+      pauseOnFocus: false,
+      pauseOnHover: false
+    });
+
+    if ($('#section-home .background-slider video').length > 0) {
+      $('#section-home .background-slider video').get(0).play();
+    }
   }
 
   // Covers
