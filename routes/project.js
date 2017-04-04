@@ -342,7 +342,7 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
         delete data['cover'];
       } else if (data["showcase_cover"] == '') {
         delete data['showcase_cover'];
-      } else if data["showcase_cover_mobile"] == '') {
+      } else if (data["showcase_cover_mobile"] == '') {
         delete data['showcase_cover_mobile'];
       }
     }
