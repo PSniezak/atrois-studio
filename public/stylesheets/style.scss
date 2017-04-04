@@ -689,6 +689,9 @@ h3 {
                 -webkit-overflow-scrolling: touch;
                 max-height: 248px !important;
                 height: 100% !important;
+                -webkit-transform: translateZ(0px);
+-webkit-transform: translate3d(0,0,0);
+-webkit-perspective: 1000;
 
                 &::before {
                   content: '';
@@ -866,6 +869,9 @@ h3 {
       ul {
         overflow-y : scroll;
         -webkit-overflow-scrolling:touch;
+        -webkit-transform: translateZ(0px);
+-webkit-transform: translate3d(0,0,0);
+-webkit-perspective: 1000;
         height: 500px;
         position:relative;
 
@@ -1116,6 +1122,9 @@ h3 {
       .columns {
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        -webkit-transform: translateZ(0px);
+-webkit-transform: translate3d(0,0,0);
+-webkit-perspective: 1000;
 
         .helper {
           display: none;
