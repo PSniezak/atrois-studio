@@ -856,9 +856,13 @@ h3 {
         font: 13px "DIN Pro Medium", sans-serif, Arial;
       }
       ul {
-        overflow-y : scroll !important;
         height: 500px;
         position:relative;
+
+        white-space: nowrap;
+      	overflow-y: scroll !important;
+      	overflow-x: hidden;
+      	-webkit-overflow-scrolling: touch;
 
         &::-webkit-scrollbar {
           display: none;
