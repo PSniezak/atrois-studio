@@ -109,6 +109,11 @@ body {
   position: relative;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
 a, p, span, h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
 }
@@ -682,7 +687,7 @@ h3 {
               &.longer {
                 overflow-y: scroll !important;
                 -webkit-overflow-scrolling: touch;
-                max-height: 348px !important;
+                max-height: 248px !important;
                 height: 100% !important;
 
                 &::before {
