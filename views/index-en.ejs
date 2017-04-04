@@ -167,14 +167,34 @@
           <div class="background-slider">
             <% for(var z=0; z<projects.length; z++) { %>
               <% if (projects[z].showcase) { %>
-                <% if (projects[z].showcase_type == "video/mp4") { %>
-                  <div class="background-slide" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>">
-                    <video class="background-video" loop muted data-autoplay>
-                			<source src="/uploads/projects/covers/<%= projects[z].showcase_cover %>" type="video/mp4">
-                		</video>
-                  </div>
-                <% } else { %>
-                  <div class="background-slide" data-lazy="/uploads/projects/covers/<%= projects[z].showcase_cover %>" style="background-image: url(/uploads/projects/covers/<%= projects[z].showcase_cover %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+                <% if (projects[z].showcase_cover) { %>
+                  <% if (projects[z].showcase_type == "video/mp4") { %>
+                    <div class="background-slide" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>">
+                      <video class="background-video" loop muted data-autoplay>
+                  			<source src="/uploads/projects/covers/<%= projects[z].showcase_cover %>" type="video/mp4">
+                  		</video>
+                    </div>
+                  <% } else { %>
+                    <div class="background-slide" data-lazy="/uploads/projects/covers/<%= projects[z].showcase_cover %>" style="background-image: url(/uploads/projects/covers/<%= projects[z].showcase_cover %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+                  <% } %>
+                <% } %>
+              <% } %>
+            <% } %>
+          </div>
+
+          <div style="display: none" class="background-slider-mobile">
+            <% for(var z=0; z<projects.length; z++) { %>
+              <% if (projects[z].showcase) { %>
+                <% if (projects[z].showcase_cover_mobile) { %>
+                  <% if (projects[z].showcase_type_mobile == "video/mp4") { %>
+                    <div class="background-slide" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>">
+                      <video class="background-video" loop muted data-autoplay>
+                  			<source src="/uploads/projects/covers/<%= projects[z].showcase_cover_mobile %>" type="video/mp4">
+                  		</video>
+                    </div>
+                  <% } else { %>
+                    <div class="background-slide" data-lazy="/uploads/projects/covers/<%= projects[z].showcase_cover_mobile %>" style="background-image: url(/uploads/projects/covers/<%= projects[z].showcase_cover_mobile %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+                  <% } %>
                 <% } %>
               <% } %>
             <% } %>
