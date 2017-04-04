@@ -330,8 +330,8 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
         fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
         file.pipe(fstream);
 
-        data["showcase_cover"] = filename;
-        data["showcase_type"] = mimetype;
+        data["showcase_cover_mobile"] = filename;
+        data["showcase_type_mobile"] = mimetype;
       } else if (fieldname != "showcase_cover" && fieldname != "showcase_cover_mobile") {
         fstream = fs.createWriteStream('./public/uploads/projects/covers/' + filename);
         file.pipe(fstream);
@@ -342,6 +342,8 @@ router.post('/projects/edit/:id', requireLogin, function(req, res){
         delete data['cover'];
       } else if (data["showcase_cover"] == '') {
         delete data['showcase_cover'];
+      } else if data["showcase_cover_mobile"] == '') {
+        delete data['showcase_cover_mobile'];
       }
     }
 
