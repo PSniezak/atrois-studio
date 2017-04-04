@@ -109,11 +109,6 @@ body {
   position: relative;
 }
 
-html, body {
-  height: 100%;
-  overflow: hidden;
-}
-
 a, p, span, h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
 }
@@ -819,6 +814,7 @@ h3 {
       }
       .right, .left {
         position: relative;
+        height: 100%;
 
         .header {
           z-index: 2;
@@ -860,7 +856,7 @@ h3 {
         font: 13px "DIN Pro Medium", sans-serif, Arial;
       }
       ul {
-        overflow-y : scroll;
+        overflow-y : scroll !important;
         height: 500px;
         position:relative;
 
