@@ -226,7 +226,9 @@ $(document).ready(function() {
 
       $('#menu-container-mobile .container, #menu-container-mobile .copyright').fadeOut("fast", function() {
         $('#menu-container-mobile').hide("slide", { direction: "down" }, 500);
-        $('.mobile-close-button').show();
+        if ($('.slick-slider.active').length > 0) {
+          $('.mobile-close-button').show();
+        }
       });
     } else {
       isMenuActive = true;

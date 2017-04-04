@@ -810,6 +810,7 @@ h3 {
       text-align: left;
       height: 400px;
       overflow-y: hidden;
+      position: relative;
       -webkit-overflow-scrolling: touch;
 
       .helper {
@@ -861,7 +862,7 @@ h3 {
       }
       ul {
         overflow-y : scroll;
-        -webkit-overflow-scrolling:touch;
+        -webkit-overflow-scrolling:auto;
         height: 500px;
         position:relative;
 
@@ -986,7 +987,7 @@ h3 {
   #section-projects {
     .container {
       margin-top: 10% !important;
-      margin-bottom: 100% !important;
+      margin-bottom: 90% !important;
       box-sizing: border-box;
       padding: 0 6% 0 13%;
 
