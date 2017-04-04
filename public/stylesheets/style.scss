@@ -810,9 +810,7 @@ h3 {
       text-align: left;
       height: 400px;
       overflow-y: hidden;
-      position: relative;
       -webkit-overflow-scrolling: touch;
-      z-index: 99999;
 
       .helper {
         display: inline-block;
@@ -862,7 +860,6 @@ h3 {
         font: 13px "DIN Pro Medium", sans-serif, Arial;
       }
       ul {
-        z-index: 9999999;
         overflow-y : scroll;
         -webkit-overflow-scrolling:touch;
         height: 500px;
