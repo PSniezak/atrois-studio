@@ -284,7 +284,9 @@ $(document).ready(function() {
   // Covers
   $('.covers-container .cover').each(function(i, obj) {
     var posx = (Math.random() * ($(window).width() - $(this).width()) / 2).toFixed();
-    var posy = 45 + (Math.random() * ($(window).height() - $(this).height()) / 4 - $('#additional .gradient-reverse').height()).toFixed();
+    var posy = 40 + parseInt((Math.random() * ($(window).height() - $(this).height()) / 4 - $('#additional .gradient-reverse').height()).toFixed());
+
+    console.log(posy);
 
     $(this).find('img').css('left', posx+"px");
     $(this).find('img').css('top', posy+"px");
