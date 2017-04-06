@@ -409,7 +409,7 @@ $(document).ready(function() {
                 {
                   breakpoint: 768,
                   settings: {
-                    verticalSwiping: true,
+                    verticalSwiping: false,
                   }
                 }
               ]
