@@ -14,6 +14,12 @@ $(document).ready(function() {
   var offsetSocial = $('#header-desktop .container .middle li:last').offset().left;
   $('#additional .social').css('left', offsetSocial - 51);
 
+  // Year margin
+  if (!isMobile) {
+    var offsetLogo = parseInt($('#additional .logo').offset().top) - 120;
+    $('.year-section:first-child').css('margin-top', offsetLogo+'px');
+  }
+
   // Global
   var gradientTimeout;
   var anchors = ['accueil', 'projets', 'à-propos', 'contact', 'presse', 'store'];
@@ -509,7 +515,4 @@ window.onresize = function() {
     $('.year-fixed').css('left', yearSectionOffset - 58);
   }
   $('.year-fixed').css('margin-top', containerProjectOffset - 32);
-
-  var offsetSocial = $('#header-desktop .container .middle li:last').offset().left;
-  $('#additional .social').css('left', offsetSocial - 52);
 }

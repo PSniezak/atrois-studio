@@ -450,9 +450,9 @@ h3 {
     .year-section {
       position: relative;
 
-      &:first-child {
-        margin-top: 40%;
-      }
+      // &:first-child {
+      //   margin-top: 40%;
+      // }
 
       &:last-child {
         margin-bottom: 60%;
@@ -598,27 +598,9 @@ h3 {
           min-width: 100%;
           min-height: 100%;
           position: absolute;
-          height: auto;
-          top: 0;
-          left: 0;
-        }
-        img {
-          /* min-width: 100%; */
-          /* min-height: 100%; */
-          position: absolute;
           /* height: auto; */
-          top: 0;
-          left: 0;
-          max-height: 100%;
-          /* min-width: 100%; */
-          /* height: auto; */
-          /* width: auto; */
-          position: absolute;
-          top: -100%;
-          bottom: -100%;
-          left: -100%;
-          right: -100%;
-          margin: auto;
+          width: auto;
+          height: 100%;
         }
       }
     }
