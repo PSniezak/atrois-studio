@@ -211,7 +211,7 @@ h3 {
           top: -6px;
         }
         &::after {
-          top: 5px;
+          top: 6px;
         }
 
         &.is-clicked {
@@ -329,7 +329,7 @@ h3 {
         position: relative;
 
         &:not(:last-child) {
-          margin-right: 22px;
+          margin-right: 21px;
         }
         a {
           font: 12px 'DIN Pro Medium', sans-serif, Arial;
@@ -930,7 +930,7 @@ h3 {
         display: inline-block;
 
         &:not(:first-child) {
-          margin-left: 22px;
+          margin-left: 21px;
         }
       }
     }
