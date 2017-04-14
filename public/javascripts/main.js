@@ -345,7 +345,7 @@ $(document).ready(function() {
 
           for (var media in data.medias) {
             if (data.medias[media].media) {
-              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower"><img data-lazy="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '" alt=""></div></div>';
+              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower background-image-container" style="background-image: url(/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + ');"></div></div>';
             } else {
               slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
             }

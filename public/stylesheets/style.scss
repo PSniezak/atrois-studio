@@ -594,6 +594,11 @@ h3 {
         overflow: hidden;
         height: 100%; width: 100%;
 
+        &.background-image-container {
+          background-position: center center;
+          background-size: cover;
+        }
+
         img, video {
           min-width: 100%;
           min-height: 100%;
