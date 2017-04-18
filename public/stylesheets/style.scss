@@ -664,7 +664,7 @@ h3 {
               max-height: 120px;
 
               &.longer {
-                overflow-y: auto !important;
+                overflow-y: scroll !important;
                 max-height: 248px !important;
                 height: 100% !important;
 
