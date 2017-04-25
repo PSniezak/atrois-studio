@@ -377,7 +377,7 @@ $(document).ready(function() {
               if (language == "/kor") {
                 $('#'+id+' .presentation-container .right .toggle-more').html('+ 이 프로젝트에 대한 정보');
               } else if (language == "/jp") {
-                $('#'+id+' .presentation-container .right .toggle-more').html('+ このプロジェクトに関する情報');
+                $('#'+id+' .presentation-container .right .toggle-more').html('このプロジェクトの詳細について');
               } else if (language == "/en") {
                 $('#'+id+' .presentation-container .right .toggle-more').html('+ informations about this project');
               } else {
