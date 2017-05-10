@@ -218,6 +218,7 @@
                     <% for(var j=0; j<projects.length; j++) { %>
                       <% if(projects[j].year == years[i].year) { %>
                         <a class="project-link" data-name="<%= projects[j].name_kor %>-<%= projects[j].id %>" data-id="<%= projects[j].id %>">
+                        <div class="project-cover" style="background-image: url(/uploads/projects/covers/<%= projects[j].cover %>);"></div>
                           <li>
                             <span class="client"><%= projects[j].client_kor %></span>
                             <br>
