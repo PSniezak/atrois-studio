@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('#loader .container img').fadeIn();
+  $('#loader .container svg').fadeIn();
 
   // Languages
   $('.languages').on('click', function(e) {
@@ -10,9 +10,6 @@ $(document).ready(function() {
     $(location).attr('href', href);
   });
 
-  // Additional
-  var offsetSocial = $('#header-desktop .container .middle li:last').offset().left;
-  $('#additional .social').css('left', offsetSocial - 51);
 
   // Year margin
   if (!isMobile) {
@@ -38,6 +35,14 @@ $(document).ready(function() {
     isMobile = true;
   }
 
+  // Additional
+  if (language == "/jp") {
+    var offsetSocial = $('#header-desktop .container .middle li:last').offset().left;
+    $('#additional .social').css('left', offsetSocial - 18);
+  } else {
+    var offsetSocial = $('#header-desktop .container .middle li:last').offset().left;
+    $('#additional .social').css('left', offsetSocial - 51);
+  }
 
   // Fullpage.js
   $('#fullpage').fullpage({
@@ -385,6 +390,7 @@ $(document).ready(function() {
               }
 
               $('#'+id+' .presentation-container .right .overflower').removeClass('longer');
+              $('#'+id+' .presentation-container .right .overflower-container').removeClass('normal-scroll');
               $('#'+id+' .presentation-container .right .overflower').css('max-height', 120);
             } else {
               if (language == "/kor") {
@@ -398,7 +404,9 @@ $(document).ready(function() {
               }
 
               if ($('#'+id+' .presentation-container .right .overflower p').height() > 100) {
+                $('#'+id+' .presentation-container .right .overflower').css('max-height', 248);
                 $('#'+id+' .presentation-container .overflower-container .overflower').addClass('longer');
+                $('#'+id+' .presentation-container .right .overflower-container').addClass('normal-scroll');
               } else {
                 $('#'+id+' .presentation-container .right .overflower').css('max-height', $('#'+id+' .presentation-container .right .overflower p').height() + 20);
               }

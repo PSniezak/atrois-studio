@@ -8,7 +8,7 @@
   .container {
     width: 100%; height: 100%;
 
-    img {
+    svg {
       display: none;
       position: absolute;
       top: 50%;
@@ -107,6 +107,7 @@ body {
   padding: 50px;
   font: 14px "DIN Pro", sans-serif, Arial;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 a, p, span, h1, h2, h3, h4, h5, h6 {
@@ -137,7 +138,7 @@ h3 {
   display: none;
   position: fixed;
   bottom: 0;
-  width: 98%; height: 8%;
+  width: 98%; height: 12%;
   background:-moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
   background:-webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
   background:linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
@@ -660,19 +661,27 @@ h3 {
             position: absolute;
 
             .overflower {
-              overflow: hidden;
+              height: 100%;
               max-height: 120px;
+              overflow: hidden;
 
               &.longer {
+                max-height: 248px;
+                height: 100%;
+                // overflow-y: scroll !important;
+                // overflow: auto !important;
+                // overflow: scroll !important;
+                // overflow-y: auto !important;
                 overflow-y: scroll !important;
-                max-height: 248px !important;
-                height: 100% !important;
+              	overflow-x: hidden;
+              	-webkit-overflow-scrolling: touch;
 
                 &::before {
                   content: '';
                   width: 100%;
                   height: 18px;
                   position: absolute;
+                  top: 0;
                   right: 0;
                   background:-moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%);
                   background:-webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%);
@@ -791,8 +800,10 @@ h3 {
       display: inline-block;
       width: 100%;
       text-align: left;
-      height: 400px;
+      height: 350px;
+      padding-right: 30px;
       overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
 
       .helper {
         display: inline-block;
@@ -820,6 +831,18 @@ h3 {
         }
         &::-webkit-scrollbar {
           display: none;
+        }
+        &::after {
+          content: '';
+          width: 100%;
+          height: 18px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background:-moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,1) 100%);
+          background:-webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,1) 100%);
+          background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,1) 100%);
+          filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
         }
       }
       .left {
@@ -891,7 +914,7 @@ h3 {
     position: fixed;
     left: 100px; bottom: calc(50% - 21px);
 
-    img {
+    svg {
       height: 42px; width: auto;
     }
   }
