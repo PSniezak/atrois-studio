@@ -10,6 +10,8 @@ $(document).ready(function() {
     $(location).attr('href', href);
   });
 
+  $('.project-cover').Lazy();
+
 
   // Year margin
   if (!isMobile) {
