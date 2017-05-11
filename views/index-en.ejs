@@ -434,9 +434,21 @@
 
     <script type="text/javascript">
       $(window).on('load', function() {
+        var isMobile = false;
+
+        if (window.innerWidth < 768) {
+          isMobile = true;
+        }
+
         setTimeout(function() {
           $('#loader').fadeOut();
-          $('#main').animate({opacity: 1}, 1000);
+          $('#main').animate({opacity: 1}, 1000, function() {
+            if (isMobile) {
+             $('#section-home .background-slider-mobile').slick('slickPlay');
+            } else {
+              $('#section-home .background-slider').slick('slickPlay');
+            }
+          });
         }, 2000);
       });
     </script>

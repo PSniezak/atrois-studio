@@ -24,6 +24,15 @@
   opacity: 0;
 }
 
+::selection {
+  color: white;
+  background: #000; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  color: white;
+  background: #000; /* Gecko Browsers */
+}
+
 /* FONTS */
 @font-face {
   font-family: 'DIN Pro Black';
@@ -513,7 +522,7 @@ h3 {
             * {
               -webkit-touch-callout: none;
               -webkit-user-select: none;
-               -khtml-user-select: none;
+              -khtml-user-select: none;
               -moz-user-select: none;
               -ms-user-select: none;
               user-select: none;

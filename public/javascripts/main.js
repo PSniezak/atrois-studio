@@ -265,7 +265,7 @@ $(document).ready(function() {
 
     $('#section-home .background-slider-mobile').slick({
       slidesToShow: 1,
-  	  autoplay: true,
+  	  autoplay: false,
   	  autoplaySpeed: 2600,
       speed: 800,
       infinite: true,
@@ -278,7 +278,7 @@ $(document).ready(function() {
   } else {
     $('#section-home .background-slider').slick({
       slidesToShow: 1,
-  	  autoplay: true,
+  	  autoplay: false,
   	  autoplaySpeed: 2600,
       speed: 800,
       infinite: true,
