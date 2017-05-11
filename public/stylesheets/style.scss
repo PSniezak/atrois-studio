@@ -532,16 +532,6 @@ h3 {
               font: 8px "DIN Pro Light";
             }
           }
-
-          &:hover .project-cover {
-            opacity: 1;
-            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
-            -webkit-filter: alpha(opacity=1);
-            -moz-filter: alpha(opacity=1);
-            -ms-filter: alpha(opacity=1);
-            -o-filter: alpha(opacity=1);
-            filter: alpha(opacity=1);
-          }
         }
       }
     }
@@ -1058,6 +1048,16 @@ h3 {
             margin-right: 4%;
             margin-bottom: 24px;
             vertical-align: top;
+
+            &:hover .project-cover {
+              opacity: 1;
+              -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
+              -webkit-filter: alpha(opacity=1);
+              -moz-filter: alpha(opacity=1);
+              -ms-filter: alpha(opacity=1);
+              -o-filter: alpha(opacity=1);
+              filter: alpha(opacity=1);
+            }
           }
         }
       }
