@@ -37,6 +37,14 @@ $(document).ready(function() {
     isMobile = true;
   }
 
+  // Languages page check
+  $('.languages').click(function(event) {
+    if ($('.slick-slider.active').length > 0) {
+      var currentId = $('.unique-slider.active').attr('id');
+      sessionStorage.setItem('project', currentId);
+    }
+  });
+
   // Additional
   if (language == "/jp") {
     var offsetSocial = $('#header-desktop .container .middle li:last').offset().left;
@@ -324,6 +332,7 @@ $(document).ready(function() {
   $('.project-link, .background-slide').on('click', function() {
     var id = $(this).data('id');
     var nameId = $(this).data('name');
+
 
     if ($('#' + id + ' .slide').length > 1) {
       $('#'+id).addClass('active').show();

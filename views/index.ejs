@@ -449,6 +449,11 @@
             } else {
               $('#section-home .background-slider').slick('slickPlay');
             }
+
+            if (sessionStorage.getItem('project')) {
+              $('.project-link[data-id="'+sessionStorage.getItem('project')+'"]').click();
+              sessionStorage.removeItem('project');
+            }
           });
         }, 2000);
       });
