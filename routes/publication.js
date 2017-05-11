@@ -35,8 +35,6 @@ router.post('/publications/add', requireLogin, function(req, res){
 
   var input = JSON.parse(JSON.stringify(req.body));
 
-  console.log(input);
-
   var data = {
     season: input.season,
     season_en: input.season_en,

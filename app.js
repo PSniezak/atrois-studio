@@ -6,7 +6,9 @@ var express       = require('express'),
     bodyParser    = require('body-parser'),
     session       = require('express-session'),
     flash         = require('connect-flash'),
-    busboy        = require("connect-busboy");
+    busboy        = require("connect-busboy"),
+    robots        = require("express-robots"),
+    sitemap       = require('express-sitemap');
 
 // MySQL
 var mysql = require('mysql');
@@ -23,6 +25,30 @@ var project = require('./routes/project');
 var publication = require('./routes/publication');
 
 var app = express();
+
+// Sitemap
+sitemap({
+  map: {
+    '/': ['get'],
+    '/en': ['get'],
+    '/jp': ['get'],
+    '/kor': ['get'],
+    '/admin': ['post']
+  },
+  route: {
+    '/': {
+      lastmod: '2014-06-20',
+      changefreq: 'always',
+      priority: 1.0,
+    },
+    '/admin': {
+      disallow: true,
+    },
+  },
+}).XMLtoFile();
+
+// Robots.txt
+app.use(robots(__dirname + '/robots.txt'));
 
 // Session
 app.use(session({
