@@ -117,6 +117,10 @@ $(document).ready(function() {
 
         clearTimeout(projectsInterval);
       }
+
+      if (nextIndex == 5 && isMobile) {
+        $('#section-press .left ul').scrollTop(0)
+      }
     },
 
     afterLoad: function(anchorLink, index) {

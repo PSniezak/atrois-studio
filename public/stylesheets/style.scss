@@ -842,8 +842,6 @@ h3 {
       text-align: left;
       height: 350px;
       padding-right: 30px;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
 
       .helper {
         display: inline-block;
@@ -1169,13 +1167,13 @@ h3 {
       margin-top: 28% !important;
 
       .columns {
-        overflow-y: auto;
+        overflow-y: hidden;
 
         .helper {
           display: none;
         }
         .right, .left {
-          width: 46%;
+          width: 61%;
           min-height: 101%;
 
           ul {
