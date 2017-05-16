@@ -4,12 +4,21 @@ $(document).ready(function() {
 
   // Languages
   $('.languages').on('click', function(e) {
+    e.stopPropagation();
     e.preventDefault();
+
     var hash = window.location.hash.substr(1);
     var href = $(this).attr('href') + "#" + hash;
+
+    if ($('.slick-slider.active').length > 0) {
+      var currentId = $('.unique-slider.active').attr('id');
+      sessionStorage.setItem('project', currentId);
+    }
+
     $(location).attr('href', href);
   });
 
+  // Lazy Load
   $('.project-cover').Lazy();
 
 
@@ -36,14 +45,6 @@ $(document).ready(function() {
     $('html').addClass('mobile');
     isMobile = true;
   }
-
-  // Languages page check
-  $('.languages').click(function(event) {
-    if ($('.slick-slider.active').length > 0) {
-      var currentId = $('.unique-slider.active').attr('id');
-      sessionStorage.setItem('project', currentId);
-    }
-  });
 
   // Additional
   if (language == "/jp") {
