@@ -148,10 +148,10 @@ h3 {
   position: fixed;
   bottom: 0;
   width: 98%; height: 12%;
-  background:-moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
-  background:-webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
-  background:linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0) 100%);
-  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+  background:-moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  background:-webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background:linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
 }
 .blend {
   mix-blend-mode: exclusion;
@@ -587,6 +587,24 @@ h3 {
   height: 100%;
   background-color: #fff;
 
+  .mobile-arrow {
+    display: none;
+    z-index: 101;
+    position: absolute;
+    width: 18px; height: 18px;
+    bottom: 30px;
+    mix-blend-mode: exclusion;
+
+    path {
+      fill: #fff;
+    }
+    &.mobile-arrow-left {
+      left: 18px;
+    }
+    &.mobile-arrow-right {
+      right: 18px;
+    }
+  }
   .close-button {
     position: absolute;
     right: 30px;
@@ -1073,6 +1091,9 @@ h3 {
   #projects-sliders {
     .close-button {
       display: none;
+    }
+    .mobile-arrow {
+      display: block;
     }
     .center-cover {
       display: none;

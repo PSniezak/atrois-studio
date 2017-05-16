@@ -129,6 +129,8 @@
         <div class="close-button">
           <img src="/images/cross.png" alt="Close">
         </div>
+        <div class="mobile-arrow mobile-arrow-left"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg></div>
+        <div class="mobile-arrow mobile-arrow-right"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg></div>
 
         <% for(var j=0; j<projects.length; j++) { %>
           <div id="<%= projects[j].id %>" class="unique-slider">
