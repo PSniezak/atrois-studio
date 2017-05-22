@@ -825,6 +825,8 @@ h3 {
         font: 13px "DIN Pro Italic";
       }
       .lighter {
+        max-width: 208px;
+        text-align: justify;
         font: 8px "DIN Pro Light";
         color: $grey;
       }
