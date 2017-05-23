@@ -8,7 +8,8 @@ var express       = require('express'),
     flash         = require('connect-flash'),
     busboy        = require("connect-busboy"),
     robots        = require("express-robots"),
-    sitemap       = require('express-sitemap');
+    sitemap       = require('express-sitemap'),
+    device        = require('express-device');
 
 // MySQL
 var mysql = require('mysql');
@@ -56,6 +57,10 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
+
+// Device
+app.use(device.capture());
+device.enableDeviceHelpers(app);
 
 app.use(flash());
 

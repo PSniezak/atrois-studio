@@ -167,41 +167,45 @@
       <div id="fullpage">
         <!-- HOME -->
         <div data-anchor="accueil" id="section-home" class="section">
-          <div class="background-slider">
-            <% for(var z=0; z<projects.length; z++) { %>
-              <% if (projects[z].showcase) { %>
-                <% if (projects[z].showcase_cover) { %>
-                  <% if (projects[z].showcase_type == "video/mp4") { %>
-                    <div class="background-slide" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>">
-                      <video class="background-video" loop muted data-autoplay>
-                  			<source src="/uploads/projects/covers/<%= projects[z].showcase_cover %>" type="video/mp4">
-                  		</video>
-                    </div>
-                  <% } else { %>
-                    <div class="background-slide" data-lazy="/uploads/projects/covers/<%= projects[z].showcase_cover %>" style="background-image: url(/uploads/projects/covers/<%= projects[z].showcase_cover %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+          <% if (is_desktop) { %>
+            <div class="background-slider">
+              <% for(var z=0; z<projects.length; z++) { %>
+                <% if (projects[z].showcase) { %>
+                  <% if (projects[z].showcase_cover) { %>
+                    <% if (projects[z].showcase_type == "video/mp4") { %>
+                      <div class="background-slide" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>">
+                        <video class="background-video" loop muted data-autoplay>
+                    			<source src="/uploads/projects/covers/<%= projects[z].showcase_cover %>" type="video/mp4">
+                    		</video>
+                      </div>
+                    <% } else { %>
+                      <div class="background-slide" data-lazy="/uploads/projects/covers/<%= projects[z].showcase_cover %>" style="background-image: url(/uploads/projects/covers/<%= projects[z].showcase_cover %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+                    <% } %>
                   <% } %>
                 <% } %>
               <% } %>
-            <% } %>
-          </div>
+            </div>
+          <% } %>
 
-          <div style="display: none" class="background-slider-mobile">
-            <% for(var z=0; z<projects.length; z++) { %>
-              <% if (projects[z].showcase) { %>
-                <% if (projects[z].showcase_cover_mobile) { %>
-                  <% if (projects[z].showcase_type_mobile == "video/mp4") { %>
-                    <div class="background-slide" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>">
-                      <video class="background-video" loop muted data-autoplay>
-                  			<source src="/uploads/projects/covers/<%= projects[z].showcase_cover_mobile %>" type="video/mp4">
-                  		</video>
-                    </div>
-                  <% } else { %>
-                    <div class="background-slide" data-lazy="/uploads/projects/covers/<%= projects[z].showcase_cover_mobile %>" style="background-image: url(/uploads/projects/covers/<%= projects[z].showcase_cover_mobile %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+          <% if (is_mobile) { %>
+            <div style="display: none" class="background-slider-mobile">
+              <% for(var z=0; z<projects.length; z++) { %>
+                <% if (projects[z].showcase) { %>
+                  <% if (projects[z].showcase_cover_mobile) { %>
+                    <% if (projects[z].showcase_type_mobile == "video/mp4") { %>
+                      <div class="background-slide" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>">
+                        <video class="background-video" loop muted data-autoplay>
+                    			<source src="/uploads/projects/covers/<%= projects[z].showcase_cover_mobile %>" type="video/mp4">
+                    		</video>
+                      </div>
+                    <% } else { %>
+                      <div class="background-slide" data-lazy="/uploads/projects/covers/<%= projects[z].showcase_cover_mobile %>" style="background-image: url(/uploads/projects/covers/<%= projects[z].showcase_cover_mobile %>)" data-name="<%= projects[z].name %>-<%= projects[z].id %>" data-id="<%= projects[z].id %>"></div>
+                    <% } %>
                   <% } %>
                 <% } %>
               <% } %>
-            <% } %>
-          </div>
+            </div>
+          <% } %>
 
           <div class="arrow-down">
             <a><img src="/images/arrow-down.png" alt="Navigation - Flèche vers le bas"></a>
@@ -423,15 +427,17 @@
         <div class="gradient-reverse"></div>
       </div>
 
-      <div class="covers-container">
-        <% for(var i=0; i<projects.length; i++) { %>
-          <% if (projects[i].cover) { -%>
-            <div class="cover" data-name="<%= projects[i].name %>-<%= projects[i].id %>">
-              <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name %>">
-            </div>
+      <% if (is_desktop) { %>
+        <div class="covers-container">
+          <% for(var i=0; i<projects.length; i++) { %>
+            <% if (projects[i].cover) { -%>
+              <div class="cover" data-name="<%= projects[i].name %>-<%= projects[i].id %>">
+                <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name %>">
+              </div>
+            <% } %>
           <% } %>
-        <% } %>
-      </div>
+        </div>
+      <% } %>
     </div>
 
     <script type="text/javascript" src="/libraries/jquery-3.1.1.min.js"></script>
@@ -450,9 +456,6 @@
 
         if (window.innerWidth < 768) {
           isMobile = true;
-
-          $('.covers-container').remove();
-          $('.background-slider').remove();
         }
 
         setTimeout(function() {

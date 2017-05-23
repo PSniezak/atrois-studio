@@ -164,6 +164,7 @@
       <div id="fullpage">
         <!-- HOME -->
         <div data-anchor="accueil" id="section-home" class="section">
+          <% if (is_desktop) { %>
           <div class="background-slider">
             <% for(var z=0; z<projects.length; z++) { %>
               <% if (projects[z].showcase) { %>
@@ -181,7 +182,9 @@
               <% } %>
             <% } %>
           </div>
+          <% } %>
 
+          <% if (is_mobile) { %>
           <div style="display: none" class="background-slider-mobile">
             <% for(var z=0; z<projects.length; z++) { %>
               <% if (projects[z].showcase) { %>
@@ -199,6 +202,7 @@
               <% } %>
             <% } %>
           </div>
+          <% } %>
 
           <div class="arrow-down">
             <a><img src="/images/arrow-down.png" alt="Navigation - Flèche vers le bas"></a>
@@ -409,15 +413,17 @@
         <div class="gradient-reverse"></div>
       </div>
 
-      <div class="covers-container">
-        <% for(var i=0; i<projects.length; i++) { %>
-          <% if (projects[i].cover) { -%>
-            <div class="cover" data-name="<%= projects[i].name_jp %>-<%= projects[i].id %>">
-              <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name_jp %>">
-            </div>
+      <% if (is_desktop) { %>
+        <div class="covers-container">
+          <% for(var i=0; i<projects.length; i++) { %>
+            <% if (projects[i].cover) { -%>
+              <div class="cover" data-name="<%= projects[i].name %>-<%= projects[i].id %>">
+                <img src="/uploads/projects/covers/<%= projects[i].cover %>" alt="<%= projects[i].name_jp %>">
+              </div>
+            <% } %>
           <% } %>
-        <% } %>
-      </div>
+        </div>
+      <% } %>
     </div>
 
     <script type="text/javascript" src="/libraries/jquery-3.1.1.min.js"></script>
@@ -436,9 +442,6 @@
 
         if (window.innerWidth < 768) {
           isMobile = true;
-
-          $('.covers-container').remove();
-          $('.background-slider').remove();
         }
 
         setTimeout(function() {
