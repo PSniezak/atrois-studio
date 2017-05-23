@@ -180,7 +180,18 @@ $(document).ready(function() {
       }
 
       highestYear = $('.year-fixed span').html();
-    }
+    },
+
+    afterResize: function() {
+      var pressHeight = $('#section-press').height();
+      var pressOffset = $('#section-press .container .columns').offset().top - $('#section-press').offset().top;
+
+      $('#section-press .container .columns, #section-press .container .columns ul, #section-press .container .columns .left').height(pressHeight - pressOffset);
+
+      if (isMobile) {
+        $('#section-press .container').height(pressHeight - pressOffset);
+      }
+    },
   });
 
 
