@@ -965,6 +965,35 @@ h3 {
   }
 }
 
+
+/* STORE */
+#section-store {
+  .container {
+    height: 100px;
+    .columns {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      height: 350px;
+      padding-right: 30px;
+
+      .helper {
+        display: inline-block;
+        height: 1px;
+        width: 25%;
+      }
+      .content {
+        display: inline-block;
+
+        p {
+          text-align: justify;
+          max-width: 360px;
+        }
+      }
+    }
+  }
+}
+
 /* ADDITIONAL */
 #additional {
   .logo {
@@ -1209,6 +1238,35 @@ h3 {
         }
         .right {
           margin-left: 6%;
+        }
+      }
+    }
+  }
+
+
+  /* STORE */
+  #section-store {
+    .container {
+      height: 100px;
+
+      .columns {
+        display: block;
+        width: 100%;
+        text-align: left;
+        height: 100%;
+        padding-right: 30px;
+
+        .helper {
+          display: none;
+        }
+        .content {
+          display: block;
+
+          p {
+            margin: 0 auto;
+            text-align: justify;
+            max-width: 80%;
+          }
         }
       }
     }
