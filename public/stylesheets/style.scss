@@ -1281,7 +1281,10 @@ h3 {
   /* STORE */
   #section-store {
     .container {
-      height: 100px;
+      height: auto;
+      padding: 0 13% 0 13%;
+      box-sizing: border-box;
+      margin-top: 0 !important;
 
       .columns {
         display: block;
@@ -1295,7 +1298,16 @@ h3 {
         }
         .content {
           display: block;
+          max-width: 460px;
+          margin: 0 auto;
 
+          .title {
+            text-align: center;
+            margin-bottom: 14px;
+          }
+          .description {
+            text-align: justify;
+          }
           p {
             margin: 0 auto;
             text-align: justify;
