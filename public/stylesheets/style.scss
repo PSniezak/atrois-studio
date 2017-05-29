@@ -445,7 +445,7 @@ h3 {
     position: absolute;
     bottom: 28px;
 
-    img {
+    svg {
       cursor: pointer;
       width: 40px; height: 45px;
     }
@@ -613,7 +613,7 @@ h3 {
     z-index: 3000;
     cursor: pointer;
 
-    img {
+    svg {
       opacity: .8;
       width: 30px; height: auto;
     }
@@ -635,11 +635,11 @@ h3 {
   }
   .right-cover {
     right: 0;
-    cursor: url("/images/right-cursor.png"), auto;
+    cursor: url(/images/right-arrow.svg), url(/images/right-cursor.png), auto;
   }
   .left-cover {
     left: 0;
-    cursor: url("/images/left-cursor.png"), auto;
+    cursor: url(/images/left-arrow.svg), url(/images/left-cursor.png), auto;
   }
   .slick-slide {
     height: 100vh;
