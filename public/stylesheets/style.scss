@@ -989,7 +989,7 @@ h3 {
 /* STORE */
 #section-store {
   .container {
-    height: 100px;
+    height: 140px;
     .columns {
       display: inline-block;
       width: 100%;
@@ -1005,7 +1005,19 @@ h3 {
       .content {
         display: inline-block;
 
-        p {
+        a {
+          text-decoration: underline;
+          cursor: pointer;
+
+          &:hover {
+            font-weight: bold;
+          }
+        }
+        .title {
+          text-align: left;
+          font: 13px "DIN Pro Medium";
+        }
+        .description {
           text-align: justify;
           max-width: 360px;
           font: 10px "DIN Pro Light";
