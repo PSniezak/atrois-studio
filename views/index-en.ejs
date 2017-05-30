@@ -157,6 +157,15 @@
                 </div>
               </div>
             </div>
+            <% if (is_desktop && projects[j].iframe_active) { %>
+              <div class="slide iframe-slide">
+                <div class="left-cover"></div>
+                <div class="right-cover"></div>
+                <div class="website-container">
+                  <iframe src="http://<%= projects[j].url %>" width="" height=""></iframe>
+                </div>
+              </div>
+            <% } %>
           </div>
         <% } %>
       </div>

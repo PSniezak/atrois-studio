@@ -150,6 +150,16 @@ $(document).ready(function() {
           $('.year-fixed span').html(highestYear - highest);
         }, 100);
       }
+      if (index == 5) {
+        var pressHeight = $('#section-press').height();
+        var pressOffset = $('#section-press .container .columns').offset().top - $('#section-press').offset().top;
+
+        $('#section-press .container .columns, #section-press .container .columns ul, #section-press .container .columns .left').height(pressHeight - pressOffset);
+
+        if (isMobile) {
+          $('#section-press .container').height(pressHeight - pressOffset - 20);
+        }
+      }
     },
 
     afterRender: function() {
@@ -159,7 +169,7 @@ $(document).ready(function() {
       $('#section-press .container .columns, #section-press .container .columns ul, #section-press .container .columns .left').height(pressHeight - pressOffset);
 
       if (isMobile) {
-        $('#section-press .container').height(pressHeight - pressOffset);
+        $('#section-press .container').height(pressHeight - pressOffset - 20);
       }
 
       var yearSectionOffset = $('.year-section').offset().left;
@@ -180,18 +190,7 @@ $(document).ready(function() {
       }
 
       highestYear = $('.year-fixed span').html();
-    },
-
-    afterResize: function() {
-      var pressHeight = $('#section-press').height();
-      var pressOffset = $('#section-press .container .columns').offset().top - $('#section-press').offset().top;
-
-      $('#section-press .container .columns, #section-press .container .columns ul, #section-press .container .columns .left').height(pressHeight - pressOffset);
-
-      if (isMobile) {
-        $('#section-press .container').height(pressHeight - pressOffset);
-      }
-    },
+    }
   });
 
 
@@ -361,7 +360,7 @@ $(document).ready(function() {
     var nameId = $(this).data('name');
 
 
-    if ($('#' + id + ' .slide').length > 1) {
+    if ($('#' + id + ' .slide').length > 2) {
       $('#'+id).addClass('active').show();
       $('#additional, #header-mobile, #header-desktop').addClass('blending');
       if (!isMobile) {

@@ -47,9 +47,14 @@
                 <a href="/projects/media/<%= data[i].id %>">Gérer les medias</a><br>
                 <a href="/projects/delete/<%= data[i].id %>">Supprimer ce projet</a><br>
                 <% if(data[i].showcase) { %>
-                  <a href="/projects/unshowcase/<%= data[i].id %>">Enlever de la home</a>
+                  <a href="/projects/unshowcase/<%= data[i].id %>">Enlever de la home</a><br>
                 <% } else { %>
-                  <a href="/projects/showcase/<%= data[i].id %>">Ajouter à la home</a>
+                  <a href="/projects/showcase/<%= data[i].id %>">Ajouter à la home</a><br>
+                <% } %>
+                <% if(data[i].iframe_active) { %>
+                  <a href="/projects/unframe/<%= data[i].id %>">Enlever le site</a>
+                <% } else { %>
+                  <a href="/projects/inframe/<%= data[i].id %>">Afficher le site</a>
                 <% } %>
               </td>
             </tr>

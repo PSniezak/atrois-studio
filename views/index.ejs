@@ -160,6 +160,15 @@
                 </div>
               </div>
             </div>
+            <% if (is_desktop && projects[j].iframe_active) { %>
+              <div class="slide iframe-slide">
+                <div class="left-cover"></div>
+                <div class="right-cover"></div>
+                <div class="website-container">
+                  <iframe src="http://<%= projects[j].url %>" width="" height=""></iframe>
+                </div>
+              </div>
+            <% } %>
           </div>
         <% } %>
       </div>
@@ -323,7 +332,7 @@
         </div>
 
         <!-- PRESS -->
-        <div data-anchor="presse" id="section-press" class="section">
+        <div data-anchor="presse" id="section-press" class="section normal-scroll">
           <div class="container">
             <div class="columns">
               <div class="helper"></div>

@@ -162,6 +162,36 @@ router.get('/projects/unshowcase/:id', requireLogin, function(req, res){
 });
 
 /*
+ * POST Inframe
+*/
+router.get('/projects/inframe/:id', requireLogin, function(req, res){
+  var id = req.params.id;
+
+  connection.query('UPDATE projects SET iframe_active = 1 WHERE id = ?', [id], function(err, media) {
+    if(err)
+      req.flash('error', err);
+
+    req.flash('success', "Le site est maintenant visible.");
+    res.redirect('/projects');
+  });
+});
+
+/*
+ * POST Unframe
+*/
+router.get('/projects/unframe/:id', requireLogin, function(req, res){
+  var id = req.params.id;
+
+  connection.query('UPDATE projects SET iframe_active = 0 WHERE id = ?', [id], function(err, media) {
+    if(err)
+      req.flash('error', err);
+
+    req.flash('success', "Le site est maintenant caché.");
+    res.redirect('/projects');
+  });
+});
+
+/*
  * POST Media
 */
 router.post('/projects/media/:id', requireLogin, function(req, res){
