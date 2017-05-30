@@ -255,7 +255,6 @@ h3 {
       height: 18px;
       mix-blend-mode: exclusion;
       background-blend-mode: screen;
-      mix-blend-mode: exclusion;
 
       path {
         fill: #fff;
@@ -275,6 +274,30 @@ h3 {
         content: ' ';
         height: 18px;
         width: 2px;
+      }
+    }
+  }
+
+  &.blending {
+    mix-blend-mode: exclusion;
+    background-blend-mode: exclusion;
+
+    .container {
+      .logo {
+        a {
+          color: #fff;
+        }
+      }
+      .menu-icon {
+        .hamb-menu {
+          background-color: #fff;
+          opacity: 1;
+
+          &::before, &::after {
+            opacity: 1;
+            background-color: #fff;
+          }
+        }
       }
     }
   }
@@ -332,6 +355,25 @@ h3 {
   height: 45px;
   z-index: 2000;
 
+  &.blending {
+    mix-blend-mode: exclusion;
+    .container {
+      .left, .middle, .right {
+        ul, li {
+          a {
+            color: #fff;
+          }
+        }
+      }
+      .left {
+        h1 {
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
   .container {
     height: 140%;
     margin: 0 auto;
@@ -362,8 +404,10 @@ h3 {
     .left {
       width: 25%;
 
-      h1 a {
-        font: 12px "DIN Pro Bold", sans-serif, Arial;
+      h1 {
+        a {
+          font: 12px "DIN Pro Bold", sans-serif, Arial;
+        }
       }
     }
     .middle {
@@ -1043,6 +1087,34 @@ h3 {
 
 /* ADDITIONAL */
 #additional {
+  &.blending {
+    .logo {
+      mix-blend-mode: exclusion;
+      background-blend-mode: screen;
+
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+    .copyright {
+      mix-blend-mode: exclusion;
+      color: #fff;
+    }
+    .social {
+      mix-blend-mode: exclusion;
+
+      ul {
+        li {
+          a {
+            mix-blend-mode: exclusion;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
   .logo {
     z-index: 3000;
     pointer-events: none;
@@ -1062,7 +1134,6 @@ h3 {
     -webkit-writing-mode: vertical-lr;
     pointer-events: none;
   }
-
   .social {
     z-index: 3000;
     display: none;
