@@ -150,7 +150,10 @@ $(document).ready(function() {
           $('.year-fixed span').html(highestYear - highest);
         }, 100);
       }
-      if (index == 5) {
+    },
+
+    afterRender: function() {
+      if (isMobile) {
         var pressHeight = $('#section-press').height();
         var pressOffset = $('#section-press .container .columns').offset().top - $('#section-press').offset().top;
 
@@ -159,17 +162,6 @@ $(document).ready(function() {
         if (isMobile) {
           $('#section-press .container').height(pressHeight - pressOffset - 20);
         }
-      }
-    },
-
-    afterRender: function() {
-      var pressHeight = $('#section-press').height();
-      var pressOffset = $('#section-press .container .columns').offset().top - $('#section-press').offset().top;
-
-      $('#section-press .container .columns, #section-press .container .columns ul, #section-press .container .columns .left').height(pressHeight - pressOffset);
-
-      if (isMobile) {
-        $('#section-press .container').height(pressHeight - pressOffset - 20);
       }
 
       var yearSectionOffset = $('.year-section').offset().left;
@@ -268,7 +260,9 @@ $(document).ready(function() {
     if (isMenuActive) {
       isMenuActive = false;
       $(this).removeClass('is-clicked');
-      $('#header-mobile').addClass('blending');
+      if ($('.slick-slider.active').length > 0) {
+        $('#header-mobile').addClass('blending');
+      }
 
       $('#menu-container-mobile .container, #menu-container-mobile .copyright').fadeOut("fast", function() {
         $('#menu-container-mobile').hide("slide", { direction: "down" }, 500);
@@ -277,7 +271,9 @@ $(document).ready(function() {
         }
       });
     } else {
-      $('#header-mobile').removeClass('blending');
+      if ($('.slick-slider.active').length > 0) {
+        $('#header-mobile').removeClass('blending');
+      }
       isMenuActive = true;
       $(this).addClass('is-clicked');
 
@@ -603,7 +599,6 @@ var hideAdditionnal = function() {
 };
 
 function formatTime(seconds) {
-
   var minutes = Math.floor(seconds / 60),
    seconds = Math.floor(seconds % 60);
 
@@ -611,7 +606,7 @@ function formatTime(seconds) {
   minutes = (minutes >= 10) ? minutes : minutes;
 
   return minutes + ":" + seconds;
- }
+}
 
 window.onresize = function() {
   if (window.innerWidth < 768) {
