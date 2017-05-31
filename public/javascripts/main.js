@@ -372,6 +372,19 @@ $(document).ready(function() {
       $('#projects-sliders').show("slide", { direction: "down" }, 500);
       if ($('.slick-slider.active .slick-current video').length > 0) {
         $('.slick-slider.active .slick-current video').get(0).play();
+
+        $('.slick-slider.active .slick-current video').on('timeupdate', function() {
+          var $current = $('.slick-slider.active .slick-current'),
+              $video = $('.slick-slider.active .slick-current video');
+
+          if ($video[0]) {
+            $current.find('.video-current').text(formatTime($video[0].currentTime));
+            $current.find('.video-duration').text(formatTime($video[0].duration));
+
+            var percent = $video[0].currentTime / $video[0].duration;
+            $current.find('.video-progress').width((percent * 100) + "%");
+          }
+        });
       }
     } else {
       if (isMobile) {
@@ -390,7 +403,7 @@ $(document).ready(function() {
             if (data.medias[media].media) {
               slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower background-image-container" style="background-image: url(/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + ');"></div></div>';
             } else {
-              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower overflower-video"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
+              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="custom-controls"> <div class="play-pause pause">Pause</div> <div class="video-scrubber"> <div class="video-progress"></div> </div> <div class="video-timer"><span class="video-current">00:00</span><span>/</span><span class="video-duration">00:00</span></div> </div><div class="overflower overflower-video"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
             }
           }
 
@@ -493,6 +506,19 @@ $(document).ready(function() {
     $('.slick-slider.active').slick('slickNext');
     if ($('.slick-slider.active .slick-current video').length > 0) {
       $('.slick-slider.active .slick-current video').get(0).play();
+
+      $('.slick-slider.active .slick-current video').on('timeupdate', function() {
+        var $current = $('.slick-slider.active .slick-current'),
+            $video = $('.slick-slider.active .slick-current video');
+
+        if ($video[0]) {
+          $current.find('.video-current').text(formatTime($video[0].currentTime));
+          $current.find('.video-duration').text(formatTime($video[0].duration));
+
+          var percent = $video[0].currentTime / $video[0].duration;
+          $current.find('.video-progress').width((percent * 100) + "%");
+        }
+      });
     } else {
       $('.slick-slider.active video').trigger('pause');
     }
@@ -501,6 +527,19 @@ $(document).ready(function() {
     $('.slick-slider.active').slick('slickPrev');
     if ($('.slick-slider.active .slick-current video').length > 0) {
       $('.slick-slider.active .slick-current video').get(0).play();
+
+      $('.slick-slider.active .slick-current video').on('timeupdate', function() {
+        var $current = $('.slick-slider.active .slick-current'),
+            $video = $('.slick-slider.active .slick-current video');
+
+        if ($video[0]) {
+          $current.find('.video-current').text(formatTime($video[0].currentTime));
+          $current.find('.video-duration').text(formatTime($video[0].duration));
+
+          var percent = $video[0].currentTime / $video[0].duration;
+          $current.find('.video-progress').width((percent * 100) + "%");
+        }
+      });
     } else {
       $('.slick-slider.active video').trigger('pause');
     }
@@ -528,6 +567,21 @@ $(document).ready(function() {
       }, 3000);
     });
   }
+  // Video custom controls
+  $(document).on('click', '.custom-controls .play-pause', function() {
+    var $this = $(this),
+        video = $('.slick-slider.active .slick-current video')[0];
+
+    if (video.paused) {
+      video.play();
+      $this.addClass("pause");
+      $this.text('Pause');
+    } else {
+      video.pause();
+      $this.removeClass("pause");
+      $this.text('Play');
+    }
+  });
 });
 
 var showAdditionnal = function() {
@@ -547,6 +601,17 @@ var showAdditionnal = function() {
 var hideAdditionnal = function() {
   $('#additional > *, #header-desktop').fadeOut('fast');
 };
+
+function formatTime(seconds) {
+
+  var minutes = Math.floor(seconds / 60),
+   seconds = Math.floor(seconds % 60);
+
+  seconds = (seconds >= 10) ? seconds : "0" + seconds;
+  minutes = (minutes >= 10) ? minutes : minutes;
+
+  return minutes + ":" + seconds;
+ }
 
 window.onresize = function() {
   if (window.innerWidth < 768) {

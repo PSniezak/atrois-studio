@@ -631,6 +631,62 @@ h3 {
     }
   }
 }
+
+
+.custom-controls {
+  width: 680px; height: 28px;
+  position: absolute;
+  z-index: 99999999;
+  bottom: 45px; left: 0; right: 0;
+  margin: 0 auto;
+  mix-blend-mode: exclusion;
+  background-blend-mode: exclusion;
+
+  .play-pause, .video-scrubber, .video-timer {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  .play-pause {
+    font: 9px "DIN Pro Medium";
+    cursor: pointer;
+    margin-right: 20px;
+    text-align: left;
+    width: 25px;
+    color: #fff;
+  }
+  .video-scrubber {
+    width: 540px;
+    height: 1px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-top: -5px;
+
+    .video-progress {
+      width: 0;
+      height: 3px;
+      cursor: pointer;
+      margin-top: -1px;
+      background-color: #fff;
+    }
+  }
+  .video-timer {
+    font: 9px "DIN Pro Medium";
+    margin-left: 20px;
+
+    span {
+      color: #fff;
+    }
+    .video-current {
+
+    }
+    .video-duration {
+
+    }
+  }
+}
+
+
+
 #projects-sliders {
   display: none;
   z-index: 1000;
