@@ -931,21 +931,15 @@ h3 {
 #section-about {
   .container {
     text-align: left;
-    margin-top: 190px !important;
 
     .right {
       vertical-align: top;
       display: inline-block;
-      max-width: 250px;
-      width: 100%;
-
-      h3 {
-        margin-top: 8px;
-      }
+      width: calc(25% - 3px);
     }
     .left {
       display: inline-block;
-      max-width: 460px;
+      max-width: 470px;
 
       p {
         text-align: left;
@@ -983,7 +977,7 @@ h3 {
       .helper {
         display: inline-block;
         height: 1px;
-        width: 25%;
+        width: calc(25% - 3px);
       }
       .left {
         text-align: left;
@@ -1017,7 +1011,7 @@ h3 {
       .helper {
         display: inline-block;
         height: 1px;
-        width: 25%;
+        width: calc(25% - 3px);
       }
       .right, .left {
         position: relative;
@@ -1130,7 +1124,7 @@ h3 {
       .helper {
         display: inline-block;
         height: 1px;
-        width: 25%;
+        width: calc(25% - 3px);
       }
       .content {
         display: inline-block;
@@ -1380,6 +1374,10 @@ h3 {
       }
       .left {
         margin-left: auto;
+
+        h3 {
+          text-align: center;
+        }
         p {
           text-align: justify;
         }
@@ -1463,7 +1461,7 @@ h3 {
         }
         .content {
           display: block;
-          max-width: 460px;
+          max-width: 470px;
           margin: 0 auto;
 
           .title {
