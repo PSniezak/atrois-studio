@@ -637,7 +637,7 @@ h3 {
   width: 680px; height: 28px;
   position: absolute;
   z-index: 99999999;
-  bottom: 45px; left: 0; right: 0;
+  bottom: 68px; left: 0; right: 0;
   margin: 0 auto;
   mix-blend-mode: exclusion;
   background-blend-mode: exclusion;
@@ -653,6 +653,7 @@ h3 {
     text-align: left;
     width: 25px;
     color: #fff;
+    margin-bottom: -2px;
   }
   .video-scrubber {
     width: 540px;
@@ -672,6 +673,7 @@ h3 {
   .video-timer {
     font: 9px "DIN Pro Medium";
     margin-left: 20px;
+    margin-bottom: -2px;
 
     span {
       color: #fff;
@@ -1053,6 +1055,7 @@ h3 {
         display: inline-block;
         position:relative;
         width: 22%;
+        overflow: hidden;
       }
       .right {
         display: none !important;
@@ -1069,7 +1072,7 @@ h3 {
         font: 13px "DIN Pro Medium", sans-serif, Arial;
       }
       ul {
-        height: 500px;
+        max-height: 380px;
         position:relative;
 
         white-space: nowrap;
@@ -1310,7 +1313,7 @@ h3 {
       right: 18px;
       top: 18px;
       svg {
-        width: 18px; height: auto;
+        width: 15px; height: auto;
 
         polyline {
           stroke-width: 4px !important;
