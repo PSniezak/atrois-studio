@@ -596,14 +596,14 @@ $(document).ready(function() {
 var showAdditionnal = function() {
   if ($('.slick-slider.active').length > 0) {
     $('#header-desktop .container, #header-mobile .container').removeClass('gradient');
-    $('#additional > *, #header-desktop').fadeIn('slow');
+    $('#additional > *, #header-desktop').fadeIn('fast');
   } else {
     if (!$('#section-home').hasClass('active')) {
       setTimeout(function() {
         $('#header-desktop .container, #header-mobile .container').addClass('gradient');
       }, 500);
     }
-    $('#additional > *, #header-desktop').fadeIn('slow');
+    $('#additional > *, #header-desktop').fadeIn('fast');
   }
 };
 
