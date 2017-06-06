@@ -750,11 +750,11 @@ h3 {
   }
   .right-cover {
     right: 0;
-    cursor: url(/images/right-arrow.svg), url(/images/right-cursor.png), auto;
+    cursor: url(../images/right-cursor.png), auto;
   }
   .left-cover {
     left: 0;
-    cursor: url(/images/left-arrow.svg), url(/images/left-cursor.png), auto;
+    cursor: url(../images/left-cursor.png), auto;
   }
   .slick-slide {
     height: 100vh;
