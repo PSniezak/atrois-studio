@@ -128,6 +128,8 @@
         <div class="close-button">
           <svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 36"><title>cross</title><polyline points="33.9 1 17.4 17.9 34 35" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"/><polyline points="1 35 17.6 18.1 1 1" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"/></svg>
         </div>
+        <div class="mobile-arrow mobile-arrow-left"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg></div>
+        <div class="mobile-arrow mobile-arrow-right"><svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg></div>
 
         <% for(var j=0; j<projects.length; j++) { %>
           <div id="<%= projects[j].id %>" class="unique-slider">
@@ -231,7 +233,7 @@
                     <% for(var j=0; j<projects.length; j++) { %>
                       <% if(projects[j].year == years[i].year) { %>
                         <a class="project-link" data-name="<%= projects[j].name_jp %>-<%= projects[j].id %>" data-id="<%= projects[j].id %>">
-                          <div class="project-cover" style="background-image: url(/uploads/projects/covers/<%= projects[j].cover %>);"></div>
+                          <!--<div class="project-cover" style="background-image: url(/uploads/projects/covers/<%= projects[j].cover %>);"></div>-->
                           <li>
                             <span class="client"><%= projects[j].client_jp %></span>
                             <br>
@@ -252,9 +254,11 @@
         <div data-anchor="à-propos" id="section-about" class="section">
           <div class="container">
             <div class="right">
-              <h3>Atrois Studio について</h3>
             </div>
             <div class="left">
+              <div class="title">
+                <h3>Atrois Studio について</h3>
+              </div>
               <p>
                 Atrois Studioはミニマリズムと自制で定義されます。
                 <br><br>
