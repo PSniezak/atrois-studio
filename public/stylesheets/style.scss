@@ -357,10 +357,13 @@ h3 {
 
   &.blending {
     mix-blend-mode: exclusion;
+
     .container {
       .left, .middle, .right {
         ul, li {
           a {
+            font: 12px 'DIN Pro Medium', sans-serif, Arial;
+            font-weight: normal;
             color: #fff;
           }
         }

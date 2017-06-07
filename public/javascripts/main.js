@@ -583,11 +583,8 @@ $(document).ready(function() {
     var $current = $('.slick-slider.active .slick-current'),
         $video = $('.slick-slider.active .slick-current video');
 
-    console.log('salut');
-
-    var newTime = $video[0].duration * (event.pageX / $current.find('.video-scrubber').width()) - 140;
-
-    console.log(newTime);
+    var positionX = (event.pageX - $current.find('.video-scrubber').offset().left);
+    var newTime = $video[0].duration * positionX / $current.find('.video-scrubber').width();
 
     $video[0].currentTime = newTime;
   });
