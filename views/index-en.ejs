@@ -232,7 +232,7 @@
                   </div>
                   <ul class="projects-list">
                     <% for(var j=0; j<projects.length; j++) { %>
-                      <% if(projects[j].year == years[i].year) { %>
+                      <% if(projects[j].year == years[i].year && projects[j].active == 1) { %>
                         <a class="project-link" data-name="<%= projects[j].name_en %>-<%= projects[j].id %>" data-id="<%= projects[j].id %>">
                           <!--<div class="project-cover" style="background-image: url(/uploads/projects/covers/<%= projects[j].cover %>);"></div>-->
                           <li>

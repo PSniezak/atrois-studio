@@ -43,6 +43,11 @@
               <td><%= data[i].name %></td>
               <td><%= data[i].year %></td>
               <td>
+                <% if(data[i].active) { %>
+                  <a href="/projects/deactivate/<%= data[i].id %>">Désactiver ce projet</a><br>
+                <% } else { %>
+                  <a href="/projects/activate/<%= data[i].id %>">Activer ce projet</a><br>
+                <% } %>
                 <a href="/projects/edit/<%= data[i].id %>">Editer ce projet</a><br>
                 <a href="/projects/media/<%= data[i].id %>">Gérer les medias</a><br>
                 <a href="/projects/delete/<%= data[i].id %>">Supprimer ce projet</a><br>

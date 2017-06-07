@@ -162,6 +162,36 @@ router.get('/projects/unshowcase/:id', requireLogin, function(req, res){
 });
 
 /*
+ * POST Activate
+*/
+router.get('/projects/activate/:id', requireLogin, function(req, res){
+  var id = req.params.id;
+
+  connection.query('UPDATE projects SET active = 1 WHERE id = ?', [id], function(err, media) {
+    if(err)
+      req.flash('error', err);
+
+    req.flash('success', "Le projet est maintenant activé.");
+    res.redirect('/projects');
+  });
+});
+
+/*
+ * POST Deactivate
+*/
+router.get('/projects/deactivate/:id', requireLogin, function(req, res){
+  var id = req.params.id;
+
+  connection.query('UPDATE projects SET active = 0 WHERE id = ?', [id], function(err, media) {
+    if(err)
+      req.flash('error', err);
+
+    req.flash('success', "Le projet a été désactivé.");
+    res.redirect('/projects');
+  });
+});
+
+/*
  * POST Inframe
 */
 router.get('/projects/inframe/:id', requireLogin, function(req, res){
