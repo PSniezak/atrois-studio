@@ -915,6 +915,7 @@ h3 {
     .iframe-slide {
       width: 100vw; height: 100vh;
       display: table;
+      background-color: rgba(245, 245, 245, 1);
 
       .website-container {
         display: table-cell;
@@ -923,6 +924,7 @@ h3 {
         width: 90%;
 
         iframe {
+          border: 2px solid black;
           position: relative;
           z-index: 9999999;
           width: 80vw; height: 85vh;
@@ -1138,9 +1140,10 @@ h3 {
         a {
           text-decoration: underline;
           cursor: pointer;
+          transition: color .15s;
 
           &:hover {
-            font-weight: bold;
+            color: rgba(0, 0, 0, 0.8);
           }
         }
         .title {
