@@ -325,12 +325,17 @@ $(document).ready(function() {
   }
 
   // Covers
-  $('.covers-container .cover').each(function(i, obj) {
-    var posx = (Math.random() * ($(window).width() - $(this).width()) / 2).toFixed();
-    var posy = 40 + parseInt((Math.random() * ($(window).height() - $(this).height()) / 4));
+  $('.covers-container .cover').each(function(i) {
+    // var posx = (Math.random() * ($(window).width() - $(this).width()) / 2).toFixed();
+    // var posy = parseInt((Math.random() * ($(window).height() + $(this).find('img').height()) / 4));
 
-    $(this).find('img').css('left', posx+"px");
+    var posy = parseInt(Math.floor(Math.random()*(($(window).height() - 120 - $(this).find('img').height())-120+1)+120) - 80);
+    var posx = parseInt(Math.floor(Math.random()*(($(window).width() - $(this).find('img').width())-60+1)+60));
+
     $(this).find('img').css('top', posy+"px");
+    $(this).find('img').css('left', posx+"px");
+    $(this).css('display', "none");
+    $(this).css('visibility', "visible");
   });
 
   // Projects
@@ -357,6 +362,7 @@ $(document).ready(function() {
 
 
     if ($('#' + id + ' .slide').length > 2) {
+      $('#'+id).slick('slickGoTo', 0, false);
       $('#'+id).addClass('active').show();
       $('#additional, #header-mobile, #header-desktop').addClass('blending');
       if (!isMobile) {
@@ -399,7 +405,7 @@ $(document).ready(function() {
             if (data.medias[media].media) {
               slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower background-image-container" style="background-image: url(/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + ');"></div></div>';
             } else {
-              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="custom-controls"> <div class="play-pause pause">Pause</div> <div class="video-scrubber"> <div class="video-progress"></div> </div> <div class="video-timer"><span class="video-current">00:00</span><span>/</span><span class="video-duration">00:00</span></div> </div><div class="overflower overflower-video"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
+              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="custom-controls"> <div class="play-pause pause">Pause</div> <div class="video-scrubber-container"><div class="video-scrubber"> <div class="video-progress"></div> </div></div> <div class="video-timer"><span class="video-current">00:00</span><span>/</span><span class="video-duration">00:00</span></div> </div><div class="overflower overflower-video"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
             }
           }
 
@@ -579,12 +585,12 @@ $(document).ready(function() {
     }
   });
   // Video custom controls
-  $(document).on('click', '.custom-controls .video-scrubber', function() {
+  $(document).on('click', '.custom-controls .video-scrubber-container', function() {
     var $current = $('.slick-slider.active .slick-current'),
         $video = $('.slick-slider.active .slick-current video');
 
-    var positionX = (event.pageX - $current.find('.video-scrubber').offset().left);
-    var newTime = $video[0].duration * positionX / $current.find('.video-scrubber').width();
+    var positionX = (event.pageX - $current.find('.video-scrubber-container').offset().left);
+    var newTime = $video[0].duration * positionX / $current.find('.video-scrubber-container').width();
 
     $video[0].currentTime = newTime;
   });
