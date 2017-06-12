@@ -329,7 +329,7 @@ $(document).ready(function() {
     // var posx = (Math.random() * ($(window).width() - $(this).width()) / 2).toFixed();
     // var posy = parseInt((Math.random() * ($(window).height() + $(this).find('img').height()) / 4));
 
-    var posy = parseInt(Math.floor(Math.random()*(($(window).height() - 120 - $(this).find('img').height())-120+1)+120) - 80);
+    var posy = parseInt(Math.floor(Math.random()*(($(window).height() - 120 - $(this).find('img').height())-120+1)+120) - 120);
     var posx = parseInt(Math.floor(Math.random()*(($(window).width() - $(this).find('img').width())-60+1)+60));
 
     $(this).find('img').css('top', posy+"px");
