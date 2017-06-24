@@ -33,7 +33,7 @@ DONE - Le dégradé en haut et en bas 		http://crapisgood.com/#
 DONE - Le système du menu					http://annarosa.com/
 DONE - Esthétique du menu					http://public-library.org/
 DONE - Hover projets desktop				http://geordiewood.com/ et/ou http://public-library.org/
-Hover projets mobile				https://bonsoirparis.fr/
+DONE (removed) - Hover projets mobile				https://bonsoirparis.fr/
 DONE - Système de calage des années		http://public-library.org/ (les chiffres en haut à droite qui changent)
 DONE - L’animation du scroll 				https://www.simonmillerusa.com/
 DONE - Animation soulignement				http://laurentpisoni.com/presse
@@ -41,12 +41,12 @@ DONE - Animation soulignement				http://laurentpisoni.com/presse
 
 #### PROJETS
 
-L’animation du scroll mobile				http://www.studiomakgill.com/
-Apparition du menu							http://the-studio.se/work/hm-typography/
-Effet sur la typo							http://www.other-studio.com/work/grand-circus-magazine-issue-3 (valable pour TOUT le site)
-Ascenseur + informations dans le projet		http://pac.fr/director/aaron-stoller/ (le + read more)
-Player Vimeo intégré						http://pac.fr/director/aaron-stoller/
-Navigation sur l’écran séparée en deux		http://annikawirken.com/archive/#364/1
+DONE - L’animation du scroll mobile				http://www.studiomakgill.com/
+DONE - Apparition du menu							http://the-studio.se/work/hm-typography/
+DONE - Effet sur la typo							http://www.other-studio.com/work/grand-circus-magazine-issue-3 (valable pour TOUT le site)
+DONE - Ascenseur + informations dans le projet		http://pac.fr/director/aaron-stoller/ (le + read more)
+DONE - Player Vimeo intégré						http://pac.fr/director/aaron-stoller/
+DONE - Navigation sur l’écran séparée en deux		http://annikawirken.com/archive/#364/1
 
 
 
