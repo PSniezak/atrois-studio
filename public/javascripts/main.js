@@ -403,7 +403,7 @@ $(document).ready(function() {
 
           for (var media in data.medias) {
             if (data.medias[media].media) {
-              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower background-image-container" style="background-image: url(/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + ');"></div></div>';
+              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower background-image-container" style="background-image: url("/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '");"></div></div>';
             } else {
               slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="custom-controls"> <div class="play-pause pause">Pause</div> <div class="video-scrubber-container"><div class="video-scrubber"> <div class="video-progress"></div> </div></div> <div class="video-timer"><span class="video-current">00:00</span><span>/</span><span class="video-duration">00:00</span></div> </div><div class="overflower overflower-video"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
             }
