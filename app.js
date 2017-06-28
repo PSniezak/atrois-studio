@@ -9,7 +9,8 @@ var express       = require('express'),
     busboy        = require("connect-busboy"),
     robots        = require("express-robots"),
     sitemap       = require('express-sitemap'),
-    device        = require('express-device');
+    device        = require('express-device'),
+    compression   = require('compression');
 
 // MySQL
 var mysql = require('mysql');
@@ -26,6 +27,9 @@ var project = require('./routes/project');
 var publication = require('./routes/publication');
 
 var app = express();
+
+// GZIP compression
+app.use(compression());
 
 // Sitemap
 sitemap({
