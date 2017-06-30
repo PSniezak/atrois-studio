@@ -1,4 +1,17 @@
 /* LOADER */
+.slick-track,
+.slick-slide,
+.slick-slide img {
+    transform: translate3d(0, 0, 0);
+}
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
 #loader {
   position: absolute;
   width: 100%; height: 100%;
@@ -252,10 +265,10 @@ h3 {
     .mobile-close-button {
       display: none;
       position: absolute;
-      right: 18px;
-      top: 18px;
-      width: 18px;
-      height: 18px;
+      right: 0px;
+      top: 6px;
+      width: 38px;
+      height: 38px;
       mix-blend-mode: exclusion;
       background-blend-mode: screen;
 
@@ -719,15 +732,20 @@ h3 {
     display: none;
     z-index: 101;
     position: absolute;
-    width: 18px; height: 18px;
+    width: 40px; height: 40px;
     bottom: 30px;
     mix-blend-mode: exclusion;
+
+    svg {
+      height: 18px;
+      margin: 50%;
+    }
 
     path {
       fill: #fff;
     }
     &.mobile-arrow-left {
-      left: 18px;
+      left: 4px;
     }
     &.mobile-arrow-right {
       right: 18px;
@@ -781,7 +799,7 @@ h3 {
     display: none;
 
     .slide {
-      width: 100%;
+      width: 100vw !important;
 
       .overflower {
         overflow: hidden;

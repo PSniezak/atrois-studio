@@ -40,6 +40,7 @@ $(document).ready(function() {
   var isMobile = false;
   var isMenuActive = false;
   var language = window.location.pathname;
+  var lazier;
 
   if (window.innerWidth < 768) {
     $('html').addClass('mobile');
@@ -196,7 +197,6 @@ $(document).ready(function() {
 
       if ($('.slick-slider.active').length > 0) {
         setTimeout(function() {
-          $('#header-desktop .container, #header-mobile .container').addClass('gradient');
           $('#additional, #header-desktop, #header-mobile').removeClass('blending');
         }, 500);
         $('#projects-sliders').fadeOut('fast', function() {
@@ -401,17 +401,63 @@ $(document).ready(function() {
         if (data.medias.length > 0) {
           var slides = "";
 
-          for (var media in data.medias) {
-            if (data.medias[media].media) {
-              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower background-image-container" style="background-image: url(\'/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '\');"></div></div>';
-            } else {
-              slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="custom-controls"> <div class="play-pause pause">Pause</div> <div class="video-scrubber-container"><div class="video-scrubber"> <div class="video-progress"></div> </div></div> <div class="video-timer"><span class="video-current">00:00</span><span>/</span><span class="video-duration">00:00</span></div> </div><div class="overflower overflower-video"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
+          if (isMobile) {
+            for (var media in data.medias) {
+              if (data.medias[media].media) {
+                slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower background-image-container" data-src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '"></div></div>';
+              } else {
+                slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="custom-controls"> <div class="play-pause pause">Pause</div> <div class="video-scrubber-container"><div class="video-scrubber"> <div class="video-progress"></div> </div></div> <div class="video-timer"><span class="video-current">00:00</span><span>/</span><span class="video-duration">00:00</span></div> </div><div class="overflower overflower-video"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
+              }
+            }
+          } else {
+            for (var media in data.medias) {
+              if (data.medias[media].media) {
+                slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="center-cover"></div><div class="overflower background-image-container" style="background-image: url(\'/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].media + '\');"></div></div>';
+              } else {
+                slides += '<div class="slide"><div class="left-cover"></div><div class="right-cover"></div><div class="custom-controls"> <div class="play-pause pause">Pause</div> <div class="video-scrubber-container"><div class="video-scrubber"> <div class="video-progress"></div> </div></div> <div class="video-timer"><span class="video-current">00:00</span><span>/</span><span class="video-duration">00:00</span></div> </div><div class="overflower overflower-video"><video no-controls><source src="/uploads/projects/' + data.medias[media].project_id + '/' + data.medias[media].video + '"></video></div></div>';
+              }
             }
           }
 
           $('#projects-sliders #' + id).append(slides).show();
+          $('.background-image-container').Lazy();
+          lazier = $('.background-image-container').data("plugin_lazy");
 
-          $('#projects-sliders').show("slide", { direction: "down" }, 500);
+          if (isMobile) {
+            $('#'+id).on('init', function(){
+              $('#projects-sliders').show("slide", { direction: "down" }, 500);
+              lazier.loadAll();
+              lazier.update();
+            });
+
+            $('#'+id).on('afterChange', function(event, slick, currentSlide, nextSlide){
+              lazier.force($('.slick-current .background-image-container'));
+              lazier.update();
+            });
+
+            $('#'+id).slick({
+              arrows: false,
+              fade: true
+            });
+          } else {
+            $('#projects-sliders').imagesLoaded( function() {
+              $('#'+id).slick({
+                arrows: false,
+                fade: true,
+                lazyLoad: 'progressive',
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      verticalSwiping: false,
+                    }
+                  }
+                ]
+              });
+            });
+
+            $('#projects-sliders').show("slide", { direction: "down" }, 500);
+          }
 
           if (isMobile) {
             $('.mobile-close-button').show();
@@ -466,27 +512,19 @@ $(document).ready(function() {
               }
             }
           });
-
-          $('#projects-sliders').imagesLoaded( function() {
-            $('#'+id).slick({
-              arrows: false,
-              fade: true,
-              lazyLoad: 'progressive',
-              responsive: [
-                {
-                  breakpoint: 768,
-                  settings: {
-                    verticalSwiping: false,
-                  }
-                }
-              ]
-            });
-          });
         }
       });
     }
   });
   $('.close-button, .mobile-close-button').on('click', function() {
+    if (isMobile) {
+      lazier.destroy();
+    }
+    $('#projects-sliders').fadeOut('fast', function() {
+      $('.slick-slider.active video').trigger('pause');
+      $('.slick-slider.active').hide().removeClass('active');
+    });
+
     if (!isMobile) {
       showAdditionnal();
     }
@@ -499,10 +537,6 @@ $(document).ready(function() {
         $('#header-desktop .container, #header-mobile .container').addClass('gradient');
       }, 500);
     }
-    $('#projects-sliders').fadeOut('fast', function() {
-      $('.slick-slider.active video').trigger('pause');
-      $('.slick-slider.active').hide().removeClass('active');
-    });
   });
   $('#projects-sliders').on('click', '.right-cover, .mobile-arrow-right', function() {
     $('.slick-slider.active').slick('slickNext');
