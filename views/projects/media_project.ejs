@@ -1,23 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Atrois Studio - Connexion</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" type="text/css" href="/libraries/libraries.min.css" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body class="body-admin">
+    <div id="admin-menu">
+      <a class="logo" href="/"><b>Atrois Studio</b></a>
+      <a href="/projects">Projets</a>
+      <a href="/publications">Publications</a>
+
+      <a class="adding" href="/projects/add">Ajouter un projet</a><a class="adding" href="/publications/add">Ajouter une publication</a>
+    </div>
+    <div id="main-bo">
+      <div class="container">
 <% for (var i = 0; i < project.length; i++) { -%>
-	<a href="/projects">Retour aux projets</a>
-	<p>Médias de <%= project[i].name %></p>
-
-	<% if(data.length > 0) { -%>
-		<% for (var j = 0; j < data.length; j++) { -%>
-			<% if(data[j].mobile == 0) { -%>
-				<div class="images">
-					<form method="POST" action="/projects/media/<%= project[i].id %>/place/<%= data[j].id %>" enctype="multipart/form-data">
-						<input type="text" name="place" id="place" value="<%= data[j].place %>">
-						<img width="50" src="/uploads/projects/<%= project[i].id %>/<%= data[j].media %>">
-						<a href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>
-						<input type="submit" value="Mettre à jour ce média">
-					</form>
-				</div>
-			<% } -%>
-		<% } -%>
-	<% } -%>
-
-	<form method="POST" action="/projects/media/<%= project[i].id %>" enctype="multipart/form-data">
+  <div style="display: inline-block; width: 49%; vertical-align: top;">
+  <form method="POST" action="/projects/media/<%= project[i].id %>" enctype="multipart/form-data">
 		<label for="media">Média desktop</label>
 		<input type="file" name="media" id="media" multiple>
 		<label for="video">Vidéo desktop</label>
@@ -25,15 +35,15 @@
 
 		<input type="submit" value="Ajouter ce média desktop">
 	</form>
-
+  <hr/>
 	<% if(data.length > 0) { -%>
 		<% for (var j = 0; j < data.length; j++) { -%>
-			<% if(data[j].mobile == 1) { -%>
-				<div class="images">
+			<% if(data[j].mobile == 0) { -%>
+				<div class="images" style="margin: 60px 0;">
 					<form method="POST" action="/projects/media/<%= project[i].id %>/place/<%= data[j].id %>" enctype="multipart/form-data">
 						<input type="text" name="place" id="place" value="<%= data[j].place %>">
 						<img width="50" src="/uploads/projects/<%= project[i].id %>/<%= data[j].media %>">
-						<a href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>
+						<a style="text-align: center; display: block;" href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>
 						<input type="submit" value="Mettre à jour ce média">
 					</form>
 				</div>
@@ -41,12 +51,41 @@
 		<% } -%>
 	<% } -%>
 
-	<form method="POST" action="/projects/media_mobile/<%= project[i].id %>" enctype="multipart/form-data">
-		<label for="media">Média mobile</label>
-		<input type="file" name="media" id="media" multiple>
-		<label for="video">Vidéo mobile</label>
-		<input type="file" name="video" id="video">
 
-		<input type="submit" value="Ajouter ce média mobile">
-	</form>
+  </div>
+  <div style="display: inline-block; width: 49%;">
+	<% if(data.length > 0) { -%>
+    <form method="POST" action="/projects/media_mobile/<%= project[i].id %>" enctype="multipart/form-data">
+  		<label for="media">Média mobile</label>
+  		<input type="file" name="media" id="media" multiple>
+  		<label for="video">Vidéo mobile</label>
+  		<input type="file" name="video" id="video">
+
+  		<input type="submit" value="Ajouter ce média mobile">
+  	</form>
+    <hr/>
+		<% for (var j = 0; j < data.length; j++) { -%>
+			<% if(data[j].mobile == 1) { -%>
+				<div class="images"  style="margin: 60px 0;">
+					<form method="POST" action="/projects/media/<%= project[i].id %>/place/<%= data[j].id %>" enctype="multipart/form-data">
+						<input type="text" name="place" id="place" value="<%= data[j].place %>">
+						<img width="50" src="/uploads/projects/<%= project[i].id %>/<%= data[j].media %>">
+						<a style="text-align: center; display: block;" href="/projects/media/<%= project[i].id %>/delete/<%= data[j].id %>">delete</a>
+						<input type="submit" value="Mettre à jour ce média">
+					</form>
+				</div>
+			<% } -%>
+		<% } -%>
+	<% } -%>
 <% } -%>
+</div>
+</div>
+</div>
+
+	<script type="text/javascript" src="/libraries/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/libraries/scrolloverflow.min.js"></script>
+	<script type="text/javascript" src="/libraries/jquery.fullPage.min.js"></script>
+	<script src="/libraries/pnotify.custom.min.js"></script>
+	<script type="text/javascript" src="/javascripts/main.js"></script>
+</body>
+</html>

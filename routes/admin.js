@@ -14,7 +14,7 @@ router.get('/login', function(req, res){
 router.post('/login/pending', function(req, res){
   if (req.body.username == "atrois" && req.body.password == "aze123.") {
     req.session.admin = true;
-    res.redirect('/admin');
+    res.redirect('/projects');
   } else {
     res.redirect('/');
   }
@@ -33,11 +33,8 @@ router.get('/logout',function(req, res){
   });
 });
 
-/*
- * GET Admin
-*/
 router.get('/admin', requireLogin, function(req, res){
-  res.render('admin');
+  res.redirect('/projects');
 });
 
 

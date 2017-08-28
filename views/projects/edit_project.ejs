@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Atrois Studio - Connexion</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" type="text/css" href="/libraries/libraries.min.css" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body class="body-admin">
+    <div id="admin-menu">
+      <a class="logo" href="/"><b>Atrois Studio</b></a>
+      <a href="/projects">Projets</a>
+      <a href="/publications">Publications</a>
+
+      <a class="adding" href="/projects/add">Ajouter un projet</a><a class="adding" href="/publications/add">Ajouter une publication</a>
+    </div>
+    <div id="main-bo">
+      <div class="container">
 <% for(var i=0; i<data.length; i++) { %>
 	<form action="/projects/edit/<%= data[i].id %>" method="POST" enctype="multipart/form-data">
 		<label for="year">Année</label>
@@ -89,3 +116,14 @@
 		<input type="submit" value="Éditer ce projet">
 	</form>
 <% } %>
+
+</div>
+</div>
+
+	<script type="text/javascript" src="/libraries/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/libraries/scrolloverflow.min.js"></script>
+	<script type="text/javascript" src="/libraries/jquery.fullPage.min.js"></script>
+	<script src="/libraries/pnotify.custom.min.js"></script>
+	<script type="text/javascript" src="/javascripts/main.js"></script>
+</body>
+</html>

@@ -1525,8 +1525,99 @@ h3 {
 }
 
 /* ADMIN */
-table, th, td {
-  text-align: center;
-  border: 1px solid $grey;
-  border-collapse: collapse;
+.body-admin {
+  padding: 0;
+
+  input, textarea {
+    display: block;
+    margin: 12px auto;
+    text-align: left;
+    padding: 8px 12px;
+    background-color: #fff;
+    border: 1px solid $grey;
+    font: 14px "DIN Pro", sans-serif, Arial;
+    outline: none;
+    min-width: 240px;
+  }
+  form img {
+    display: block;
+    margin: 12px auto;
+    text-align: left;
+    padding: 8px 12px;
+    background-color: #fff;
+    font: 14px "DIN Pro", sans-serif, Arial;
+    outline: none;
+    min-width: 280px;
+  }
+  label {
+    display: block;
+    margin: 12px auto;
+    text-align: center;
+    padding: 8px 12px;
+    background-color: #fff;
+    font: 14px "DIN Pro Medium", sans-serif, Arial;
+    outline: none;
+  }
+  table, th, td, tbody, th {
+    text-align: left;
+    border-collapse: collapse;
+    font: 14px "DIN Pro", sans-serif, Arial;
+
+    a {
+      border: 1px solid $grey;
+      padding: 4px 8px;
+      width: 158px;
+      text-align: center;
+      display: block;
+    }
+    img {
+      width: 280px;
+    }
+  }
+  tr {
+    border-top: 56px solid;
+    border-bottom: 56px solid;
+    border-color: transparent;
+  }
+  th {
+    font: 14px "DIN Pro Medium", sans-serif, Arial;
+  }
+  a {
+    font: 14px "DIN Pro", sans-serif, Arial;
+  }
+
+  #login {
+    display: table;
+    height: 100vh; width: 100vw;
+
+    .container {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  #main-bo {
+    margin: 0 24px 36px 24px;
+
+    .container {
+      width: 100%;
+    }
+  }
+  #admin-menu {
+    border-bottom: 1px solid $black;
+    background-color: #fff;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    width: calc(100vw - 48px);
+    padding: 24px;
+    position: relative;
+
+    a {
+      display: inline-block;
+      margin-right: 24px;
+    }
+    .logo {
+      font-family: 'DIN Pro Bold';
+      margin-right: 36px;
+    }
+  }
 }
